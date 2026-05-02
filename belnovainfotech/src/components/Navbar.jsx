@@ -12,7 +12,7 @@ const Navbar = () => {
       <ul className="nav-menu">
         <li>About Us</li>
         <li>Services</li>
-        <li>Testimonials</li>
+        <li>Why Belnova</li>
         <li>Industries</li>
         <li>Careers</li>
         <li>Contact Us</li>
