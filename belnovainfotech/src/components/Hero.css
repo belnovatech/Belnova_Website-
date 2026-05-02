@@ -1,0 +1,418 @@
+.hero {
+  height: 100vh;
+  background: radial-gradient(circle at top, #2a004f, #000428);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glowing wave style */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255, 0, 150, 0.3), transparent);
+  filter: blur(120px);
+  top: 10%;
+  right: 10%;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 45px;
+  font-weight: 500;
+  margin-top: 80px;    /* Increased gap above the line */
+  margin-bottom: 20px;
+}
+.hero h4 {
+  margin-bottom: 40px; /* Gap before the "LET'S CONNECT" button */
+  font-weight: 300;    /* Optional: makes it look more premium like image 2 */
+  opacity: 0.8;        /* Optional: subtle secondary text look */
+}
+.hero h2 {
+  font-size: 32px;
+  /* margin-top: 20px; */
+  margin-top: 0;       /* Controlled by h1 margin-bottom */
+  margin-bottom: 30px;
+  font-weight: 800; /* Made slightly bolder to make the gradient pop */
+  
+  /* The Premium Purple-Pink-Orange Gradient */
+  background: linear-gradient(
+    90deg, 
+    #a855f7 0%,   /* Purple */
+    #ec4899 50%,  /* Pink */
+    #f97316 100%  /* Orange */
+  );
+
+  /* Clipping properties */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Optional: Adds a subtle glow like the reference image */
+  filter: drop-shadow(0px 2px 8px rgba(236, 72, 153, 0.3));
+}
+
+.cta-btn {
+  margin-top: 35px;
+  padding: 15px 40px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(90deg, #ff7a18, #ffb347);
+  color: rgb(21, 19, 19);
+  font-weight: bold;
+  cursor: pointer;
+}
+/* ADD THIS TO YOUR EXISTING CSS */
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures the video fills the area without stretching */
+  z-index: 1; /* Stay above the background color but below content */
+}
+
+/* UPDATE your .hero-content to ensure it stays on top of the video */
+.hero-content {
+  z-index: 2; 
+  max-width: 900px;
+  position: relative; /* Add this to ensure z-index works correctly */
+}
+
+/* OPTIONAL: If you want the original gradient to act as a dark overlay 
+   so the text is easier to read, add this: */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Adds a subtle 30% dark tint over the video */
+  z-index: 1;
+}
+/* --- CONTACT SECTION STYLES --- */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  /* Multi-color gradient using dark purple, deep blue, and black */
+  background: radial-gradient(circle at top right, #c3a0e2 0%, hsl(234, 39%, 25%) 40%, #050505 100%);
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 1000px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+.contact-container {
+  position: relative;
+  z-index: 1; /* Stay above the shine */
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  gap: 60px;
+  align-items: center;
+}
+.contact-logo {
+  width: 220px; 
+  height: auto;
+  margin-bottom: 50px;
+  display: block;
+}
+/* Left Side Styling */
+.contact-info {
+  flex: 1;
+}
+
+
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px); /* Shining glass effect */
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-item .icon {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.info-item strong {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+/* Right Side Form Card (Image 1 Layout) */
+.contact-form-card {
+  flex: 1.2;
+  background: #0a0a0a;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(168, 85, 247, 0.1); /* Subtle purple border */
+}
+
+.gradient-text-small {
+  font-size: 32px;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #a855f7, #ec4899); /* Purple to Pink */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The Premium Button from Image 1 */
+.send-btn {
+  width: auto;
+  padding: 12px 35px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(90deg, #3b3075, #a855f7); /* Deep Purple Gradient */
+  color: white;
+  transition: transform 0.2s;
+}
+
+.send-btn:hover {
+  transform: scale(1.05);
+}
+/* --- ABOUT US STYLES --- */
+.about-section {
+  padding: 0 20px 120px 20px;
+  margin-top: -1px;
+  /* Multi-color mesh gradient (Peach, Purple, Blue, Orange) */
+  background: 
+    radial-gradient(at 0% 0%, rgba(255, 204, 204, 0.4) 0%, transparent 50%), /* Top Left Peach */
+    radial-gradient(at 100% 0%, rgba(203, 182, 255, 0.3) 0%, transparent 50%), /* Top Right Purple */
+    radial-gradient(at 50% 100%, rgba(255, 229, 180, 0.4) 0%, transparent 50%), /* Bottom Orange */
+    #fdfbfb; /* Light base color */
+  
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  gap: 80px;
+}
+
+/* Left Side: Animated Stack */
+.services-visual {
+  flex: 1.2; 
+  display: flex;
+  align-items: center; /* Centers logo and stack vertically */
+  justify-content: flex-start;
+  gap: 40px;           /* Space between logo and cards */
+  position: relative;
+  height: 450px;
+}
+
+.services-stack {
+  position: relative;
+  width: 350px;
+  height: 100%;
+}
+
+.service-card {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 25px;
+  border-radius: 15px;
+   background: linear-gradient(
+    90deg, 
+    #c59eea 0%,   /* Purple */
+    #b4abb0 50%,  /* Pink */
+    #535150 100%  /* Orange */
+  );
+
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #121112;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: stackMove 8s infinite linear;
+  opacity: 0; /* Hidden until animation starts */
+}
+/* Moving Animation: Shifts cards one by one */
+@keyframes stackMove {
+  0% { transform: translateY(100%) scale(0.8); opacity: 0; }
+  10% { transform: translateY(0) scale(1); opacity: 1; }
+  30% { transform: translateY(0) scale(1); opacity: 1; }
+  40% { transform: translateY(-100%) scale(0.8); opacity: 0; }
+  100% { transform: translateY(-100%) scale(0.8); opacity: 0; }
+}
+
+/* Delays to show cards one by one */
+.card-1 { animation-delay: 0s; }
+.card-2 { animation-delay: 2s; }
+.card-3 { animation-delay: 4s; }
+.card-4 { animation-delay: 6s; }
+
+.visual-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2), transparent 70%);
+  filter: blur(50px);
+  z-index: -1;
+}
+
+/* Right Side: Text Styling */
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+.about-text p {
+  color: #444; 
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.outline-text {
+  font-size: 80px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1); 
+  margin-bottom: -20px;
+  letter-spacing: 5px;
+}
+
+.who-we-are {
+  font-size: 38px;
+  color: #ec4899; /* Pinkish-purple as seen in your image */
+  margin-bottom: 25px;
+}
+
+.about-text p {
+  color: #120f0f;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+
+.read-more-btn {
+  margin-top: 20px;
+  background: #0066ff; /* Matches the blue button in image 1 */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #0052cc;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.4);
+}
+.side-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  width: 120px;       /* Fixed width for the logo column */
+}
+.side-logo-img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+.dashed-line {
+  height: 200px;
+  width: 0;
+  border-left: 2px dashed rgba(0, 0, 0, 0.2);
+}
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 223, 186, 0.5); /* Soft Orange Circle */
+  bottom: 10%;
+  right: 10%;
+}
+
+.circle-2 {
+  width: 100px;
+  height: 100px;
+  background: rgba(186, 215, 255, 0.4); /* Soft Blue Circle */
+  top: 20%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.1); }
+}
