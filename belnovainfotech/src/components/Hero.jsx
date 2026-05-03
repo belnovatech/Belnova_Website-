@@ -216,7 +216,7 @@ const Hero = () => {
             <li className="stack-card-item card-1">
               <div className="card-content">
                 <h2>Artificial Intelligence</h2>
-                <p><strong>Belnova Infotech</strong> specializes in providing cutting-edge AI services tailored to meet unique needs. Our AI solutions empower providers with advanced analytics and decision-making tools, enhancing efficiency through innovative technology.</p>
+                <p><strong>Belnova Tech</strong> specializes in providing cutting-edge AI services tailored to meet unique needs. Our AI solutions empower providers with advanced analytics and decision-making tools, enhancing efficiency through innovative technology.</p>
               </div>
               <div className="card-image">
                 <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="Artificial Intelligence" />
