@@ -42,6 +42,7 @@ const App = () => {
 
         {/* About page (no navbar) */}
         <Route path="/about" element={<AboutUs />} />
+        
       </Routes>
 
       {/* Footer for all pages */}
