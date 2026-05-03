@@ -144,7 +144,7 @@ const Hero = () => {
           <h2>
             Cutting-Edge Product Engineering Solutions
           </h2>
-          <h4>Belnova Infotech Private Limited — Full-stack technology partner for startups and enterprises. Web, Mobile, AI, Cloud.</h4>
+          <h4>Belnova Tech Private Limited — Full-stack technology partner for startups and enterprises. Web, Mobile, AI, Cloud.</h4>
 
           <button
             className="cta-btn"
@@ -185,7 +185,7 @@ const Hero = () => {
             <h2 className="outline-text">ABOUT US</h2>
             <h3 className="who-we-are">Who we are</h3>
             <p>
-              <strong>Belnova Infotech</strong> is your dedicated partner in digital transformation,
+              <strong>Belnova Tech</strong> is your dedicated partner in digital transformation,
               accelerating technology adoption and driving impactful change through
               advanced automation and cutting-edge platforms.
             </p>
