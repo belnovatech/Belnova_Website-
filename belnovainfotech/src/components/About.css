@@ -383,3 +383,196 @@
   line-height: 1.8;
   margin-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .about-header {
+    padding: 15px 20px;
+  }
+
+  .about-logo {
+    height: 45px;
+  }
+
+  .about-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  /* TOP TEXT */
+  .about-top h1 {
+    font-size: 28px;
+  }
+
+  .about-top p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  /* MAIN GRID -> STACK */
+  .about-main {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+  }
+
+  /* BIG TEXT */
+  .big-outline {
+    font-size: 60px;
+    top: 20px;
+  }
+
+  /* LEFT */
+  .about-left {
+    margin-top: 60px;
+    max-width: 100%;
+  }
+
+  .about-left h2 {
+    font-size: 24px;
+  }
+
+  .about-left p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* RIGHT */
+  .about-right {
+    height: auto;
+    margin-top: 40px;
+  }
+
+  /* TOP IMAGE */
+  .card-top {
+    position: relative;
+    width: 100%;
+    right: auto;
+  }
+
+  /* 5+ TEXT */
+  .years-inline {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 20px 0;
+  }
+
+  .years-inline h3 {
+    font-size: 24px;
+  }
+
+  /* BOTTOM ROW -> STACK */
+  .bottom-row {
+    position: relative;
+    top: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* IMAGE */
+  .card-bottom {
+    width: 100%;
+  }
+
+  /* 30+ CARD */
+  .card-stat {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .card-stat h3 {
+    font-size: 26px;
+  }
+
+  /* ========================= */
+  /* BOTTOM SECTION */
+  /* ========================= */
+
+  .bottom-container {
+    flex-direction: column;
+  }
+
+  .bottom-image {
+    width: 100%;
+  }
+
+  .bottom-content {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .bottom-content h2 {
+    font-size: 24px;
+  }
+
+  /* ========================= */
+  /* TEAM SECTION */
+  /* ========================= */
+
+  .team-section {
+    padding: 60px 20px;
+  }
+
+  .team-title {
+    font-size: 28px;
+  }
+
+  .team-grid {
+    gap: 20px;
+  }
+
+  .team-card {
+    width: 100%;
+  }
+
+  /* ========================= */
+  /* GROWING SECTION */
+  /* ========================= */
+
+  .growing-section {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+  }
+
+  .growing-left img {
+    max-width: 100%;
+  }
+
+  .bg-box {
+    display: none; /* hide boxes on mobile */
+  }
+
+  .growing-right h2 {
+    font-size: 26px;
+  }
+
+  .growing-right p {
+    font-size: 14px;
+  }
+}

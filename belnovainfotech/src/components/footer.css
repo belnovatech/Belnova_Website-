@@ -174,18 +174,60 @@ input, textarea {
   color: white;
   transform: translateY(-4px);
 }
-
-/* ================= MOBILE ================= */
-
 @media (max-width: 768px) {
 
+  /* CONTAINER STACK */
   .contact-container {
     flex-direction: column;
+    gap: 30px;
+    text-align: center;
   }
 
+  /* 🔥 FIX LOGO SIZE */
+  .contact-logo {
+    width: 120px;   /* ↓ reduced from 180px */
+    margin: 0 auto 20px auto;
+  }
+
+  /* INFO ITEMS CENTER */
+  .info-item {
+    justify-content: center;
+    text-align: left;
+  }
+
+  /* FORM CARD */
+  .contact-form-card {
+    width: 100%;
+    padding: 25px;
+  }
+
+  /* INPUT ROW STACK */
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* INPUTS */
+  input,
+  textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* BUTTON */
+  .send-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* FOOTER */
   .footer-content {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 }
