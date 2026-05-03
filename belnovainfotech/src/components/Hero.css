@@ -1911,10 +1911,7 @@ input, textarea {
   .ic-cta-text p {
     font-size: 13px;
   }
-
 @media (max-width: 768px) {
-
-  
 
   /* REMOVE EXTRA SPACE */
   .stacking-section {
@@ -1930,68 +1927,56 @@ input, textarea {
     padding: 0;
   }
 
+  /* 🔥 MAIN FIX */
   .stack-card-item {
     width: 100%;
     max-width: 100%;
 
-    margin: 0 auto 15px auto;
+    margin: 0 auto 10px auto;
 
-    padding: 18px;
+    padding: 16px;
 
     border-radius: 16px;
 
     box-sizing: border-box;
 
-    display: flex;
-    flex-direction: column;
+    display: block;                 /* 🔥 REMOVE FLEX (important) */
+    height: auto !important;        /* 🔥 force tight height */
+    min-height: unset !important;
 
     transform: none !important;
-    left: 0 !important;
-    right: 0 !important;
 
     overflow: hidden;
   }
 
+  /* 🔥 CONTENT FIX */
   .card-content {
     width: 100%;
-    max-width: 100%;
-
     padding: 0;
+    margin: 0;
 
     box-sizing: border-box;
-
-    word-break: break-word;
   }
 
+  /* TEXT */
   .card-content h2 {
     font-size: 20px;
     text-align: center;
+    margin: 0 0 8px 0;  /* 🔥 remove extra gap */
   }
 
   .card-content p {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
+    margin: 0;          /* 🔥 IMPORTANT → removes bottom space */
   }
 
-  /* IMAGE */
-  .card-image img {
-   display: none; /* hide image on mobile for cleaner look */
+  /* 🔥 REMOVE IMAGE SPACE COMPLETELY */
+  .card-image {
+    display: none !important;
   }
 
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
