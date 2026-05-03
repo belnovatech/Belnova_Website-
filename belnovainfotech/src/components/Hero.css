@@ -1791,6 +1791,10 @@ input, textarea {
     grid-template-columns: 1fr;   /* 🔥 ONE COLUMN */
     gap: 16px;
   }
+    .why-tag {
+    margin-top: 40px;   /* 👈 clear separation */
+  }
+
 
   .ic-ind-card {
     padding: 18px;
@@ -1978,11 +1982,6 @@ input, textarea {
   /* 🔥 REMOVE IMAGE SPACE COMPLETELY */
   .card-image {
     display: none !important;
-  }
-
-   .sticky-video-wrapper {
-    position: relative !important;
-    height: auto;
   }
 }
 }
