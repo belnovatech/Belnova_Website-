@@ -137,7 +137,7 @@ React.useEffect(() => {
         </div>
       </section>
       {/* --- ABOUT US SECTION --- */}
-<section className="about-section">
+<section id="about" className="about-section">
   <div className="circle circle-1"></div>
       <div className="circle circle-2"></div>
   <div className="about-container">
@@ -183,7 +183,7 @@ React.useEffect(() => {
   </div>
 </section>
 {/* --- HOW WE WORK SECTION --- */}
-<section className="stacking-section">
+<section id="services" className="stacking-section">
         <div className="sticky-video-wrapper">
           <video autoPlay loop muted playsInline className="stack-bg-video">
             <source src="/banner-video.mp4" type="video/mp4" />
@@ -236,7 +236,7 @@ React.useEffect(() => {
       </section>
       {/* --- WHY BELNOVA SLIDING SECTION --- */}
 {/* --- WHY BELNOVA SLIDING SECTION --- */}
-<section className="why-belnova-section">
+<section id="why" className="why-belnova-section">
   <div className="why-bg-blur why-blur-1"></div>
   <div className="why-bg-blur why-blur-2"></div>
 
@@ -398,7 +398,7 @@ React.useEffect(() => {
 {/* ══════════════════════════════════════════════════
     INDUSTRIES & CAREERS SECTION
 ══════════════════════════════════════════════════ */}
-<section className="ic-section">
+<section id="industries" className="ic-section">
 
   {/* Ambient blobs */}
   <div className="ic-blob ic-blob-1" />
@@ -525,64 +525,7 @@ React.useEffect(() => {
   )}
 
 </section>
-{/* ══════════════════════════════════════════════════ */}
 
-      <section className="contact-section">
-        <div className="contact-container">
-          {/* Left Side: Company Info (Format from Image 2) */}
-          <div className="contact-info">
-            <img src={logo} alt="BELNOVA LOGO" className="contact-logo" />
-            <div className="info-item">
-              <span className="icon">📍</span>
-              <p><strong>LOCATION</strong><br />Hyderabad, Telangana, India</p>
-            </div>
-            <div className="info-item">
-              <span className="icon">✉️</span>
-              <p><strong>EMAIL</strong><br />hello@belnova.in</p>
-            </div>
-            <div className="info-item">
-              <span className="icon">📞</span>
-              <p><strong>PHONE</strong><br />+91 XXXXX XXXXX</p>
-            </div>
-            <div className="info-item">
-              <span className="icon">🕒</span>
-              <p><strong>WORKING HOURS</strong><br />Mon - Sat, 9 AM - 7 PM IST</p>
-            </div>
-          </div>
-
-          {/* Right Side: Form (Layout Image 1, Style Image 2) */}
-          <div className="contact-form-card">
-            <h3 className="gradient-text-small">Get in touch!</h3>
-            <form>
-              <div className="form-row">
-                <input type="text" placeholder="Enter Name" />
-                <input type="text" placeholder="Enter Mobile" />
-              </div>
-              <input type="email" placeholder="Enter email" />
-              <textarea placeholder="Enter your query" rows="4"></textarea>
-              <button type="submit" className="send-btn">SEND ENQUIRY</button>
-            </form>
-          </div>
-        </div>
-        
-      </section>
-      {/* --- FOOTER SECTION --- */}
-<footer className="footer-section">
-  <div className="footer-container">
-    <div className="footer-content">
-      <div className="copyright-text">
-        © 2026 Belnova Infotech Private Limited. All rights reserved.
-      </div>
-      
-      <div className="social-links">
-        <a href="#" className="social-box" aria-label="LinkedIn">in</a>
-        <a href="#" className="social-box" aria-label="X">𝕏</a>
-        <a href="#" className="social-box" aria-label="GitHub">gh</a>
-        <a href="#" className="social-box" aria-label="YouTube">yt</a>
-      </div>
-    </div>
-  </div>
-</footer>
     </>
   );
 };

@@ -12,32 +12,41 @@
 //   );
 // };
 
-// export default App;
+
+
+
+
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import AboutUs from "./components/about_us";
+import Footer from "./components/footer";
 
 const App = () => {
   return (
     <Router>
+
+      {/* Navbar only on Home */}
       <Routes>
-        {/* ✅ Home page WITH Navbar */}
-        <Route
-          path="/"
+        <Route 
+          path="/" 
           element={
             <>
               <Navbar />
               <Hero />
             </>
-          }
+          } 
         />
 
-        {/* ✅ About page WITHOUT Navbar */}
+        {/* About page (no navbar) */}
         <Route path="/about" element={<AboutUs />} />
       </Routes>
+
+      {/* Footer for all pages */}
+      <Footer />
+
     </Router>
   );
 };

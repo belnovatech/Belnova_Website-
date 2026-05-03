@@ -1,15 +1,32 @@
 import React from "react";
 import "./About.css";
 import logo from "../assets/BELNOVA LOGO.png";
+import { useNavigate } from "react-router-dom";
 
 function AboutUs() {
+    const navigate = useNavigate();
+
     return (
         <div className="about-page">
 
             {/* HEADER */}
             <div className="about-header">
-                <img src={logo} alt="Belnova Logo" className="about-logo" />
-                <button className="about-btn">LET'S CONNECT</button>
+                <img
+                    src={logo}
+                    alt="Belnova Logo"
+                    className="about-logo"
+                    onClick={() => navigate("/")}   // 🔥 GO TO HOME
+                    style={{ cursor: "pointer" }}
+                />
+                <button
+                    className="about-btn"
+                    onClick={() => {
+                        const section = document.getElementById("contact");
+                        section?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                >
+                    LET'S CONNECT
+                </button>
             </div>
 
             {/* TOP TITLE */}
@@ -158,34 +175,34 @@ function AboutUs() {
 
 
             {/* ===== NEW GROWING TEAM SECTION ===== */}
-<div className="growing-section">
+            <div className="growing-section">
 
-  <div className="growing-left">
-    <div className="bg-box blue"></div>
-    <div className="bg-box peach"></div>
+                <div className="growing-left">
+                    <div className="bg-box blue"></div>
+                    <div className="bg-box peach"></div>
 
-    <img
-      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
-      alt="Team collaboration"
-    />
-  </div>
+                    <img
+                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+                        alt="Team collaboration"
+                    />
+                </div>
 
-  <div className="growing-right">
-    <h2>Our team is always growing</h2>
+                <div className="growing-right">
+                    <h2>Our team is always growing</h2>
 
-    <p>
-      To be the most trusted technology partner for digital transformation in
-      the healthcare and insurance industries.
-    </p>
+                    <p>
+                        To be the most trusted technology partner for digital transformation in
+                        the healthcare and insurance industries.
+                    </p>
 
-    <p>
-      We deliver innovative solutions—from cloud platforms to intelligent
-      automation—that help organizations transform, scale, and lead in their
-      fields.
-    </p>
-  </div>
+                    <p>
+                        We deliver innovative solutions—from cloud platforms to intelligent
+                        automation—that help organizations transform, scale, and lead in their
+                        fields.
+                    </p>
+                </div>
 
-</div>
+            </div>
         </div>
     );
 }

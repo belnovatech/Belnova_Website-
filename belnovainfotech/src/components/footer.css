@@ -1,0 +1,191 @@
+/* ================= CONTACT SECTION ================= */
+
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top right, #c3a0e2 0%, #1f2750 40%, #050505 100%);
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 1000px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* CONTAINER */
+.contact-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LOGO */
+.contact-logo {
+  width: 180px;
+  margin-bottom: 40px;
+}
+
+/* LEFT SIDE */
+.contact-info {
+  flex: 1;
+}
+
+/* INFO CARDS */
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-item .icon {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.info-item strong {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+/* ================= FORM ================= */
+
+.contact-form-card {
+  flex: 1.2;
+  background: #0a0a0a;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+.gradient-text-small {
+  background: linear-gradient(45deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: white;
+  outline: none;
+}
+
+/* BUTTON */
+.send-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #2b3c8f, #8a3ab9);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+
+.footer-section {
+  background: #050505;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* SOCIAL */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-box {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  transition: 0.3s;
+}
+
+.social-box:hover {
+  background: rgba(168,85,247,0.15);
+  border-color: rgba(168,85,247,0.5);
+  color: white;
+  transform: translateY(-4px);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
