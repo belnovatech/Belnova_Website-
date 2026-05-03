@@ -1911,11 +1911,15 @@ input, textarea {
   .ic-cta-text p {
     font-size: 13px;
   }
+
+
+
+  
 @media (max-width: 768px) {
 
   /* REMOVE EXTRA SPACE */
   .stacking-section {
-    padding: 0;
+    padding-bottom: 30px;
   }
 
   .stack-cards-container {
@@ -1976,6 +1980,10 @@ input, textarea {
     display: none !important;
   }
 
+   .sticky-video-wrapper {
+    position: relative !important;
+    height: auto;
+  }
 }
 }
 
