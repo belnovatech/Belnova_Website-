@@ -125,9 +125,8 @@ function AboutUs() {
                     A passionate team of engineers mind.
                 </p>
 
-                <div className="team-grid">
+                {/* <div className="team-grid">
 
-                    {/* CARD 1 */}
                     <div className="team-card">
                         <img
                             src="https://images.unsplash.com/photo-1527980965255-d3b416303d12"
@@ -145,7 +144,6 @@ function AboutUs() {
                         </div>
                     </div>
 
-                    {/* CARD 2 (EXPANDED STYLE) */}
                     <div className="team-card detail-card">
                         <img
                             src="https://images.unsplash.com/photo-1527980965255-d3b416303d12"
@@ -170,7 +168,7 @@ function AboutUs() {
                         </div>
                     </div>
 
-                </div>
+                </div> */}
             </div>
 
 
