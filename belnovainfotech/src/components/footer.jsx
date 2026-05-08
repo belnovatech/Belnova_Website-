@@ -15,17 +15,17 @@ function ContactFooter() {
 
                         <div className="info-item">
                             <span className="icon">📍</span>
-                            <p><strong>LOCATION</strong><br />Hyderabad, Telangana, India</p>
+                            <p><strong>LOCATION</strong><br />2-91/12/4/NR Plot no:4 Doc Bhavan 5th floor kondapur Hyderabad Telangana-500081 India</p>
                         </div>
 
                         <div className="info-item">
                             <span className="icon">✉️</span>
-                            <p><strong>EMAIL</strong><br />hello@belnova.in</p>
+                            <p><strong>EMAIL</strong><br />info@belnovatech.com</p>
                         </div>
 
                         <div className="info-item">
                             <span className="icon">📞</span>
-                            <p><strong>PHONE</strong><br />+91 XXXXX XXXXX</p>
+                            <p><strong>PHONE</strong><br />+91 7382405380</p>
                         </div>
 
                         <div className="info-item">
