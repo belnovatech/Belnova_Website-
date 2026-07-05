@@ -20,13 +20,15 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
+      working-directory: belnovainfotech
       run: npm install
 
     - name: Build React app
+      working-directory: belnovainfotech
       run: npm run build
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: react-build
-        path: build/
+        path: belnovainfotech/build/
