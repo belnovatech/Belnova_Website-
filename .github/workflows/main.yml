@@ -5,7 +5,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    
 
 jobs:
   build:
@@ -21,18 +20,18 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      working-directory: belnovatech
+      working-directory: belnovainfotech
       run: npm install
 
     - name: Build React app
-      working-directory: belnovatech
+      working-directory: belnovainfotech
       run: npm run build
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: belnova-build
-        path: belnovatech/build/
+        path: belnovainfotech/build/
 
   docker:
     runs-on: ubuntu-latest
@@ -63,4 +62,4 @@ jobs:
         context: .
         file: Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/belnova-tech-website:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/belnova-website:latest
