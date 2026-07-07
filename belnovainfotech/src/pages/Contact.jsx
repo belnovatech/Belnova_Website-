@@ -1,125 +1,235 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock3,
+  Send,
+  Bot,
+  Navigation,
+  CheckCircle2
+} from "lucide-react";
 import "./Contact.css";
 
-const Contact = () => {
+export default function Contact() {
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name:"",
+    email:"",
+    phone:"",
+    subject:"",
+    message:""
   });
-  const [status, setStatus] = useState(null); // null | "sending" | "success" | "error"
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange=(e)=>{
+    setFormData({...formData,[e.target.name]:e.target.value});
+  }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit=(e)=>{
     e.preventDefault();
-    setStatus("sending");
+    console.log(formData);
+  }
 
-    // 🔥 Replace with your real backend / email service (e.g. EmailJS, Formspree, your API)
-    try {
-      const res = await fetch("https://your-backend.com/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+  return(
 
-      if (res.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      console.error("Contact form error:", err);
-      setStatus("error");
-    }
-  };
+<section className="contact">
 
-  return (
-    <section id="contact" className="contact-page">
-      <div className="contact-header">
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you. Reach out with any questions or project inquiries.</p>
-      </div>
+<div className="contact-bg-circle one"></div>
+<div className="contact-bg-circle two"></div>
 
-      <div className="contact-container">
-        <div className="contact-info">
-  <div className="info-item">
-    <h4><span className="icon">📍</span> Address</h4>
-    <p>2-91/12/4/NR Plot no:4 Doc Bhavan 5th floor kondapur Hyderabad Telangana-500081 India</p>
-  </div>
-  <div className="info-item">
-    <h4><span className="icon">📞</span> Phone</h4>
-    <p>+91 7382405380</p>
-  </div>
-  <div className="info-item">
-    <h4><span className="icon">✉️</span> Email</h4>
-    <p>info@belnova.com</p>
-  </div>
-  <div className="info-item">
-    <h4><span className="icon">🕒</span> Working Hours</h4>
-    <p>Mon - Sat, 9 AM - 7 PM IST</p>
+<div className="contact-title">
+
+<span className="contact-badge">
+
+<Bot size={18}/>
+AI Powered Support
+
+</span>
+
+<h2>Let's Build Something Amazing</h2>
+
+<p>
+Whether you're looking for AI solutions, Web Development,
+Cloud Services or Enterprise Applications,
+our team is ready to help.
+</p>
+
+</div>
+
+
+<div className="contact-wrapper">
+
+<div className="contact-left">
+
+<div className="status-card">
+  <div className="status-dot"></div>
+
+  <div className="status-text">
+    <h4>Average Reply Time</h4>
+    <span>Within 15 Minutes</span>
   </div>
 </div>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
 
-          <button type="submit" disabled={status === "sending"}>
-            {status === "sending" ? "Sending..." : "Send Message"}
-          </button>
 
-          {status === "success" && (
-            <p className="success-msg">✅ Message sent successfully!</p>
-          )}
-          {status === "error" && (
-            <p className="error-msg">❌ Something went wrong. Please try again.</p>
-          )}
-        </form>
-      </div>
-    </section>
-  );
-};
 
-export default Contact;
+<div className="location-card">
+
+<div className="location-header">
+
+<div className="location-icon">
+
+<MapPin/>
+
+</div>
+
+<div>
+
+<h4>Head Office</h4>
+
+<p>Hyderabad, Telangana</p>
+
+</div>
+
+</div>
+
+<div className="location-address">
+
+2-91/12/4/NR Plot No.4,
+Doc Bhavan 5th Floor,
+Kondapur,
+Hyderabad,
+Telangana - 500081,
+India
+
+</div>
+
+<a
+  href="https://www.google.com/maps/search/?api=1&query=2-91/12/4+NR+Plot+No.4+Doc+Bhavan+5th+Floor+Kondapur+Hyderabad+Telangana+500081"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="map-btn"
+>
+  <Navigation size={18} />
+  View on Maps
+</a>
+
+</div>
+
+
+<div className="info-grid">
+
+<div className="info-box">
+
+<Phone/>
+
+<div>
+
+<h5>Phone</h5>
+
+<p>+91 7382405380</p>
+
+</div>
+
+</div>
+
+<div className="info-box">
+
+<Mail/>
+
+<div>
+
+<h5>Email</h5>
+
+<p>info@belnova.com</p>
+
+</div>
+
+</div>
+
+<div className="info-box">
+
+<Clock3/>
+
+<div>
+
+<h5>Working Hours</h5>
+
+<p>Mon-Sat 9AM - 7PM</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<div className="contact-right">
+
+<form onSubmit={handleSubmit}>
+
+<input
+type="text"
+placeholder="Your Name"
+name="name"
+onChange={handleChange}
+/>
+
+<input
+type="email"
+placeholder="Email Address"
+name="email"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+placeholder="Phone Number"
+name="phone"
+onChange={handleChange}
+/>
+
+<input
+type="text"
+placeholder="Project Subject"
+name="subject"
+onChange={handleChange}
+/>
+
+<textarea
+rows="6"
+placeholder="Tell us about your project..."
+name="message"
+onChange={handleChange}
+/>
+
+<button>
+
+<Send size={18}/>
+
+Send Message
+
+</button>
+
+</form>
+
+<div className="secure">
+
+<CheckCircle2 size={18}/>
+
+Your information is encrypted & secure.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+  )
+
+}
