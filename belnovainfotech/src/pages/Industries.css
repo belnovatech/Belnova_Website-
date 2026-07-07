@@ -1,19 +1,18 @@
 .industries-page {
-  background: #f5f7fc;
+  background: linear-gradient(180deg, #0a1128 0%, #0f1c4d 45%, #0a1128 100%);
   min-height: 100vh;
   padding-bottom: 90px;
+  color: #ffffff;
 }
 
-/* Dark blue hero band at the top of the page */
+/* ===================== HEADER ===================== */
 .industries-header {
-  background: linear-gradient(135deg, #0a1128 0%, #0f1c4d 50%, #14235e 100%);
-  padding: 160px 8% 90px;
+  padding: 120px 8% 60px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-/* subtle glow effect */
 .industries-header::before {
   content: "";
   position: absolute;
@@ -46,6 +45,16 @@
   z-index: 2;
 }
 
+.industries-header h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: #4d7fff;
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
 .industries-header p {
   font-size: 1.1rem;
   color: #b9c4e8;
@@ -55,44 +64,33 @@
   position: relative;
   z-index: 2;
 }
-
-/* Cards grid — pulled up to overlap the dark header */
+/* ===================== GRID ===================== */
 .industries-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
   max-width: 1200px;
-  margin: -70px auto 0;
+  margin: 40px auto 0;
   padding: 0 8%;
   position: relative;
   z-index: 3;
 }
-
 .industry-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 45px 32px;
+  background: #0f1c4d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 45px 28px;
   text-align: center;
-  box-shadow: 0 20px 45px rgba(10, 17, 40, 0.12);
-  border: 1px solid #eef1fb;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
   position: relative;
-  overflow: hidden;
-}
-
-.industry-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, #0a1128, #4d7fff);
 }
 
 .industry-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 55px rgba(10, 17, 40, 0.2);
+  transform: translateY(-10px);
+  background: #142a63;
+  border-color: rgba(77, 127, 255, 0.5);
+  box-shadow: 0 22px 45px rgba(77, 127, 255, 0.28), 0 0 0 1px rgba(77, 127, 255, 0.15);
 }
 
 .industry-icon {
@@ -102,35 +100,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.3rem;
-  background: linear-gradient(135deg, #0f1c4d, #274690);
+  background: linear-gradient(135deg, #274690, #4d7fff);
   border-radius: 50%;
-  box-shadow: 0 10px 25px rgba(15, 28, 77, 0.3);
-  transition: transform 0.35s ease;
+  box-shadow: 0 10px 25px rgba(77, 127, 255, 0.35);
+  color: #ffffff;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .industry-card:hover .industry-icon {
-  transform: scale(1.1) rotate(-4deg);
+  transform: scale(1.12) rotate(-4deg);
+  box-shadow: 0 14px 32px rgba(77, 127, 255, 0.55);
 }
 
 .industry-card h3 {
-  font-size: 1.3rem;
-  color: #0a1128;
-  margin-bottom: 14px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 12px;
   font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.industry-card:hover h3 {
+  color: #9db6ff;
 }
 
 .industry-card p {
-  font-size: 0.97rem;
-  color: #666c80;
+  font-size: 0.95rem;
+  color: #b9c4e8;
   line-height: 1.7;
 }
 
-/* Bottom CTA band, optional section if you want to add one */
+/* ===================== CTA ===================== */
 .industries-cta {
   max-width: 900px;
   margin: 90px auto 0;
-  background: linear-gradient(135deg, #0a1128, #14235e);
+  background: linear-gradient(135deg, #14235e, #274690);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 50px 40px;
   text-align: center;
@@ -141,6 +146,184 @@
   font-size: 1.7rem;
   margin-bottom: 12px;
   font-weight: 700;
+  color: #ffffff;
+}
+
+/* ===================== CARD CLICK AFFORDANCE ===================== */
+.industry-card {
+  cursor: pointer;
+}
+
+.industry-card-cta {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6a8bff;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.industry-card:hover .industry-card-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================== MODAL ===================== */
+.industry-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 20, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  animation: fadeIn 0.25s ease;
+}
+
+.industry-modal {
+  background: linear-gradient(160deg, #0f1c4d 0%, #14235e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 48px 40px 40px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.industry-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.industry-modal-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.industry-modal-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #274690, #4d7fff);
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgba(77, 127, 255, 0.4);
+  color: #ffffff;
+}
+
+.industry-modal h2 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.industry-modal-details {
+  color: #b9c4e8;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.industry-modal-services {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 28px;
+}
+
+.industry-modal-services h4 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.industry-modal-services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.industry-modal-services li {
+  color: #d4dcf7;
+  font-size: 0.92rem;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.industry-modal-services li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4d7fff;
+}
+
+.industry-modal-contact {
+  background: #4d7fff;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.industry-modal-contact:hover {
+  background: #2f63e0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .industry-modal {
+    padding: 40px 24px 32px;
+    border-radius: 18px;
+  }
 }
 
 .industries-cta p {
@@ -163,9 +346,11 @@
 .industries-cta button:hover {
   background: #2f63e0;
 }
+
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
   .industries-header {
-    padding: 110px 6% 100px;
+    padding: 100px 6% 40px;
   }
 
   .industries-header h1 {
@@ -180,20 +365,18 @@
 
   .industries-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
-    margin: -60px auto 0;
+    margin: 30px auto 0;
     padding: 0 6%;
+    border-radius: 16px;
   }
 
   .industry-card {
     padding: 32px 22px;
-    border-radius: 16px;
   }
 
   .industry-icon {
     width: 68px;
     height: 68px;
-    font-size: 1.8rem;
     margin-bottom: 18px;
   }
 
@@ -228,7 +411,7 @@
 
 @media (max-width: 400px) {
   .industries-header {
-    padding: 100px 5% 90px;
+    padding: 90px 5% 30px;
   }
 
   .industries-header h1 {
@@ -236,7 +419,7 @@
   }
 
   .industries-grid {
-    margin-top: -50px;
+    margin-top: 24px;
     padding: 0 5%;
   }
 

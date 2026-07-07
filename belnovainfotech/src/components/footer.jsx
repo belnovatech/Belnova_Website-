@@ -6,13 +6,11 @@ import logo from "../assets/BELNOVA LOGO.png";
 function ContactFooter() {
   return (
     <>
-      {/* ================= CONTACT SECTION ================= */}
-
+{/* 
       <section id="contact" className="bnv-contact-section">
         <div className="bnv-contact-container">
 
-          {/* LEFT SIDE */}
-
+      
           <div className="bnv-contact-left">
 
             <img
@@ -31,8 +29,7 @@ function ContactFooter() {
               digital solutions tailored to your needs.
             </p>
 
-            {/* LOCATION */}
-
+        
             <div className="bnv-contact-card bnv-location-card">
 
               <span className="bnv-card-title">
@@ -56,8 +53,6 @@ function ContactFooter() {
               </a>
 
             </div>
-
-            {/* CONTACT DETAILS */}
 
             <div className="bnv-contact-card">
 
@@ -103,8 +98,6 @@ function ContactFooter() {
             </div>
 
           </div>
-
-          {/* RIGHT SIDE */}
 
           <div className="bnv-contact-right">
 
@@ -162,7 +155,7 @@ function ContactFooter() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* ================= FOOTER ================= */}
 
