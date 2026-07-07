@@ -1,152 +1,226 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 60px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  box-sizing: border-box; 
+.navbar{
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:95%;
+
+    max-width:1500px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 28px;
+
+    z-index:999;
+
+    background:rgba(8,10,30,.45);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    box-shadow:
+
+    0 15px 45px rgba(0,0,0,.35);
+
 }
 
-/* Updated Logo Styling */
-.logo-container {
-  position: relative;
-  overflow: hidden; /* Keeps the shine effect inside the logo area */
-  cursor: pointer;
+
+/* LOGO */
+
+.logo{
+
+    height:72px;
+
+    transition:.4s;
+
 }
 
-.logo {
-  height: 90px; /* Enlarged from 55px for a bolder look */
-  flex-shrink: 0;
-  transition: transform 0.5s ease;
-  filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.3)); /* Adds a subtle premium glow */
-}
+.logo:hover{
 
-/* Shining Effect Animation */
-.logo-container::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -150%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: rotate(30deg);
-  animation: shine 4s infinite; /* Periodic blinking/shining */
-}
+    transform:scale(1.08);
 
-@keyframes shine {
-  0% { left: -150%; }
-  20% { left: 150%; }
-  100% { left: 150%; }
-}
-
-/* Slight enlargement on hover */
-.logo-container:hover .logo {
-  transform: scale(1.1);
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-  color: white;
-  border: 1px solid #ff8c42;
-  padding: 15px 35px;
-  border-radius: 40px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px); /* Adds a premium frosted glass effect */
-  white-space: nowrap; 
-  margin: 0;
-  margin-bottom:40px;
-}
-
-.nav-menu li {
-  cursor: pointer;
-  transition: 0.3s;
-  font-family: 'Poppins', sans-serif; /* A more premium font choice */
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.nav-menu li:hover {
-  color: #ff8c42;
 }
 
 
 
-/* ========================= */
-/* MOBILE NAVBAR */
-/* ========================= */
+/* MENU */
 
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-  z-index: 1001;
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    list-style:none;
+
 }
+
+.nav-menu li{
+
+    position:relative;
+
+}
+
+.nav-menu a{
+
+    color:#d9deff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+
+
+/* UNDERLINE */
+
+.nav-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:linear-gradient(90deg,#7c4dff,#00d4ff);
+
+    transition:.4s;
+
+}
+
+.nav-menu a:hover{
+
+    color:white;
+
+}
+
+.nav-menu a:hover::after{
+
+    width:100%;
+
+}
+
+
+
+/* ACTIVE */
+
+.nav-menu a.active{
+
+    color:#00d4ff;
+
+}
+
+
+
+/* HOVER GLOW */
+
+.nav-menu li:hover{
+
+    text-shadow:
+
+    0 0 10px #00d4ff,
+
+    0 0 20px #7c4dff;
+
+}
+
+
 
 /* MOBILE */
-@media (max-width: 768px) {
 
-  .navbar {
-    padding: 15px 20px;
-    position: absolute;   /* 🔥 important */
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-  }
+.menu-toggle{
 
-  .logo {
-    height: 60px;
-  }
+    display:none;
 
-  /* SHOW hamburger */
-  .menu-toggle {
-    display: block;
-  }
+    color:white;
 
-  /* MENU STYLE */
-  .nav-menu {
-    position: absolute;
-    top: 80px;
-    right: 20px;
+    font-size:28px;
 
-    flex-direction: column;
-    width: 220px;
+    cursor:pointer;
 
-    background: rgba(0, 0, 0, 0.95);
-    border-radius: 15px;
-    padding: 20px;
+}
 
-    gap: 15px;
+@media(max-width:992px){
 
-    /* animation */
-    opacity: 0;
-    transform: translateY(-15px);
-    pointer-events: none;
+.menu-toggle{
 
-    transition: all 0.3s ease;
-  }
+display:block;
 
-  /* ACTIVE */
-  .nav-menu.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+}
 
-  .nav-menu li {
-    font-size: 15px;
-    text-align: left;
-    padding: 5px 0;
-  }
+.nav-menu{
+
+position:absolute;
+
+top:95px;
+
+right:0;
+
+width:280px;
+
+padding:30px;
+
+background:rgba(10,12,35,.96);
+
+backdrop-filter:blur(25px);
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:22px;
+
+opacity:0;
+
+pointer-events:none;
+
+transform:translateY(-20px);
+
+transition:.35s;
+
+}
+
+.nav-menu.active{
+
+opacity:1;
+
+pointer-events:auto;
+
+transform:translateY(0);
+
+}
+
 }
