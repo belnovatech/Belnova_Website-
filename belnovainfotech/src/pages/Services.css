@@ -93,7 +93,179 @@ background-clip: text;
     -webkit-text-fill-color:transparent;
     animation:titleGlow 5s linear infinite;
 }
+/* ================= MODAL ================= */
 
+.service-modal-overlay{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.65);
+
+backdrop-filter:blur(8px);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+padding:30px;
+
+animation:fadeIn .3s;
+
+}
+
+.service-modal{
+
+width:100%;
+
+max-width:1100px;
+
+max-height:90vh;
+
+overflow:auto;
+
+background:#0b1220;
+
+border-radius:24px;
+
+padding:40px;
+
+border:1px solid rgba(255,255,255,.08);
+
+position:relative;
+
+}
+
+.close-btn{
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+width:45px;
+
+height:45px;
+
+border:none;
+
+border-radius:50%;
+
+cursor:pointer;
+
+font-size:22px;
+
+background:#2f7cff;
+
+color:white;
+
+}
+
+.close-btn:hover{
+
+background:#4b8fff;
+
+}
+
+.service-modal h2{
+
+font-size:36px;
+
+margin-bottom:15px;
+
+}
+
+.modal-desc{
+
+color:#bcc8df;
+
+margin-bottom:35px;
+
+line-height:1.8;
+
+}
+
+.modal-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:22px;
+
+}
+
+.modal-card{
+
+background:#121d32;
+
+padding:25px;
+
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+
+}
+
+.modal-card:hover{
+
+transform:translateY(-5px);
+
+border-color:#4e90ff;
+
+}
+
+.modal-card h3{
+
+font-size:28px;
+
+color:#59b6ff;
+
+margin-bottom:10px;
+
+}
+
+.modal-card h4{
+
+font-size:18px;
+
+margin-bottom:12px;
+
+color:#fff;
+
+}
+
+.modal-card p{
+
+color:#c7d0e2;
+
+line-height:1.7;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
 @keyframes titleGlow{
     0%{ background-position:0%; }
     100%{ background-position:200%; }
@@ -268,51 +440,11 @@ SERVICES GRID
     background:rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
     backdrop-filter:blur(18px);
-    transition:transform .35s, box-shadow .35s, border-color .35s;
-}
 
-.service-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:3px;
-    background:linear-gradient(90deg,#33d8ff,#4d84ff,#834dff);
-    transform:scaleX(0);
-    transform-origin:left;
-    transition:.35s;
-}
-
-.service-card:hover::before{
-    transform:scaleX(1);
-}
-
-/* shine sweep on hover */
-.service-card::after{
-    content:"";
-    position:absolute;
-    top:-120%;
-    left:-60%;
-    width:55%;
-    height:260%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
-    transform:rotate(25deg);
-    transition:.8s;
-}
-
-.service-card:hover::after{
-    left:140%;
-}
-
-.service-card:hover{
-    transform:translateY(-10px);
-    border-color:#4d9fff;
-    box-shadow:0 25px 45px rgba(30,110,255,.20);
-}
-
-.service-card::selection{
-    background:#3b8dff;
+    opacity:1;
+    transform:none;
+    transition:none;
+    box-shadow:none;
 }
 
 .service-icon{
@@ -324,11 +456,9 @@ SERVICES GRID
     border-radius:18px;
     background:linear-gradient(135deg,#2f7cff,#804eff);
     margin-bottom:24px;
-    transition:transform .35s, box-shadow .35s;
-}
 
-.service-card:hover .service-icon{
-    transform:rotate(-8deg) scale(1.08);
+    transform:none;
+    transition:none;
 }
 
 .service-icon svg{
@@ -358,15 +488,12 @@ SERVICES GRID
     color:#63d0ff;
     cursor:pointer;
     font-weight:600;
-    transition:.3s;
+
+    transition:none;
 }
 
 .service-card button svg{
-    transition:.3s;
-}
-
-.service-card:hover button svg{
-    transform:translateX(6px);
+    transition:none;
 }
 
 /*=========================================================
@@ -594,8 +721,13 @@ SERVICES GRID
 .tech-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-    gap:24px;
-    margin-top:55px;
+
+    gap:28px;
+
+    max-width:1400px;   /* Limits the overall width */
+    margin:55px auto 0; /* Centers the grid */
+
+    padding:0 35px;     /* Left & right gap */
 }
 
 .tech-card{
@@ -1179,5 +1311,650 @@ RESPONSIVE DESIGN
     .cta-box p{
         font-size:.88rem;
     }
+
+}
+
+/* ===========================
+   MODAL RESPONSIVE
+=========================== */
+
+/* Tablet */
+@media (max-width: 992px){
+
+    .service-modal{
+        max-width:95%;
+        padding:30px;
+    }
+
+    .service-modal h2{
+        font-size:30px;
+    }
+
+    .modal-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:18px;
+    }
+
+    .modal-card{
+        padding:20px;
+    }
+
+    .modal-card h3{
+        font-size:24px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .service-modal-overlay{
+        padding:15px;
+        align-items:flex-start;
+        overflow-y:auto;
+    }
+
+    .service-modal{
+        width:100%;
+        margin-top:40px;
+        max-height:calc(100vh - 80px);
+        padding:25px;
+        border-radius:20px;
+    }
+
+    .service-modal h2{
+        font-size:26px;
+        margin-bottom:12px;
+        padding-right:45px;
+    }
+
+    .modal-desc{
+        font-size:.95rem;
+        line-height:1.7;
+        margin-bottom:25px;
+    }
+
+    .modal-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .modal-card{
+        padding:18px;
+    }
+
+    .modal-card h3{
+        font-size:22px;
+    }
+
+    .modal-card h4{
+        font-size:16px;
+    }
+
+    .modal-card p{
+        font-size:.9rem;
+        line-height:1.6;
+    }
+
+    .close-btn{
+        width:40px;
+        height:40px;
+        font-size:18px;
+        top:15px;
+        right:15px;
+    }
+
+}
+
+/* Small Mobile */
+@media (max-width:576px){
+
+    .service-modal{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    .service-modal h2{
+        font-size:22px;
+    }
+
+    .modal-desc{
+        font-size:.9rem;
+    }
+
+    .modal-card{
+        padding:16px;
+    }
+
+    .modal-card h3{
+        font-size:20px;
+    }
+
+    .modal-card h4{
+        font-size:15px;
+    }
+
+    .modal-card p{
+        font-size:.88rem;
+    }
+
+    .close-btn{
+        width:36px;
+        height:36px;
+        font-size:16px;
+    }
+
+}
+
+/* Very Small Phones */
+@media (max-width:400px){
+
+    .service-modal-overlay{
+        padding:10px;
+    }
+
+    .service-modal{
+        padding:16px;
+        border-radius:14px;
+    }
+
+    .service-modal h2{
+        font-size:20px;
+    }
+
+    .modal-desc{
+        font-size:.85rem;
+    }
+
+    .modal-card{
+        padding:14px;
+    }
+
+    .modal-card h3{
+        font-size:18px;
+    }
+
+    .modal-card h4{
+        font-size:14px;
+    }
+
+    .modal-card p{
+        font-size:.82rem;
+        line-height:1.5;
+    }
+
+    .close-btn{
+        width:34px;
+        height:34px;
+        font-size:15px;
+        top:12px;
+        right:12px;
+    }
+
+}
+
+/* Make Service Cards Completely Static */
+
+/* ==========================================================
+   PREMIUM GLASS MORPHISM SERVICE CARDS
+   PLACE THIS AT THE END OF SERVICES.CSS
+   ========================================================== */
+
+.service-card,
+.service-card:hover{
+    position:relative !important;
+    overflow:hidden !important;
+
+    background:rgba(15,23,42,.45) !important;
+    backdrop-filter:blur(18px) saturate(180%) !important;
+    -webkit-backdrop-filter:blur(18px) saturate(180%) !important;
+
+    border:1px solid rgba(255,255,255,.08) !important;
+    border-radius:28px !important;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08) !important;
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease,
+        background .45s ease !important;
+
+    animation:none !important;
+}
+
+.service-card:hover{
+
+    transform:translateY(-12px) scale(1.02) !important;
+
+    border-color:rgba(0,225,255,.35) !important;
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.45),
+        0 0 35px rgba(0,200,255,.15),
+        inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+
+/* TOP GRADIENT LINE */
+
+.service-card::before{
+
+    content:"";
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    90deg,
+    #00E5FF,
+    #00C896,
+    #3B82F6,
+    #06B6D4);
+
+    background-size:300%;
+
+    animation:gradientMove 6s linear infinite !important;
+
+    display:block !important;
+}
+
+
+/* AURORA GLOW */
+
+.service-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    top:-80px;
+    right:-80px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(0,229,255,.18),
+    transparent 70%);
+
+    pointer-events:none;
+
+    display:block !important;
+}
+
+
+@keyframes gradientMove{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
+}
+
+
+/* ===========================
+   ICON
+=========================== */
+
+.service-icon{
+
+    width:82px !important;
+    height:82px !important;
+
+    border-radius:22px !important;
+
+    background:linear-gradient(
+    135deg,
+    #00E5FF,
+    #3B82F6) !important;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        0 12px 25px rgba(0,200,255,.30),
+        inset 0 1px 1px rgba(255,255,255,.30) !important;
+
+    transition:.4s !important;
+}
+
+.service-card:hover .service-icon{
+
+    transform:rotate(-8deg) scale(1.08) !important;
+
+    box-shadow:
+        0 15px 35px rgba(0,200,255,.45) !important;
+}
+
+.service-icon svg{
+
+    color:#fff !important;
+    font-size:34px !important;
+}
+
+
+/* ======================
+TITLE
+====================== */
+
+.service-card h3{
+
+    color:#ffffff !important;
+
+    font-size:30px !important;
+
+    font-weight:700;
+
+    margin-top:30px;
+
+    transition:.4s;
+}
+
+.service-card:hover h3{
+
+    color:#54d8ff !important;
+
+}
+
+
+/* ===================
+DESCRIPTION
+=================== */
+
+.service-card p{
+
+    color:#bfcde2 !important;
+
+    line-height:1.9;
+
+    font-size:17px;
+}
+
+
+/* =====================
+ARROW BUTTON
+===================== */
+
+.service-card button{
+
+    width:56px;
+    height:56px;
+
+    border-radius:50% !important;
+
+    border:none;
+
+    background:rgba(255,255,255,.06) !important;
+
+    backdrop-filter:blur(8px);
+
+    transition:.35s !important;
+}
+
+.service-card button svg{
+
+    color:#3ecfff !important;
+    transition:.35s !important;
+}
+
+.service-card:hover button{
+
+    background:#00c8ff !important;
+
+    transform:translateX(8px);
+}
+
+.service-card:hover button svg{
+
+    color:#fff !important;
+}
+
+
+
+/* ==========================
+FLOATING LIGHT
+========================== */
+
+.service-card .floating-light{
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(0,229,255,.08);
+
+    filter:blur(55px);
+
+    left:-70px;
+    bottom:-70px;
+
+    pointer-events:none;
+}
+
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:991px){
+
+.service-card{
+
+padding:30px !important;
+
+border-radius:24px !important;
+
+}
+
+.service-card h3{
+
+font-size:24px !important;
+
+}
+
+.service-card p{
+
+font-size:16px;
+
+}
+
+.service-icon{
+
+width:72px !important;
+height:72px !important;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.service-card{
+
+padding:26px !important;
+
+}
+
+.service-card h3{
+
+font-size:22px !important;
+
+}
+
+.service-card p{
+
+font-size:15px;
+
+line-height:1.8;
+
+}
+
+.service-card button{
+
+width:48px;
+height:48px;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+.service-card{
+
+padding:22px !important;
+
+border-radius:20px !important;
+
+}
+
+.service-card h3{
+
+font-size:20px !important;
+
+}
+
+.service-card p{
+
+font-size:14px;
+
+}
+
+.service-icon{
+
+width:64px !important;
+height:64px !important;
+
+}
+
+.service-icon svg{
+
+font-size:28px !important;
+
+}
+
+}
+
+/* ==========================================
+   MAKE ALL CARDS SAME HEIGHT
+========================================== */
+
+.services-grid{
+    display:grid !important;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:32px;
+    align-items:stretch;
+}
+
+.service-card{
+    display:flex !important;
+    flex-direction:column !important;
+
+    min-height:520px !important;
+    height:100% !important;
+}
+
+/* Push description and button correctly */
+.service-card p{
+    flex:1 !important;
+    margin-bottom:28px !important;
+}
+
+/* ==========================================
+   VIEW DETAILS BUTTON
+========================================== */
+
+.service-btn{
+
+    margin-top:auto !important;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:14px 28px;
+
+    min-width:170px;
+
+    height:54px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #00E5FF,
+        #3B82F6
+    ) !important;
+
+    color:#fff;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.service-btn svg{
+    transition:.35s;
+}
+
+.service-btn:hover{
+
+    transform:translateY(-3px) !important;
+
+    background:linear-gradient(
+        135deg,
+        #06B6D4,
+        #2563EB
+    ) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0,200,255,.35);
+}
+
+.service-btn:hover svg{
+    transform:translateX(6px);
+}
+@media (max-width:768px){
+
+.service-card{
+    min-height:auto !important;
+}
+
+.service-btn{
+
+    width:100%;
+
+    justify-content:center;
+
+    padding:13px 20px;
+
+    font-size:14px;
+}
 
 }

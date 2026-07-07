@@ -32,7 +32,11 @@ const Navbar = () => {
 
 
         <li><Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
-        <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+       <li>
+  <Link to="/services" onClick={() => setMenuOpen(false)}>
+    What We Do
+  </Link>
+</li>
         <li><Link to="/why-belnova" onClick={() => setMenuOpen(false)}>Why Belnova</Link></li>
         <li><Link to="/industries" onClick={() => setMenuOpen(false)}>Industries</Link></li>
         <li><Link to="/careers" onClick={() => setMenuOpen(false)}>Careers</Link></li>

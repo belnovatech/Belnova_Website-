@@ -1033,6 +1033,14 @@ RESPONSIVE ROTATING LOGO
 /* ---------- MOBILE ---------- */
 
 @media (max-width:768px){
+    .l-why-header {
+    margin-top: 45px;      /* Pushes the header down */
+    margin-bottom: 40px;
+  }
+
+  .l-why-header h2 {
+    margin-top: 20px;
+  }
 
     .l-why-floating-logo{
 

@@ -935,9 +935,10 @@ FLOATING ANIMATION
     position:relative;
     display:block;
     min-height:auto;
-    padding:90px 20px 60px;
+    padding:130px 20px 60px; 
     overflow-x:hidden;
     overflow-y:visible;
+    margin-bottom:20px;
 }
 
 /* ================= LAYOUT ================= */
@@ -957,6 +958,7 @@ FLOATING ANIMATION
 .about-left{
     width:100%;
     order:1;
+    margin-top:60px;   /* increase to 70px if needed */
 }
 
 .about-tag{
