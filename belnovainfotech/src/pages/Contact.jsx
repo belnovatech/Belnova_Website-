@@ -50,11 +50,11 @@ const Contact = () => {
         <div className="contact-info">
   <div className="info-item">
     <h4><span className="icon">📍</span> Address</h4>
-    <p>Plot No. 123, Financial District, Hyderabad, Telangana, India</p>
+    <p>2-91/12/4/NR Plot no:4 Doc Bhavan 5th floor kondapur Hyderabad Telangana-500081 India</p>
   </div>
   <div className="info-item">
     <h4><span className="icon">📞</span> Phone</h4>
-    <p>+91 98765 43210</p>
+    <p>+91 7382405380</p>
   </div>
   <div className="info-item">
     <h4><span className="icon">✉️</span> Email</h4>
@@ -62,7 +62,7 @@ const Contact = () => {
   </div>
   <div className="info-item">
     <h4><span className="icon">🕒</span> Working Hours</h4>
-    <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+    <p>Mon - Sat, 9 AM - 7 PM IST</p>
   </div>
 </div>
         <form className="contact-form" onSubmit={handleSubmit}>

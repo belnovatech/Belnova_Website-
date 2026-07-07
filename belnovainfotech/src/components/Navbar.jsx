@@ -1,51 +1,42 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../assets/BELNOVA LOGO.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Scroll to a section, navigating home first if needed
-  const scrollToSection = (id) => {
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 300); // wait for Home to mount
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false);
-  };
-
-  const goTo = (path) => {
-    navigate(path);
-    setMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <img src={logo} alt="logo" className="logo" />
+        <Link to="/">
+          <img src={logo} alt="logo" className="logo" />
+        </Link>
       </div>
 
-      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+      <div
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         ☰
       </div>
 
       <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
-        <li onClick={() => scrollToSection("about")}>About Us</li>
-        <li onClick={() => scrollToSection("services")}>Services</li>
-        <li onClick={() => scrollToSection("why")}>Why Belnova</li>
+          <li>
+    <Link to="/" onClick={() => setMenuOpen(false)}>
+      Home
+    </Link>
+  </li>
 
-        {/* Real routed pages */}
-        <li onClick={() => goTo("/industries")}>Industries</li>
-        <li onClick={() => goTo("/careers")}>Careers</li>
-        <li onClick={() => goTo("/contact")}>Contact Us</li>
+
+
+
+        <li><Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
+        <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+        <li><Link to="/why-belnova" onClick={() => setMenuOpen(false)}>Why Belnova</Link></li>
+        <li><Link to="/industries" onClick={() => setMenuOpen(false)}>Industries</Link></li>
+        <li><Link to="/careers" onClick={() => setMenuOpen(false)}>Careers</Link></li>
+        <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
       </ul>
     </nav>
   );

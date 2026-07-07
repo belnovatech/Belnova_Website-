@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import logo from "../assets/BELNOVA LOGO.png";
 // import Hero from "./components/hero.css";
 import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
   const navigate = useNavigate();
 
