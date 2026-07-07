@@ -184,6 +184,7 @@ LEFT
     background:linear-gradient(90deg,#7c4dff,#00d4ff,#ff7b54);
 
     -webkit-background-clip:text;
+    background-clip: text;
 
     -webkit-text-fill-color:transparent;
 
@@ -662,7 +663,7 @@ STATS
     background:linear-gradient(90deg,#7c4dff,#00d4ff);
 
     -webkit-background-clip:text;
-
+background-clip: text;
     -webkit-text-fill-color:transparent;
 
 }

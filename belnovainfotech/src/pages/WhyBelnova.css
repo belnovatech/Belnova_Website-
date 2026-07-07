@@ -55,6 +55,7 @@
 .why-heading strong{
     background:linear-gradient(90deg,#00d4ff,#9b5cff);
     -webkit-background-clip:text;
+    background-clip: text;
     color:transparent;
 }
 
