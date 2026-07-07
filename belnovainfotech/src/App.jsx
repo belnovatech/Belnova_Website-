@@ -5,6 +5,9 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./pages/About";
 import Footer from "./components/footer";
+import Industries from "./pages/Industries";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import WhyBelnova from "./pages/WhyBelnova";
 const Home = () => (
@@ -17,6 +20,18 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
+      {/* Navbar on every page */}
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      {/* Footer on every page */}
       <Routes>
         <Route path="/" element={<Home />} />
 

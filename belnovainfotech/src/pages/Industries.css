@@ -1,0 +1,246 @@
+.industries-page {
+  background: #f5f7fc;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+/* Dark blue hero band at the top of the page */
+.industries-header {
+  background: linear-gradient(135deg, #0a1128 0%, #0f1c4d 50%, #14235e 100%);
+  padding: 160px 8% 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow effect */
+.industries-header::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(77, 127, 255, 0.35), transparent 70%);
+  border-radius: 50%;
+}
+
+.industries-header::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(77, 127, 255, 0.2), transparent 70%);
+  border-radius: 50%;
+}
+
+.industries-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.industries-header p {
+  font-size: 1.1rem;
+  color: #b9c4e8;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Cards grid — pulled up to overlap the dark header */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: -70px auto 0;
+  padding: 0 8%;
+  position: relative;
+  z-index: 3;
+}
+
+.industry-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 45px 32px;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(10, 17, 40, 0.12);
+  border: 1px solid #eef1fb;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #0a1128, #4d7fff);
+}
+
+.industry-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 55px rgba(10, 17, 40, 0.2);
+}
+
+.industry-icon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+  background: linear-gradient(135deg, #0f1c4d, #274690);
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(15, 28, 77, 0.3);
+  transition: transform 0.35s ease;
+}
+
+.industry-card:hover .industry-icon {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.industry-card h3 {
+  font-size: 1.3rem;
+  color: #0a1128;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.industry-card p {
+  font-size: 0.97rem;
+  color: #666c80;
+  line-height: 1.7;
+}
+
+/* Bottom CTA band, optional section if you want to add one */
+.industries-cta {
+  max-width: 900px;
+  margin: 90px auto 0;
+  background: linear-gradient(135deg, #0a1128, #14235e);
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.industries-cta h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.industries-cta p {
+  color: #b9c4e8;
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+
+.industries-cta button {
+  background: #4d7fff;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.industries-cta button:hover {
+  background: #2f63e0;
+}
+@media (max-width: 768px) {
+  .industries-header {
+    padding: 110px 6% 100px;
+  }
+
+  .industries-header h1 {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  .industries-header p {
+    font-size: 0.95rem;
+    padding: 0 4px;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin: -60px auto 0;
+    padding: 0 6%;
+  }
+
+  .industry-card {
+    padding: 32px 22px;
+    border-radius: 16px;
+  }
+
+  .industry-icon {
+    width: 68px;
+    height: 68px;
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+  }
+
+  .industry-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .industry-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .industries-cta {
+    margin: 60px auto 0;
+    padding: 36px 24px;
+    border-radius: 16px;
+  }
+
+  .industries-cta h2 {
+    font-size: 1.3rem;
+  }
+
+  .industries-cta p {
+    font-size: 0.9rem;
+  }
+
+  .industries-cta button {
+    width: 100%;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .industries-header {
+    padding: 100px 5% 90px;
+  }
+
+  .industries-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .industries-grid {
+    margin-top: -50px;
+    padding: 0 5%;
+  }
+
+  .industry-card {
+    padding: 28px 18px;
+  }
+}
