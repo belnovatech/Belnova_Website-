@@ -14,13 +14,13 @@
 
     padding: 0 35px;
 
-    background: rgba(6, 8, 28, 0.92);
+    background: rgba(236, 237, 248, 0.92);
     backdrop-filter: blur(18px);
 
     border: none;
     border-radius: 0;
 
-    box-shadow: 0 8px 30px rgba(0,0,0,.35);
+    box-shadow: 0 8px 30px rgba(231, 236, 238, 0.35);
 
     z-index: 999;
 }
@@ -65,7 +65,7 @@
 
 .nav-menu a{
 
-    color:#d9deff;
+    color:#16171f;
 
     text-decoration:none;
 
