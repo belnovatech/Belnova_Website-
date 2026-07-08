@@ -191,7 +191,7 @@ function ContactFooter() {
 
   <Link to="/">Home</Link>
   <Link to="/about">About Us</Link>
-  <Link to="/services">Services</Link>
+  <Link to="/services">What We Do</Link>
   <Link to="/why-belnova">Why Belnova</Link>
   <Link to="/industries">Industries</Link>
   <Link to="/careers">Careers</Link>

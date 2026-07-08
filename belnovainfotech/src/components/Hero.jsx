@@ -159,51 +159,76 @@ const Hero = () => {
         </div>
       </section>
       {/* --- ABOUT US SECTION --- */}
-      <section id="about" className="about-section">
-        <div className="circle circle-1"></div>
-        <div className="circle circle-2"></div>
-        <div className="about-container">
-          {/* Left Side: The "Moving" Services Design */}
-          <div className="services-visual">
-            <div className="side-logo-container">
-              <img src={logo} alt="Side Logo" className="side-logo-img" />
-              <div className="dashed-line"></div>
-            </div>
-            <div className="services-stack">
-              <div className="service-card cards-1">Application Development</div>
-              <div className="service-card cards-2">AI & Machine Learning</div>
-              <div className="service-card cards-3">Cloud & DevOps</div>
-              <div className="service-card cards-4">UI/UX Design</div>
-            </div>
-            {/* Decorative premium glow behind the cards */}
-            <div className="visual-glow"></div>
-          </div>
+<section id="about" className="bn-about">
 
-          <div className="visual-glow"></div>
+    <div className="bn-circle bn-circle1"></div>
+    <div className="bn-circle bn-circle2"></div>
 
-          {/* Right Side: Text Content */}
-          <div className="about-text">
-            <h2 className="outline-text">ABOUT US</h2>
-            <h3 className="who-we-are">Who we are</h3>
-            <p>
-              <strong>Belnova Tech</strong> is your dedicated partner in digital transformation,
-              accelerating technology adoption and driving impactful change through
-              advanced automation and cutting-edge platforms.
-            </p>
-            <p>
-              Specializing in Cloud, AI, and Mobile technologies, we empower organizations
-              to achieve unparalleled efficiency and visibility.
-            </p>
-            <button
-              className="read-more-btn"
-              onClick={() => navigate("/about")}
-            >
-              READ MORE ABOUT US
-            </button>
-            {/* <button className="read-more-btn">READ MORE ABOUT US</button> */}
-          </div>
+    <div className="bn-wrapper">
+
+        <div className="bn-left">
+
+            <div className="bn-logo-column">
+                <img src={logo} alt="" className="bn-logo"/>
+                <div className="bn-line"></div>
+            </div>
+
+            <div className="bn-card-area">
+
+                <div className="bn-card bn-card1">
+                    Application Development
+                </div>
+
+                <div className="bn-card bn-card2">
+                    AI & Machine Learning
+                </div>
+
+                <div className="bn-card bn-card3">
+                    Cloud & DevOps
+                </div>
+
+                <div className="bn-card bn-card4">
+                    UI/UX Design
+                </div>
+
+            </div>
+
         </div>
-      </section>
+
+        <div className="bn-right">
+
+            <h2 className="bn-outline">
+                ABOUT US
+            </h2>
+
+            <h3 className="bn-title">
+                Who we are
+            </h3>
+
+            <p>
+                <strong>Belnova Tech</strong> is your dedicated partner in digital transformation,
+                accelerating technology adoption and driving impactful change through advanced automation
+                and cutting-edge platforms.
+            </p>
+
+            <p>
+                Specializing in Cloud, AI and Mobile technologies,
+                we empower organizations to achieve unparalleled
+                efficiency and visibility.
+            </p>
+
+            <button
+                className="bn-btn"
+                onClick={() => navigate("/about")}
+            >
+                READ MORE ABOUT US
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
       {/* --- HOW WE WORK SECTION --- */}
       <section id="services" className="stacking-section">
         <div className="sticky-video-wrapper">
