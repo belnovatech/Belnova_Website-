@@ -140,7 +140,7 @@ India
 
 <h5>Email</h5>
 
-<p>info@belnova.com</p>
+<p>info@belnovatech.com</p>
 
 </div>
 
