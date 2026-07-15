@@ -24,12 +24,74 @@ export default function Contact() {
   const handleChange=(e)=>{
     setFormData({...formData,[e.target.name]:e.target.value});
   }
+const [loading, setLoading] = useState(false);
+const [success, setSuccess] = useState("");
+const [error, setError] = useState("");
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    console.log(formData);
+  // Clear previous messages
+  setError("");
+  setSuccess("");
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(formData.email)) {
+    setError("❌ Please enter a valid email address.");
+    return;
   }
 
+  // Phone validation
+  const phoneRegex = /^[0-9]{10}$/;
+
+  if (!phoneRegex.test(formData.phone)) {
+    setError("❌ Phone number must contain exactly 10 digits.");
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+const response = await fetch(
+  "https://belnova-backend-website-c.onrender.com/contact",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  }
+);
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      setSuccess("✅ Message sent successfully! We'll contact you soon.");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      setError(data.message || "❌ Failed to send message.");
+    }
+  } catch (err) {
+    console.error(err);
+    setError("❌ Unable to connect to the server.");
+  } finally {
+    setLoading(false);
+  }
+};
+const isFormValid =
+  formData.name.trim() !== "" &&
+  formData.email.trim() !== "" &&
+  formData.phone.length === 10 &&
+  formData.subject.trim() !== "" &&
+  formData.message.trim() !== "";
   return(
 
 <section className="contact">
@@ -171,51 +233,82 @@ India
 
 <form onSubmit={handleSubmit}>
 
-<input
-type="text"
-placeholder="Your Name"
-name="name"
-onChange={handleChange}
-/>
+  <input
+    type="text"
+    placeholder="Your Name"
+    name="name"
+    value={formData.name}
+    onChange={handleChange}
+    required
+  />
 
 <input
-type="email"
-placeholder="Email Address"
-name="email"
-onChange={handleChange}
-/>
-
-<input
-type="text"
-placeholder="Phone Number"
-name="phone"
-onChange={handleChange}
+  type="email"
+  placeholder="Email Address"
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+  required
 />
 
 <input
-type="text"
-placeholder="Project Subject"
-name="subject"
-onChange={handleChange}
+  type="tel"
+  placeholder="Phone Number"
+  name="phone"
+  value={formData.phone}
+  onChange={(e) => {
+    const value = e.target.value.replace(/\D/g, "");
+
+    if (value.length <= 10) {
+      setFormData({
+        ...formData,
+        phone: value,
+      });
+    }
+  }}
+  maxLength={10}
+  required
 />
 
-<textarea
-rows="6"
-placeholder="Tell us about your project..."
-name="message"
-onChange={handleChange}
-/>
+  <input
+    type="text"
+    placeholder="Project Subject"
+    name="subject"
+    value={formData.subject}
+    onChange={handleChange}
+    required
+  />
 
-<button>
+  <textarea
+    rows="6"
+    placeholder="Tell us about your project..."
+    name="message"
+    value={formData.message}
+    onChange={handleChange}
+    required
+  />
 
-<Send size={18}/>
-
-Send Message
-
+<button
+  type="submit"
+  disabled={loading || !isFormValid}
+>
+  {loading ? (
+    <>
+      <div className="spinner"></div>
+      Sending...
+    </>
+  ) : (
+    <>
+      <Send size={18} />
+      Send Message
+    </>
+  )}
 </button>
 
 </form>
+{success && <div className="success-message">{success}</div>}
 
+{error && <div className="error-message">{error}</div>}
 <div className="secure">
 
 <CheckCircle2 size={18}/>
