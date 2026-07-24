@@ -2,6 +2,7 @@ import React from "react";
 import "./Services.css";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BrainCircuit,
   Cloud,
@@ -228,6 +229,7 @@ const technologies = [
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -340,10 +342,19 @@ onClick={()=>setSelectedService(null)}
               transformation solutions that accelerate business growth.
             </p>
 
-            <button className="hero-btn">
-              Explore Services
-              <ArrowRight size={18} />
-            </button>
+<button
+  className="hero-btn"
+  onClick={() =>
+    document
+      .getElementById("services")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      })
+  }
+>
+  Explore Services
+  <ArrowRight size={18} />
+</button>
 
           </div>
 
@@ -353,7 +364,10 @@ onClick={()=>setSelectedService(null)}
         {/* ================= SERVICES ================= */}
 
         <section className="services-grid-section">
-
+<section
+  id="services"
+  className="services-grid-section"
+></section>
           <div className="section-heading">
 
             <span>OUR SERVICES</span>
@@ -539,10 +553,10 @@ onClick={()=>setSelectedService(null)}
               scalable, secure and future-ready digital solutions.
             </p>
 
-            <button>
-              Start Your Project
-              <ArrowRight size={18} />
-            </button>
+<button onClick={() => navigate("/contact")}>
+  Start Your Project
+  <ArrowRight size={18} />
+</button>
 
           </div>
 

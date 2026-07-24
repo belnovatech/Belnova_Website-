@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./WhyBelnova.css";
 import Navbar from "../components/Navbar";
 import {
@@ -10,7 +10,7 @@ import {
   Rocket,
   Globe2
 } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 const whyCards = [
   {
     id: 1,
@@ -18,15 +18,28 @@ const whyCards = [
     subtitle: "Transforming Ideas Into Powerful Digital Experiences",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80",
-    desc:
-      "At Belnova Technologies, we engineer intelligent digital products that help businesses innovate, automate operations, and scale faster. Every solution is designed with performance, security, and long-term growth in mind.",
+desc:
+  "At Belnova Technologies, we engineer intelligent digital products that help businesses innovate, automate operations, and scale faster. Every solution is designed with performance, security, and long-term growth in mind.",
 
-    chips: [
-      "AI Powered",
-      "Cloud Native",
-      "Scalable",
-      "Future Ready"
-    ],
+details: {
+  title: "What We Deliver",
+
+  points: [
+    "Custom Web Applications",
+    "AI Powered Solutions",
+    "Cloud Native Architecture",
+    "Mobile Applications",
+    "API Integrations",
+    "Long Term Maintenance"
+  ]
+},
+
+chips: [
+  "AI Powered",
+  "Cloud Native",
+  "Scalable",
+  "Future Ready"
+],
 
     icon: <Rocket size={20} />
   },
@@ -40,7 +53,18 @@ const whyCards = [
 
     desc:
       "Security isn't an afterthought. We integrate enterprise-grade security, encrypted architectures, cloud compliance, and modern authentication systems into every application we develop.",
+details: {
+  title: "Security Features",
 
+  points: [
+    "Zero Trust Architecture",
+    "End-to-End Encryption",
+    "Cloud Compliance",
+    "Authentication Systems",
+    "Security Audits",
+    "Role-Based Access"
+  ]
+},
     chips: [
       "Zero Trust",
       "Encryption",
@@ -60,7 +84,18 @@ const whyCards = [
 
     desc:
       "Our engineers combine modern frameworks, AI, cloud computing and automation to create software that performs reliably today and adapts to tomorrow.",
+details: {
+  title: "Technology Stack",
 
+  points: [
+    "React & Next.js",
+    "Node.js",
+    "Java Spring Boot",
+    "Python",
+    "Docker",
+    "Cloud Deployment"
+  ]
+},
     chips: [
       "React",
       "Node",
@@ -80,7 +115,18 @@ const whyCards = [
 
     desc:
       "From strategy and design to deployment and continuous support, Belnova becomes your trusted technology partner for every stage of digital growth.",
+details: {
+  title: "Our Partnership",
 
+  points: [
+    "Requirement Analysis",
+    "UI/UX Design",
+    "Development",
+    "Deployment",
+    "Maintenance",
+    "24/7 Support"
+  ]
+},
     chips: [
       "24/7 Support",
       "Agile",
@@ -93,6 +139,8 @@ const whyCards = [
 ];
 
 export default function WhyBelnova() {
+  const [expandedCard, setExpandedCard] = useState(null);
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -209,13 +257,53 @@ export default function WhyBelnova() {
 
                   </div>
 
-                  <button className="l-why-btn">
+<button
+  className="l-why-btn"
+  onClick={() =>
+    setExpandedCard(
+      expandedCard === card.id ? null : card.id
+    )
+  }
+>
 
-                    Learn More
+  {expandedCard === card.id
+    ? "Show Less"
+    : "Learn More"}
 
-                    <ArrowRight size={18} />
+  <ArrowRight size={18} />
 
-                  </button>
+</button>
+{expandedCard === card.id && (
+
+<div className="l-why-extra">
+
+<h4>{card.details.title}</h4>
+
+<ul>
+
+{card.details.points.map((item,index)=>(
+<li key={index}>
+
+<CheckCircle2 size={16}/>
+
+{item}
+
+</li>
+))}
+
+</ul>
+
+<button
+  className="l-why-contact-btn"
+  onClick={() => navigate("/contact")}
+>
+  Contact Our Team
+  <ArrowRight size={18}/>
+</button>
+
+</div>
+
+)}
 
                 </div>
 
@@ -264,13 +352,13 @@ export default function WhyBelnova() {
               improve efficiency, and deliver lasting business value.
             </p>
 
-            <button className="l-why-main-btn">
-
-              Start Your Project
-
-              <ArrowRight size={20} />
-
-            </button>
+<button
+  className="l-why-main-btn"
+  onClick={() => navigate("/contact")}
+>
+  Start Your Project
+  <ArrowRight size={20}/>
+</button>
 
           </div>
 

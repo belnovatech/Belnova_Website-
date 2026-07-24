@@ -1184,3 +1184,64 @@ RESPONSIVE ROTATING LOGO
     }
 
 }
+
+
+
+.l-why-extra{
+    margin-top:30px;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:25px;
+    animation:fadeUp .4s ease;
+}
+
+.l-why-extra h4{
+    color:#fff;
+    margin-bottom:18px;
+    font-size:20px;
+}
+
+.l-why-extra ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.l-why-extra li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#d5d5d5;
+}
+
+.l-why-contact-btn{
+    margin-top:25px;
+    background:linear-gradient(90deg,#00c6ff,#7b61ff);
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    padding:14px 28px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.l-why-contact-btn:hover{
+    transform:translateY(-3px);
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}

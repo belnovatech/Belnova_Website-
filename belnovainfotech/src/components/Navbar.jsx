@@ -14,12 +14,14 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div
-        className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        ☰
-      </div>
+<div
+  className="menu-toggle"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
       <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
           <li>

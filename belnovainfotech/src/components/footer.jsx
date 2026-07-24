@@ -207,13 +207,14 @@ function ContactFooter() {
 
               <div className="bnv-social-icons">
 
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  in
-                </a>
+<a
+  href="https://www.linkedin.com/company/belnova-tech-private-limited/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="LinkedIn"
+>
+  in
+</a>
 
                 <a
                   href="https://github.com"

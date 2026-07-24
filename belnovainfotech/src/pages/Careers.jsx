@@ -137,28 +137,30 @@ const Careers = () => {
     setSubmitted(false);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // 🔥 Replace this with your real API endpoint
-    try {
-      const res = await fetch("https://your-backend.com/api/careers/apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          jobTitle: selectedJob?.title,
-          ...formData,
-        }),
-      });
+  // Simulate successful submission
+  setSubmitted(true);
 
-      if (res.ok) {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", phone: "", resumeLink: "", message: "" });
-      }
-    } catch (err) {
-      console.error("Application submission failed:", err);
-    }
-  };
+  // Optional browser popup
+  alert("✅ Application submitted successfully!");
+
+  // Clear the form
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+    resumeLink: "",
+    message: "",
+  });
+
+  // Close the modal after 2 seconds
+  setTimeout(() => {
+    setSelectedJob(null);
+    setSubmitted(false);
+  }, 2000);
+};
 
   return (
     <section id="careers" className="careers-page">

@@ -147,15 +147,12 @@ const Hero = () => {
           </h2>
           <h4>Belnova Tech Private Limited — Full-stack technology partner for startups and enterprises. Web, Mobile, AI, Cloud.</h4>
 
-          <button
-            className="cta-btn"
-            onClick={() => {
-              const section = document.getElementById("contact");
-              section?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            LET'S CONNECT
-          </button>
+<button
+  className="cta-btn"
+  onClick={() => navigate("/contact")}
+>
+  LET'S CONNECT
+</button>
         </div>
       </section>
       {/* --- ABOUT US SECTION --- */}
