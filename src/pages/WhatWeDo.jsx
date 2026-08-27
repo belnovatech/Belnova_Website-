@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Styles/WhatWeDo.css";
+import "../styles/WhatWeDo.css";
 
 const capabilities = [
   {

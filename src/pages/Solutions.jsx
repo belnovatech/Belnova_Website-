@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Styles/Solutions.css";
+import "../styles/Solutions.css";
 
 const transformationColumns = [
   {
