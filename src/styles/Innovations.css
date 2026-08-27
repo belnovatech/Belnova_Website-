@@ -1,0 +1,807 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ==================== GLOBAL ==================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --innovations-black: #12141a;
+  --innovations-text: #515968;
+  --innovations-muted: #858c99;
+  --innovations-border: #dce2e9;
+  --innovations-soft: #fafbfc;
+  --innovations-gradient: linear-gradient(
+    105deg,
+    #00cbe8 0%,
+    #188ef8 35%,
+    #694cf1 66%,
+    #ce0de9 100%
+  );
+}
+
+body {
+  margin: 0;
+  color: var(--innovations-black);
+  background: #ffffff;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.innovations-page {
+  width: 100%;
+  overflow: hidden;
+  color: var(--innovations-black);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.innovations-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.innovations-section {
+  padding: 105px 0;
+}
+
+.innovations-soft-section {
+  background: var(--innovations-soft);
+}
+
+.innovations-section h2 {
+  margin: 30px 0 18px;
+  font-size: clamp(44px, 4vw, 62px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -3px;
+}
+
+.innovations-description {
+  max-width: 1000px;
+  margin: 0 0 80px;
+  color: var(--innovations-text);
+  font-size: 22px;
+  line-height: 1.65;
+}
+
+.innovations-label {
+  width: fit-content;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #505969;
+  background: rgba(248, 249, 251, 0.94);
+  border: 1px solid var(--innovations-border);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+}
+
+.innovations-label span {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  background: var(--innovations-gradient);
+  border-radius: 50%;
+}
+
+.innovations-gradient-text {
+  display: inline-block;
+  color: #218ef8;
+  background-image: var(--innovations-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.innovations-grid-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(205, 214, 225, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 214, 225, 0.22) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ==================== BUTTONS ==================== */
+
+.innovations-gradient-button,
+.innovations-outline-button {
+  min-height: 56px;
+  padding: 0 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.innovations-gradient-button {
+  color: #ffffff;
+  background: var(--innovations-gradient);
+  border: 0;
+  box-shadow: 0 15px 32px rgba(73, 79, 240, 0.14);
+}
+
+.innovations-outline-button {
+  color: var(--innovations-black);
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+}
+
+.innovations-gradient-button:hover,
+.innovations-outline-button:hover {
+  transform: translateY(-2px);
+}
+
+.innovations-outline-button:hover {
+  border-color: #5795ff;
+}
+
+/* ==================== HERO ==================== */
+
+.innovations-hero {
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 2% 5%,
+      rgba(0, 201, 233, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 96% 8%,
+      rgba(207, 13, 233, 0.07),
+      transparent 24%
+    ),
+    #ffffff;
+}
+
+.innovations-hero-content {
+  min-height: 480px;
+  position: relative;
+  z-index: 1;
+  padding-top: 36px;
+}
+
+.innovations-hero h1 {
+  max-width: 1100px;
+  margin: 38px 0 25px;
+  font-size: clamp(58px, 5vw, 78px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -4.5px;
+}
+
+.innovations-hero p {
+  max-width: 830px;
+  margin: 0;
+  color: var(--innovations-text);
+  font-size: 22px;
+  line-height: 1.65;
+}
+
+/* ==================== INNOVATION ENGINE ==================== */
+
+.innovations-engine-section {
+  padding-top: 35px;
+}
+
+.innovations-process {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(250px, 1fr));
+  gap: 20px;
+  overflow-x: auto;
+  padding: 0 25px 50px;
+}
+
+.innovations-process-line {
+  height: 2px;
+  position: absolute;
+  top: 32px;
+  left: 60px;
+  right: 60px;
+  background: linear-gradient(
+    90deg,
+    #00cbe8 0%,
+    #ce0de9 42%,
+    var(--innovations-border) 42%
+  );
+}
+
+.innovations-process-step {
+  min-width: 250px;
+  position: relative;
+  padding: 0;
+  color: var(--innovations-muted);
+  background: transparent;
+  border: 0;
+  text-align: left;
+}
+
+.innovations-step-number {
+  width: 66px;
+  height: 66px;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: #707887;
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.innovations-process-step.active .innovations-step-number {
+  color: #ffffff;
+  background: var(--innovations-gradient);
+  border-color: transparent;
+  box-shadow: 0 15px 30px rgba(56, 89, 230, 0.15);
+}
+
+.innovations-process-step article {
+  min-height: 390px;
+  margin-top: 24px;
+  padding: 34px 25px;
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 28px;
+}
+
+.innovations-process-step.active article {
+  color: var(--innovations-black);
+  border-color: #55aaff;
+  box-shadow: 0 16px 35px rgba(45, 90, 180, 0.08);
+}
+
+.innovations-process-step h3 {
+  margin: 0 0 25px;
+  font-size: 21px;
+}
+
+.innovations-process-step ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.innovations-process-step li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.innovations-process-step li::before {
+  margin-right: 10px;
+  color: #397eff;
+  content: "•";
+}
+
+/* ==================== BELNOVA LABS ==================== */
+
+.innovations-labs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.innovations-lab-card {
+  min-height: 190px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 28px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.innovations-lab-card:hover {
+  border-color: #58a8ff;
+  box-shadow: 0 15px 32px rgba(45, 80, 170, 0.07);
+  transform: translateY(-3px);
+}
+
+.innovations-lab-card small {
+  width: fit-content;
+  padding: 8px 14px;
+  display: block;
+  color: #148ff5;
+  border: 1px solid var(--innovations-border);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.innovations-lab-card h3 {
+  margin: 30px 0 14px;
+  font-size: 20px;
+}
+
+.innovations-lab-card p {
+  margin: 0;
+  color: var(--innovations-text);
+  line-height: 1.5;
+}
+
+/* ==================== TECHNOLOGY RADAR ==================== */
+
+.innovations-radar-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.innovations-radar {
+  width: 540px;
+  height: 540px;
+  position: relative;
+  justify-self: center;
+}
+
+.innovations-radar-circle {
+  position: absolute;
+  border: 1.5px solid #a7dcff;
+  border-radius: 50%;
+}
+
+.innovations-circle-one {
+  inset: 25px;
+}
+
+.innovations-circle-two {
+  inset: 105px;
+}
+
+.innovations-circle-three {
+  inset: 185px;
+}
+
+.innovations-radar-lines {
+  position: absolute;
+  inset: 25px;
+}
+
+.innovations-radar-line {
+  width: 50%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: linear-gradient(90deg, #9bdfff, #e0b0ff);
+  transform-origin: left center;
+}
+
+.innovations-line-1 {
+  transform: rotate(-90deg);
+}
+
+.innovations-line-2 {
+  transform: rotate(-38deg);
+}
+
+.innovations-line-3 {
+  transform: rotate(12deg);
+}
+
+.innovations-line-4 {
+  transform: rotate(64deg);
+}
+
+.innovations-line-5 {
+  transform: rotate(116deg);
+}
+
+.innovations-line-6 {
+  transform: rotate(168deg);
+}
+
+.innovations-line-7 {
+  transform: rotate(220deg);
+}
+
+.innovations-radar-fill {
+  position: absolute;
+  top: 260px;
+  left: 175px;
+  width: 125px;
+  height: 215px;
+  background: linear-gradient(
+    150deg,
+    rgba(0, 201, 233, 0.15),
+    rgba(108, 75, 241, 0.12)
+  );
+  clip-path: polygon(50% 0, 100% 100%, 0 78%);
+}
+
+.innovations-radar-label {
+  position: absolute;
+  z-index: 3;
+  padding: 10px 16px;
+  color: #596170;
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.innovations-radar-label.active {
+  color: #ffffff;
+  background: var(--innovations-gradient);
+  border-color: transparent;
+}
+
+.innovations-frontend {
+  top: 3px;
+  left: 225px;
+}
+
+.innovations-backend {
+  top: 100px;
+  right: 5px;
+}
+
+.innovations-mobile {
+  top: 310px;
+  right: -30px;
+}
+
+.innovations-database {
+  right: 85px;
+  bottom: 0;
+}
+
+.innovations-cloud {
+  bottom: 0;
+  left: 85px;
+}
+
+.innovations-devops {
+  top: 310px;
+  left: -30px;
+}
+
+.innovations-ai {
+  top: 100px;
+  left: 35px;
+}
+
+.innovations-technology-card {
+  min-height: 350px;
+  padding: 38px;
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 28px;
+}
+
+.innovations-technology-card > small {
+  color: #788095;
+  letter-spacing: 3px;
+}
+
+.innovations-technology-card h3 {
+  margin: 20px 0;
+  font-size: 30px;
+}
+
+.innovations-technology-card p {
+  color: var(--innovations-text);
+  font-size: 17px;
+}
+
+.innovations-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0 40px;
+}
+
+.innovations-tags span {
+  padding: 9px 15px;
+  color: var(--innovations-text);
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* ==================== SECURITY ==================== */
+
+.innovations-security-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.innovations-security-grid article {
+  min-height: 78px;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #ffffff;
+  border: 1px solid var(--innovations-border);
+  border-radius: 24px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.innovations-security-grid article:hover {
+  border-color: #55a8ff;
+  transform: translateY(-2px);
+}
+
+.innovations-security-grid span {
+  color: #00c7e8;
+  font-size: 23px;
+}
+
+.innovations-security-grid h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* ==================== FINAL CTA ==================== */
+
+.innovations-final-cta {
+  min-height: 700px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(0, 201, 233, 0.15),
+      rgba(207, 13, 233, 0.13)
+    ),
+    #ffffff;
+}
+
+.innovations-final-content {
+  width: min(1100px, calc(100% - 40px));
+  position: relative;
+  z-index: 1;
+  padding: 85px 20px;
+  text-align: center;
+}
+
+.innovations-cta-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 35px;
+  display: grid;
+  place-items: center;
+  color: #4776ff;
+  border: 3px solid #4776ff;
+  border-radius: 18px;
+  font-size: 35px;
+  transform: rotate(30deg);
+}
+
+.innovations-cta-icon span {
+  transform: rotate(-30deg);
+}
+
+.innovations-final-content h2 {
+  margin: 0;
+  font-size: clamp(58px, 6vw, 82px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -4px;
+}
+
+.innovations-final-content p {
+  margin: 35px 0 42px;
+  color: var(--innovations-text);
+  font-size: 22px;
+}
+
+.innovations-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* ==================== FLOATING CHAT ==================== */
+
+.innovations-floating-chat {
+  position: fixed;
+  right: 28px;
+  bottom: 24px;
+  z-index: 20;
+  padding: 18px 30px;
+  color: #ffffff;
+  text-decoration: none;
+  background: var(--innovations-gradient);
+  border-radius: 999px;
+  box-shadow: 0 15px 35px rgba(50, 80, 220, 0.22);
+  font-weight: 700;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .innovations-labs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .innovations-radar-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .innovations-security-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .innovations-container {
+    width: calc(100% - 32px);
+  }
+
+  .innovations-section {
+    padding: 80px 0;
+  }
+
+  .innovations-section h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+  }
+
+  .innovations-description {
+    margin-bottom: 45px;
+    font-size: 18px;
+  }
+
+  .innovations-hero,
+  .innovations-hero-content {
+    min-height: 500px;
+  }
+
+  .innovations-hero-content {
+    padding-top: 55px;
+  }
+
+  .innovations-hero h1 {
+    font-size: 48px;
+    letter-spacing: -3px;
+  }
+
+  .innovations-hero p {
+    font-size: 18px;
+  }
+
+  .innovations-process {
+    grid-template-columns: repeat(5, 250px);
+  }
+
+  .innovations-labs-grid,
+  .innovations-security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .innovations-radar {
+    width: 300px;
+    height: 300px;
+  }
+
+  .innovations-circle-one {
+    inset: 15px;
+  }
+
+  .innovations-circle-two {
+    inset: 62px;
+  }
+
+  .innovations-circle-three {
+    inset: 108px;
+  }
+
+  .innovations-radar-lines {
+    inset: 15px;
+  }
+
+  .innovations-radar-fill {
+    top: 145px;
+    left: 95px;
+    width: 70px;
+    height: 120px;
+  }
+
+  .innovations-radar-label {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .innovations-frontend {
+    top: 0;
+    left: 120px;
+  }
+
+  .innovations-backend {
+    top: 55px;
+    right: 0;
+  }
+
+  .innovations-mobile {
+    top: 165px;
+    right: -5px;
+  }
+
+  .innovations-database {
+    right: 35px;
+    bottom: 0;
+  }
+
+  .innovations-cloud {
+    bottom: 0;
+    left: 35px;
+  }
+
+  .innovations-devops {
+    top: 165px;
+    left: -5px;
+  }
+
+  .innovations-ai {
+    top: 55px;
+    left: 5px;
+  }
+
+  .innovations-technology-card {
+    padding: 25px;
+  }
+
+  .innovations-final-cta {
+    min-height: 650px;
+  }
+
+  .innovations-final-content h2 {
+    font-size: 46px;
+    letter-spacing: -3px;
+  }
+
+  .innovations-final-content p {
+    font-size: 18px;
+  }
+
+  .innovations-cta-actions {
+    flex-direction: column;
+  }
+
+  .innovations-gradient-button,
+  .innovations-outline-button {
+    width: 100%;
+  }
+
+  .innovations-floating-chat {
+    right: 15px;
+    bottom: 15px;
+    padding: 14px 20px;
+  }
+}

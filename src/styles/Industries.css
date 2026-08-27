@@ -1,0 +1,530 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ==================== GLOBAL ==================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --industries-black: #12141a;
+  --industries-text: #515968;
+  --industries-border: #dce2e9;
+  --industries-soft: #fafbfc;
+  --industries-gradient: linear-gradient(
+    105deg,
+    #00cbe8 0%,
+    #188ef8 35%,
+    #694cf1 66%,
+    #ce0de9 100%
+  );
+}
+
+body {
+  margin: 0;
+  color: var(--industries-black);
+  background: #ffffff;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.industries-page {
+  width: 100%;
+  overflow: hidden;
+  color: var(--industries-black);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.industries-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.industries-section {
+  padding: 105px 0;
+  background: #ffffff;
+}
+
+.industries-soft-section,
+.industries-maturity-section {
+  background: var(--industries-soft);
+}
+
+.industries-section h2 {
+  max-width: 1100px;
+  margin: 30px 0 18px;
+  font-size: clamp(44px, 4vw, 62px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -3px;
+}
+
+.industries-description {
+  max-width: 1050px;
+  margin: 0 0 80px;
+  color: var(--industries-text);
+  font-size: 22px;
+  line-height: 1.65;
+}
+
+.industries-label {
+  width: fit-content;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #505969;
+  background: rgba(248, 249, 251, 0.94);
+  border: 1px solid var(--industries-border);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+}
+
+.industries-label span {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  background: var(--industries-gradient);
+  border-radius: 50%;
+}
+
+.industries-gradient-text {
+  display: inline-block;
+  color: #218ef8;
+  background-image: var(--industries-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==================== HERO ==================== */
+
+.industries-hero {
+  min-height: 495px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 2% 5%,
+      rgba(0, 201, 233, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 96% 8%,
+      rgba(207, 13, 233, 0.07),
+      transparent 24%
+    ),
+    #ffffff;
+}
+
+.industries-grid-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(205, 214, 225, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 214, 225, 0.22) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.industries-hero-content {
+  min-height: 495px;
+  position: relative;
+  z-index: 1;
+  padding-top: 76px;
+}
+
+.industries-hero h1 {
+  max-width: 1150px;
+  margin: 34px 0 24px;
+  font-size: clamp(58px, 5vw, 78px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -4.5px;
+}
+
+.industries-hero p {
+  max-width: 850px;
+  margin: 0;
+  color: var(--industries-text);
+  font-size: 22px;
+  line-height: 1.65;
+}
+
+/* ==================== BUTTON ==================== */
+
+.industries-gradient-button {
+  min-height: 56px;
+  padding: 0 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #ffffff;
+  background: var(--industries-gradient);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 15px 32px rgba(73, 79, 240, 0.14);
+  font-size: 16px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.industries-gradient-button:hover {
+  box-shadow: 0 18px 38px rgba(73, 79, 240, 0.22);
+  transform: translateY(-2px);
+}
+
+/* ==================== INDUSTRY CARDS ==================== */
+
+.industries-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.industries-card {
+  min-height: 98px;
+  padding: 30px;
+  display: block;
+  color: var(--industries-black);
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#dce2e9, #dce2e9) border-box;
+  border: 1px solid transparent;
+  border-radius: 28px;
+  text-align: left;
+  transition:
+    min-height 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.industries-card:hover {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--industries-gradient) border-box;
+  box-shadow: 0 15px 32px rgba(48, 80, 170, 0.07);
+  transform: translateY(-2px);
+}
+
+.industries-card.active {
+  min-height: 295px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--industries-gradient) border-box;
+}
+
+.industries-card h3 {
+  margin: 3px 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.industries-card-details {
+  margin-top: 26px;
+}
+
+.industries-card-details small {
+  display: block;
+  margin-bottom: 8px;
+  color: #7a8497;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+}
+
+.industries-card-details p {
+  margin: 0 0 18px;
+  color: var(--industries-text);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* ==================== ASSESSMENTS ==================== */
+
+.industries-assessment-card {
+  padding: 50px;
+  background: #ffffff;
+  border: 1px solid var(--industries-border);
+  border-radius: 28px;
+}
+
+.industries-question + .industries-question {
+  margin-top: 45px;
+}
+
+.industries-question h3,
+.industries-maturity-question h3 {
+  margin: 0 0 20px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.industries-option-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.industries-option-list button {
+  min-height: 56px;
+  padding: 0 20px;
+  color: var(--industries-text);
+  background: #ffffff;
+  border: 1px solid var(--industries-border);
+  border-radius: 22px;
+  font-size: 16px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.industries-option-list button:hover {
+  border-color: #55a4ff;
+  transform: translateY(-2px);
+}
+
+.industries-option-list button.active {
+  color: #1784e8;
+  background: #f5fbff;
+  border-color: #43a4ff;
+  box-shadow: 0 8px 20px rgba(36, 139, 240, 0.08);
+}
+
+.industries-ai-result {
+  margin-top: 45px;
+  padding: 30px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--industries-gradient) border-box;
+  border: 1px solid transparent;
+  border-radius: 24px;
+}
+
+.industries-ai-result small,
+.industries-maturity-result > small {
+  color: #758096;
+  letter-spacing: 3px;
+}
+
+.industries-ai-result h3 {
+  margin: 18px 0 12px;
+  font-size: 24px;
+}
+
+.industries-ai-result p {
+  max-width: 850px;
+  margin: 0 0 25px;
+  color: var(--industries-text);
+  line-height: 1.6;
+}
+
+/* ==================== DIGITAL MATURITY ==================== */
+
+.industries-maturity-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.industries-maturity-form,
+.industries-maturity-result {
+  padding: 45px;
+  background: #ffffff;
+  border: 1px solid var(--industries-border);
+  border-radius: 28px;
+}
+
+.industries-progress {
+  width: 100%;
+  height: 5px;
+  margin-bottom: 38px;
+  overflow: hidden;
+  background: #dfe4ea;
+  border-radius: 999px;
+}
+
+.industries-progress span {
+  height: 100%;
+  display: block;
+  background: var(--industries-gradient);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.industries-maturity-question + .industries-maturity-question {
+  margin-top: 40px;
+}
+
+.industries-maturity-result {
+  min-height: 100%;
+}
+
+.industries-maturity-result > p {
+  margin: 25px 0 0;
+  color: var(--industries-text);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.industries-profile-content {
+  margin-top: 35px;
+}
+
+.industries-profile-score {
+  color: #2688f3;
+  font-size: 66px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.industries-profile-score span {
+  color: #8b93a1;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.industries-profile-content h3 {
+  margin: 25px 0 15px;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.industries-profile-content p {
+  margin: 0 0 20px;
+  color: var(--industries-text);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.industries-profile-content strong {
+  display: block;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* ==================== FLOATING CHAT ==================== */
+
+.industries-floating-chat {
+  position: fixed;
+  right: 28px;
+  bottom: 24px;
+  z-index: 20;
+  padding: 18px 30px;
+  color: #ffffff;
+  text-decoration: none;
+  background: var(--industries-gradient);
+  border-radius: 999px;
+  box-shadow: 0 15px 35px rgba(50, 80, 220, 0.22);
+  font-weight: 700;
+}
+
+/* ==================== TABLET ==================== */
+
+@media (max-width: 1100px) {
+  .industries-container {
+    width: calc(100% - 60px);
+  }
+
+  .industries-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .industries-maturity-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 700px) {
+  .industries-container {
+    width: calc(100% - 32px);
+  }
+
+  .industries-section {
+    padding: 80px 0;
+  }
+
+  .industries-section h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+  }
+
+  .industries-description {
+    margin-bottom: 45px;
+    font-size: 18px;
+  }
+
+  .industries-label {
+    font-size: 11px;
+    letter-spacing: 1.6px;
+  }
+
+  .industries-hero,
+  .industries-hero-content {
+    min-height: 500px;
+  }
+
+  .industries-hero-content {
+    padding-top: 55px;
+  }
+
+  .industries-hero h1 {
+    font-size: 48px;
+    letter-spacing: -3px;
+  }
+
+  .industries-hero p {
+    font-size: 18px;
+  }
+
+  .industries-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industries-card.active {
+    min-height: 310px;
+  }
+
+  .industries-assessment-card,
+  .industries-maturity-form,
+  .industries-maturity-result {
+    padding: 25px;
+  }
+
+  .industries-option-list {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .industries-option-list button {
+    width: 100%;
+  }
+
+  .industries-maturity-section h2 br {
+    display: none;
+  }
+
+  .industries-gradient-button {
+    width: 100%;
+  }
+
+  .industries-floating-chat {
+    right: 15px;
+    bottom: 15px;
+    padding: 14px 20px;
+  }
+}
