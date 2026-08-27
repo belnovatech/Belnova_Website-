@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Styles/Innovations.css";
+import "../styles/Innovations.css";
 
 const innovationSteps = [
   {

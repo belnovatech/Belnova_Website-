@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./footer.css";
-import footerLogo from "../public/belnova-logo.png";
+import "./Footer.css";
+import footerLogo from "../Public/belnova-logo.png";
 
 const footerColumns = [
   {

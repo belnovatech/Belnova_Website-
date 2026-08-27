@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/Company.css";
+import "../styles/Company.css";
 
 const companyValues = [
   {

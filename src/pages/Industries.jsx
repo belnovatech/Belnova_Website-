@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import "../Styles/Industries.css";
+import "../styles/Industries.css";
 
 const industries = [
   {
