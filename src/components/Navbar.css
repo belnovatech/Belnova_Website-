@@ -83,7 +83,7 @@
 
 .nav-link.active {
   color: #111827;
-  background: rgba(15, 23, 42, 0.07);
+  background: transparent;
   font-weight: 600;
 }
 

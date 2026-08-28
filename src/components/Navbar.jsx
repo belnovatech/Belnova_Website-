@@ -23,6 +23,9 @@ const Navbar = () => {
         </Link>
 
         <nav className="navbar-menu">
+          <NavLink to="/" className={getNavLinkClass}>
+  Home
+</NavLink>
           <NavLink to="/what-we-do" className={getNavLinkClass}>
             What We Do
           </NavLink>
@@ -74,6 +77,9 @@ const Navbar = () => {
 
       {mobileMenuOpen && (
         <div className="navbar-mobile-drawer">
+            <NavLink to="/" className={getNavLinkClass}>
+    Home
+  </NavLink>
           <nav className="navbar-mobile-nav">
             <NavLink to="/what-we-do" className={getNavLinkClass}>
               What We Do
