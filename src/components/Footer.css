@@ -1,256 +1,635 @@
-/* =========================
-   SITE FOOTER
-========================= */
+/* =========================================================
+   BELNOVA FOOTER
+   All classes intentionally use bnv-footer prefix
+   to prevent conflicts with other components.
+========================================================= */
 
-.site-footer {
+.bnv-footer {
   width: 100%;
-  background: #090a0f;
-  color: #e3e6ef;
-  padding: 90px 0 40px;
-  border-top: 1px solid #1a1d26;
+  position: relative;
+  background: #07090f;
+  color: #d9e3f4;
+
+  /*
+    Extra bottom space is intentional.
+    It prevents the fixed "Let's Talk" button
+    from covering footer content.
+  */
+  padding: 72px 30px 115px;
+
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.footer-container {
-  width: min(1440px, calc(100% - 80px));
+.bnv-footer *,
+.bnv-footer *::before,
+.bnv-footer *::after {
+  box-sizing: border-box;
+}
+
+.bnv-footer-container {
+  width: 100%;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
-/* =========================
-   FOOTER MAIN (BRAND + COLUMNS)
-========================= */
+/* =========================================================
+   MAIN FOOTER
+========================================================= */
 
-.footer-main {
+.bnv-footer-main {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1.4fr 2.6fr;
-  gap: 60px;
-  margin-bottom: 60px;
+  grid-template-columns: minmax(260px, 1fr) minmax(600px, 2fr);
+  gap: 70px;
+  align-items: start;
 }
 
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+/* =========================================================
+   BRAND
+========================================================= */
+
+.bnv-footer-brand {
+  min-width: 0;
 }
 
-.footer-logo {
-  display: inline-block;
-  width: fit-content;
-}
-
-.footer-logo-image {
-  width: 140px;
-  height: auto;
-}
-
-.footer-brand-desc {
-  color: #94a3b8;
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 380px;
-  margin: 0;
-}
-
-.footer-tagline-text {
-  font-size: 15px;
-  font-weight: 700;
-  color: transparent;
-  background: linear-gradient(
-    100deg,
-    #00c8ee 0%,
-    #008ff0 45%,
-    #a855f7 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  margin: 0;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 12px;
-  margin-top: 6px;
-}
-
-.footer-socials a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #131722;
-  border: 1px solid #232a3b;
-  display: grid;
-  place-items: center;
-  color: #94a3b8;
+.bnv-footer-logo {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.footer-socials a:hover {
-  color: #00c9e9;
-  border-color: #00c9e9;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   FOOTER LINKS GRID
-========================= */
-
-.footer-links-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
-
-.footer-column h3 {
-  color: #64748b;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
   margin-bottom: 22px;
 }
 
-.footer-column nav {
+.bnv-footer-logo-image {
+  display: block;
+  width: 175px;
+  height: auto;
+  object-fit: contain;
+}
+
+.bnv-footer-description {
+  max-width: 390px;
+  margin: 0 0 20px;
+
+  color: #8ea1c1;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.bnv-footer-tagline {
+  margin: 0;
+
+  color: #00bfff;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.bnv-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.bnv-footer-social-link {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #91a1bb;
+  background: #101621;
+
+  border: 1px solid #273347;
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bnv-footer-social-link svg {
+  width: 21px;
+  height: 21px;
+  display: block;
+}
+
+.bnv-footer-social-link:hover {
+  color: #ffffff;
+  background: #182131;
+  border-color: #3c4c67;
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   FOOTER LINK GRID
+========================================================= */
+
+.bnv-footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 35px;
+}
+
+.bnv-footer-column {
+  min-width: 0;
+}
+
+.bnv-footer-column h3 {
+  margin: 0 0 22px;
+
+  color: #7e94b8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.4;
+}
+
+.bnv-footer-column nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-.footer-column nav a {
-  color: #cbd5e1;
-  font-size: 14px;
+.bnv-footer-nav-link {
+  position: relative;
+
+  display: inline-block;
+  max-width: 100%;
+
+  color: #d5deed;
+  font-size: 15px;
+  line-height: 1.45;
+
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
-  width: fit-content;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
-.footer-column nav a:hover {
-  color: #00c9e9;
+.bnv-footer-nav-link:hover {
+  color: #16c7ff;
   transform: translateX(3px);
 }
 
-/* =========================
-   FOOTER CONTACT BAR
-========================= */
+/* =========================================================
+   CONTACT CARD
+========================================================= */
 
-.footer-contact-bar {
+.bnv-footer-contact-card {
+  width: 100%;
+
+  margin-top: 70px;
+  padding: 30px 32px;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr) auto;
-  gap: 24px;
+  grid-template-columns:
+    minmax(150px, 1fr)
+    minmax(150px, 1fr)
+    minmax(150px, 1fr)
+    minmax(150px, 1.4fr)
+    auto;
+
+  gap: 28px;
+
   align-items: center;
-  padding: 24px 30px;
+
   background: #10141e;
-  border: 1px solid #1e2638;
-  border-radius: 22px;
-  margin-bottom: 40px;
+
+  border: 1px solid #263246;
+  border-radius: 30px;
 }
 
-.footer-contact-item {
+.bnv-footer-contact-item {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 9px;
+
+  color: inherit;
+  text-decoration: none;
 }
 
-.footer-contact-item small {
-  color: #64748b;
+.bnv-footer-contact-label {
+  color: #7086a9;
+
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
+  line-height: 1.3;
 }
 
-.footer-contact-item span {
-  color: #cbd5e1;
-  font-size: 13px;
+.bnv-footer-contact-value {
+  color: #dbe4f2;
+
+  font-size: 15px;
+  line-height: 1.55;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  transition: color 0.25s ease;
 }
 
-.footer-portal-button {
+a.bnv-footer-contact-item:hover .bnv-footer-contact-value {
+  color: #17c5ff;
+}
+
+/* =========================================================
+   CLIENT PORTAL BUTTON
+========================================================= */
+
+/* CLIENT PORTAL BUTTON - FIX */
+.bnv-footer-portal-button {
+  min-height: 58px;
+  width: fit-content;
+
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: transparent;
-  border: 1px solid #334155;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 0 24px;
+
   color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
+  background: transparent;
+
+  border: 1px solid #3a4961;
+  border-radius: 32px;
+
   text-decoration: none;
   white-space: nowrap;
-  transition: all 0.2s ease;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
-.footer-portal-button:hover {
-  border-color: #00c9e9;
-  color: #00c9e9;
+.bnv-footer-portal-button .bnv-footer-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  position: static;
+  margin: 0;
+
+  font-size: 22px;
+  line-height: 1;
+}
+
+.bnv-footer-portal-button:hover {
+  background: #151d2b;
+  border-color: #5a6d8a;
   transform: translateY(-2px);
 }
 
-/* =========================
-   FOOTER BOTTOM
-========================= */
+.bnv-footer-arrow {
+  font-size: 21px;
+  line-height: 1;
+}
 
-.footer-bottom {
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.bnv-footer-bottom {
+  width: 100%;
+
+  margin-top: 60px;
+  padding-top: 34px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 24px;
-  border-top: 1px solid #1a202c;
-  font-size: 13px;
-  color: #64748b;
+  gap: 30px;
+
+  border-top: 1px solid #1c2635;
+
+  /*
+    Reserve horizontal room for the floating
+    "Let's Talk" button.
+  */
+  padding-right: 235px;
 }
 
-.footer-bottom p {
+.bnv-footer-copyright,
+.bnv-footer-bottom-tagline {
   margin: 0;
+
+  color: #7188ad;
+
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-.footer-bottom-tagline {
-  letter-spacing: 1.5px;
+.bnv-footer-bottom-tagline {
+  letter-spacing: 2px;
+  white-space: nowrap;
 }
 
-/* =========================
-   RESPONSIVE BREAKPOINTS
-========================= */
+.bnv-footer-bottom-tagline span {
+  padding: 0 6px;
+  color: #516681;
+}
 
-@media (max-width: 1200px) {
-  .footer-container {
-    width: calc(100% - 60px);
+/* =========================================================
+   LARGE LAPTOP / DESKTOP
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .bnv-footer {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  .footer-main {
+  .bnv-footer-main {
+    grid-template-columns: 280px 1fr;
+    gap: 45px;
+  }
+
+  .bnv-footer-links-grid {
+    gap: 22px;
+  }
+
+  .bnv-footer-contact-card {
+    grid-template-columns:
+      repeat(3, minmax(150px, 1fr));
+
+    align-items: start;
+  }
+
+  .bnv-footer-portal-button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .bnv-footer-bottom {
+    padding-right: 220px;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bnv-footer {
+    padding: 58px 22px 130px;
+  }
+
+  .bnv-footer-main {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 50px;
   }
 
-  .footer-contact-bar {
-    grid-template-columns: repeat(2, 1fr);
+  .bnv-footer-brand {
+    max-width: 650px;
   }
-}
 
-@media (max-width: 850px) {
-  .footer-links-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .bnv-footer-description {
+    max-width: 600px;
+  }
+
+  .bnv-footer-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px 30px;
+  }
+
+  .bnv-footer-contact-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
+    margin-top: 55px;
   }
 
-  .footer-contact-bar {
-    grid-template-columns: 1fr;
+  .bnv-footer-portal-button {
+    grid-column: 1 / -1;
+    width: 100%;
   }
 
-  .footer-bottom {
+  .bnv-footer-bottom {
+    padding-right: 0;
+
+    align-items: flex-start;
     flex-direction: column;
-    gap: 12px;
-    text-align: center;
+    gap: 14px;
+  }
+
+  .bnv-footer-bottom-tagline {
+    white-space: normal;
   }
 }
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
-  .footer-container {
-    width: calc(100% - 32px);
+
+  .bnv-footer {
+    padding: 48px 16px 125px;
   }
 
-  .footer-links-grid {
+  .bnv-footer-container {
+    width: 100%;
+  }
+
+  /* BRAND */
+
+  .bnv-footer-logo {
+    margin-bottom: 18px;
+  }
+
+  .bnv-footer-logo-image {
+    width: 150px;
+  }
+
+  .bnv-footer-description {
+    margin-bottom: 17px;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .bnv-footer-tagline {
+    font-size: 16px;
+  }
+
+  /* SOCIALS */
+
+  .bnv-footer-socials {
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .bnv-footer-social-link {
+    width: 50px;
+    height: 50px;
+  }
+
+  .bnv-footer-social-link svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  /* LINKS */
+
+  .bnv-footer-links-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 38px 18px;
+  }
+
+  .bnv-footer-column h3 {
+    margin-bottom: 17px;
+    font-size: 11px;
+  }
+
+  .bnv-footer-column nav {
+    gap: 12px;
+  }
+
+  .bnv-footer-nav-link {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  /* CONTACT */
+
+  .bnv-footer-contact-card {
+    margin-top: 48px;
+    padding: 25px 20px;
+
     grid-template-columns: 1fr;
+    gap: 24px;
+
+    border-radius: 24px;
   }
 
-  .site-footer {
-    padding: 60px 0 30px;
+  .bnv-footer-contact-item {
+    width: 100%;
+  }
+
+  .bnv-footer-contact-value {
+    font-size: 14px;
+  }
+
+  .bnv-footer-location-item .bnv-footer-contact-value {
+    max-width: 100%;
+  }
+
+  /* PORTAL */
+
+  .bnv-footer-portal-button {
+    width: 100%;
+    min-height: 58px;
+
+    padding: 0 18px;
+
+    font-size: 14px;
+
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* BOTTOM */
+
+  .bnv-footer-bottom {
+    margin-top: 42px;
+    padding-top: 25px;
+
+    gap: 12px;
+
+    /*
+      Important for mobile:
+      floating Let's Talk button should not
+      cover copyright/tagline.
+    */
+    padding-bottom: 30px;
+  }
+
+  .bnv-footer-copyright,
+  .bnv-footer-bottom-tagline {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .bnv-footer-bottom-tagline {
+    letter-spacing: 1.2px;
   }
 }
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .bnv-footer {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .bnv-footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bnv-footer-contact-card {
+    padding: 22px 17px;
+  }
+
+  .bnv-footer-social-link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .bnv-footer-portal-button {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.bnv-footer a:focus-visible {
+  outline: 2px solid #16c7ff;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bnv-footer-social-link,
+  .bnv-footer-nav-link,
+  .bnv-footer-portal-button,
+  .bnv-footer-contact-value {
+    transition: none;
+  }
+}
+
