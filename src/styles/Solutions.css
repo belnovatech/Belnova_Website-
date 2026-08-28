@@ -191,7 +191,7 @@ button {
   min-height: 455px;
   position: relative;
   z-index: 1;
-  padding-top: 35px;
+  padding-top: 100px;
 }
 
 .solutions-hero h1 {
@@ -652,15 +652,15 @@ button {
 
   /* HERO */
 
-  .solutions-hero,
-  .solutions-hero-content {
-    min-height: 500px;
+ .solutions-hero {
+    min-height: auto;
   }
 
   .solutions-hero-content {
-    padding-top: 50px;
+    min-height: auto;
+    padding-top: 105px;
+    padding-bottom: 65px;
   }
-
   .solutions-hero h1 {
     margin-top: 35px;
     font-size: 48px;

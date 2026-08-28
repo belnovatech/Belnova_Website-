@@ -151,14 +151,12 @@ export default function Company() {
         <div className="company-container">
           <div className="company-overview-layout">
             <div className="company-overview-content">
-              <h2>
-                Engineering Innovation{" "}
-                <span className="company-gradient-text">
-                  With
-                  <br />
-                  Purpose
-                </span>
-              </h2>
+<h2 className="company-overview-title">
+  Built for Business.{" "}
+  <span className="company-gradient-text">
+    Engineered for Growth.
+  </span>
+</h2>
 
               <p>
                 Belnova Tech Private Limited is an innovation-focused technology

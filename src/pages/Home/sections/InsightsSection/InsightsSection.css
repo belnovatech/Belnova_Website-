@@ -1,0 +1,102 @@
+/* ==================== INSIGHTS SECTION ==================== */
+
+.belNova-insights-section {
+  width: 100%;
+  padding: 145px max(40px, calc((100% - 1600px) / 2));
+  background: var(--belNova-soft-bg);
+}
+
+.belNova-insights-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-insights-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-insights-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.belNova-insight-card {
+  min-height: 180px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.belNova-insight-card:hover {
+  transform: translateY(-3px);
+  border-color: #5a93ff;
+  box-shadow: 0 12px 30px rgba(30, 55, 100, 0.06);
+}
+
+.belNova-insight-category {
+  color: #009dff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.belNova-insight-card h3 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--belNova-black);
+}
+
+.belNova-insight-meta {
+  margin-top: auto;
+  color: #8892a0;
+  font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-insights-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-insights-section {
+    padding: 80px 16px;
+  }
+  .belNova-insights-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-insights-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-insights-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-insights-grid {
+    grid-template-columns: 1fr;
+  }
+}

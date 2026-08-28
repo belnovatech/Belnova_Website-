@@ -133,20 +133,21 @@ button {
 }
 
 .wwd-hero-content {
-  width: min(1600px, calc(100% - 80px));
+  width: min(1600px, calc(100% - 120px));
   min-height: 605px;
   position: relative;
   z-index: 1;
-  padding-top: 66px;
+  padding-top: 105px;
+  margin: 0 auto;
 }
 
 .wwd-hero h1 {
   max-width: 1050px;
-  margin: 33px 0 24px;
-  font-size: clamp(54px, 6vw, 78px) !important;
+  margin: 34px 0 24px;
+  font-size: clamp(52px, 5.2vw, 76px) !important;
   font-weight: 750;
-  line-height: 1.02 !important;
-  letter-spacing: -0.055em !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.05em !important;
 }
 
 .wwd-hero p {
@@ -673,18 +674,29 @@ button {
   }
 
   .wwd-hero {
-    min-height: 520px;
+    min-height: auto;
   }
 
   .wwd-hero-content {
-    min-height: 520px;
-    padding-top: 50px;
+    width: calc(100% - 32px);
+    min-height: auto;
+    padding-top: 105px;
+    padding-bottom: 70px;
+    margin: 0 auto;
   }
 
   .wwd-hero h1 {
-    margin-top: 35px;
-    font-size: clamp(42px, 12vw, 58px) !important;
+    max-width: 100%;
+    margin: 28px 0 22px;
+    font-size: clamp(42px, 11vw, 56px) !important;
+    line-height: 1.04 !important;
     letter-spacing: -0.045em !important;
+  }
+
+  .wwd-hero p {
+    max-width: 100%;
+    font-size: 17px !important;
+    line-height: 1.55 !important;
   }
 
   .wwd-hero p {

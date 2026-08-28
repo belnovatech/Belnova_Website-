@@ -1,0 +1,85 @@
+/* ==================== FLOATING CONTROLS ==================== */
+
+.belNova-floating-bottom-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.belNova-floating-preview-controls {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  background: #0f172a;
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.belNova-preview-ctrl-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.belNova-preview-ctrl-btn.active {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.belNova-ctrl-icon {
+  font-size: 14px;
+}
+
+.belNova-floating-chat-btn {
+  pointer-events: auto;
+  position: absolute;
+  right: 32px;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--belNova-gradient);
+  color: #ffffff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 10px 30px rgba(33, 139, 248, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.belNova-floating-chat-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(33, 139, 248, 0.45);
+}
+
+.belNova-chat-bubble-icon {
+  font-size: 16px;
+}
+
+@media (max-width: 700px) {
+  .belNova-floating-chat-btn {
+    right: 16px;
+    bottom: 8px;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}

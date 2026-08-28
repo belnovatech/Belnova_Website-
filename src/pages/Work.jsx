@@ -36,10 +36,23 @@ export default function WorkPage() {
       <p className="hero-copy">Selected projects with the business challenge, the system built and the technology behind it.</p>
     </div></section>
 
-    <section className="projects-section"><div className="container">
-      <Label>WORK</Label>
-      <h2>Ideas Turned Into Digital Products</h2>
-      <p className="section-intro">Project information is presented as delivered. No invented client names, logos or claims.</p>
+   <section className="projects-section">
+  <div className="container">
+
+    <p className="section-intro">
+      Project information is presented as delivered.
+      No invented client names, logos or claims.
+    </p>
+
+    <div className="projects-grid">
+      {projects.map((project, i) => (
+        <ProjectCard
+          key={project.title}
+          project={project}
+          active={i === 0}
+        />
+      ))}
+    </div>
       <div className="projects-grid">{projects.map((project, i) => <ProjectCard key={project.title} project={project} active={i === 0} />)}</div>
 
       <section className="project-anatomy">

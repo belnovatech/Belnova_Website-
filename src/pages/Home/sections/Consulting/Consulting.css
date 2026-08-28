@@ -1,0 +1,103 @@
+/* ==================== CONSULTING ==================== */
+
+.belNova-consulting-section {
+  width: 100%;
+  padding: 145px max(40px, calc((100% - 1600px) / 2));
+  background: var(--belNova-soft-bg);
+}
+
+.belNova-consulting-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-consulting-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-consulting-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-consulting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.belNova-consulting-card {
+  min-height: 140px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.belNova-consulting-card:hover,
+.belNova-consulting-card.selected {
+  transform: translateY(-2px);
+  position: relative;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--belNova-gradient) border-box !important;
+  box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
+}
+
+.belNova-consulting-card h3 {
+  margin: 0 0 12px;
+  color: #00c7e8;
+  font-size: 26px;
+}
+
+.belNova-consulting-card p {
+  margin: 0;
+  color: var(--belNova-text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.belNova-consulting-cta-wrap {
+  display: flex;
+  margin-top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-consulting-container {
+    width: min(100% - 60px, 1600px);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-consulting-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-consulting-section {
+    padding: 80px 16px;
+  }
+  .belNova-consulting-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-consulting-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-consulting-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+}

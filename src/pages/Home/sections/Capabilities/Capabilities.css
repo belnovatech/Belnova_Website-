@@ -1,0 +1,241 @@
+/* ==================== CAPABILITIES ==================== */
+
+.belNova-capabilities-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-capabilities-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-capabilities-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-capabilities-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.belNova-capability-card {
+  min-height: 340px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.belNova-capability-card:hover {
+  box-shadow: 0 14px 34px rgba(30, 55, 100, 0.07);
+}
+
+.belNova-capability-card.belNova-capability-expanded {
+  position: relative;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--belNova-gradient) border-box !important;
+  box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
+}
+
+.belNova-capability-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  color: #00cbe8;
+  border: 1px solid var(--belNova-border);
+  border-radius: 18px;
+  font-size: 20px;
+  margin-bottom: 22px;
+}
+
+.belNova-capability-card h3 {
+  margin: 0 0 14px;
+  font-size: 23px;
+  color: var(--belNova-black);
+}
+
+.belNova-capability-card > p {
+  color: var(--belNova-text);
+  font-size: 16px;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.belNova-capability-card .belNova-tag-list {
+  margin-bottom: 20px;
+}
+
+.belNova-capability-toggle-btn {
+  margin-top: auto;
+  padding: 12px 0;
+  color: #00cbe8;
+  background: transparent;
+  border: 0;
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.belNova-capability-toggle-btn:hover {
+  color: #178df0;
+}
+
+.belNova-capability-details {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--belNova-border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.belNova-capability-block small,
+.belNova-capability-meta small {
+  display: block;
+  color: #778094;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.belNova-capability-block ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--belNova-text);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.belNova-deliverables-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.belNova-deliverables-wrap span {
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.belNova-capability-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px dashed var(--belNova-border);
+  border-bottom: 1px dashed var(--belNova-border);
+}
+
+.belNova-capability-meta strong {
+  font-size: 14px;
+  color: var(--belNova-black);
+}
+
+.belNova-capability-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.belNova-cap-discuss-btn {
+  min-height: 44px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  color: var(--belNova-black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.belNova-cap-discuss-btn:hover {
+  border-color: #5a93ff;
+  transform: translateY(-2px);
+}
+
+.belNova-cap-link {
+  color: #168df0;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.belNova-cap-link:hover {
+  text-decoration: underline;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .belNova-capabilities-container {
+    width: min(100% - 60px, 1600px);
+  }
+
+  .belNova-capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-capabilities-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .belNova-capabilities-container {
+    width: min(100% - 32px, 1600px);
+  }
+
+  .belNova-capabilities-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+
+  .belNova-capabilities-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+}

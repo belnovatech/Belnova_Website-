@@ -1,0 +1,153 @@
+/* ==================== CLIENT JOURNEY ==================== */
+
+.belNova-journey-section {
+  width: 100%;
+  padding: 145px max(40px, calc((100% - 1600px) / 2));
+  background: var(--belNova-soft-bg);
+}
+
+.belNova-journey-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-journey-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-journey-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-profile-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.belNova-profile-tabs button {
+  min-height: 52px;
+  padding: 0 26px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #596170;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.belNova-profile-tabs button.active {
+  color: #ffffff;
+  background: var(--belNova-gradient);
+  border-color: transparent;
+}
+
+.belNova-client-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+.belNova-client-step-card {
+  min-height: 130px;
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+}
+
+.belNova-client-step-card small {
+  color: #00a9ff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.belNova-client-step-card h3 {
+  margin: 14px 0 0;
+  font-size: 22px;
+  color: var(--belNova-black);
+}
+
+.belNova-process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.belNova-process-row {
+  min-height: 90px;
+  padding: 20px 28px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr 1.3fr 1.3fr 0.5fr;
+  gap: 20px;
+  align-items: center;
+  color: #4f5663;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+  background: #ffffff;
+}
+
+.belNova-process-row strong {
+  color: var(--belNova-black);
+  font-size: 16px;
+}
+
+.belNova-process-row small {
+  width: fit-content;
+  padding: 6px 14px;
+  border: 1px solid var(--belNova-border);
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-journey-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-process-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-client-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .belNova-process-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-journey-section {
+    padding: 80px 16px;
+  }
+  .belNova-journey-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-journey-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-journey-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-client-steps {
+    grid-template-columns: 1fr;
+  }
+}

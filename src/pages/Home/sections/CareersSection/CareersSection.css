@@ -1,0 +1,110 @@
+/* ==================== CAREERS SECTION ==================== */
+
+.belNova-careers-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-careers-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-careers-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-careers-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.belNova-job-card {
+  min-height: 155px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+}
+
+.belNova-job-info h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  color: var(--belNova-black);
+}
+
+.belNova-job-info small {
+  color: #7a818d;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.belNova-job-info p {
+  margin: 0;
+  color: var(--belNova-text);
+  font-size: 14px;
+}
+
+.belNova-careers-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-careers-container {
+    width: min(100% - 60px, 1600px);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-jobs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-careers-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .belNova-careers-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-careers-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-careers-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .belNova-careers-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

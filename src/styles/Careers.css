@@ -449,6 +449,7 @@ a {
   .careers-label {
     font-size: 11px;
     letter-spacing: 1.6px;
+     margin-top: 25px !important;
   }
 
   .careers-hero,

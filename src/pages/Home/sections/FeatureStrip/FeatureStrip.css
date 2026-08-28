@@ -1,0 +1,102 @@
+/* ==================== FEATURE STRIP ==================== */
+
+.belNova-feature-strip-section {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.belNova-feature-strip {
+  width: min(1600px, calc(100% - 96px));
+  min-height: 130px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0 auto;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--belNova-border);
+  border-radius: 28px;
+  box-shadow: 0 12px 34px rgba(30, 55, 100, 0.04);
+  transform: translateY(-25px);
+}
+
+.belNova-feature-item {
+  min-width: 0;
+  min-height: 130px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--belNova-border);
+}
+
+.belNova-feature-item:last-child {
+  border-right: 0;
+}
+
+.belNova-feature-item h3 {
+  width: fit-content;
+  margin: 0 0 10px;
+  color: transparent;
+  background: var(--belNova-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.belNova-feature-item p {
+  margin: 0;
+  color: var(--belNova-text);
+  font-size: 15px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .belNova-feature-strip {
+    width: min(100% - 60px, 1600px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .belNova-feature-item {
+    border-right: 1px solid var(--belNova-border);
+    border-bottom: 1px solid var(--belNova-border);
+  }
+
+  .belNova-feature-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .belNova-feature-item:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-feature-strip {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+    transform: translateY(-10px);
+  }
+
+  .belNova-feature-item {
+    min-height: 100px;
+    padding: 22px 20px;
+    border-right: 0;
+    border-bottom: 1px solid var(--belNova-border);
+  }
+
+  .belNova-feature-item h3 {
+    margin-bottom: 8px;
+    font-size: 22px;
+  }
+
+  .belNova-feature-item p {
+    font-size: 14px;
+  }
+}

@@ -665,3 +665,130 @@ button {
     padding: 14px 20px;
   }
 }
+
+
+/* =========================================================
+   HERO TITLE OVERRIDE — FINAL
+   Paste this at the VERY BOTTOM of your CSS
+   ========================================================= */
+
+/* Desktop */
+.company-hero-content {
+  padding-top: 95px !important;
+}
+
+.company-hero h1 {
+  max-width: 1250px !important;
+  margin: 42px 0 28px !important;
+
+  font-size: clamp(56px, 5vw, 76px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -4px !important;
+
+  /* Keep the title in the correct reading order */
+  display: block !important;
+}
+
+/* Remove forced HTML line breaks inside the heading */
+.company-hero h1 br {
+  display: none !important;
+}
+
+/* Make all heading spans behave naturally */
+.company-hero h1 span {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+/* Keep the gradient text */
+.company-hero h1 .company-gradient-text {
+  display: inline !important;
+}
+
+/* Description */
+.company-hero p {
+  max-width: 900px !important;
+  margin-top: 0 !important;
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .company-hero,
+  .company-hero-content {
+    min-height: 560px !important;
+  }
+
+  /* Bring COMPANY label/title area slightly down */
+  .company-hero-content {
+    padding-top: 100px !important;
+  }
+
+  /* Better mobile heading */
+  .company-hero h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 38px 0 28px !important;
+
+    font-size: 43px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -2.5px !important;
+
+    display: block !important;
+  }
+
+  /* Don't allow old <br> tags to destroy the sentence */
+  .company-hero h1 br {
+    display: none !important;
+  }
+
+  /* Natural sentence flow */
+  .company-hero h1 span,
+  .company-hero h1 .company-gradient-text {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  /* Description spacing */
+  .company-hero p {
+    max-width: 100% !important;
+    margin: 0 !important;
+
+    font-size: 17px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Company pill */
+.company-label {
+  margin-top: 25px !important;
+}
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .company-hero-content {
+    padding-top: 65px !important;
+  }
+
+  .company-hero h1 {
+    font-size: 39px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -2.2px !important;
+  }
+
+  .company-hero p {
+    font-size: 16px !important;
+  }
+}

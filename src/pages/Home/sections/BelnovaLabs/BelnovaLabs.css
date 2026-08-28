@@ -1,0 +1,117 @@
+/* ==================== BELNOVA LABS ==================== */
+
+.belNova-labs-section {
+  width: 100%;
+  padding: 145px max(40px, calc((100% - 1600px) / 2));
+  background: var(--belNova-soft-bg);
+}
+
+.belNova-labs-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-labs-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-labs-gradient-text {
+  color: transparent;
+  background: var(--belNova-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.belNova-labs-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-labs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.belNova-lab-card {
+  min-height: 180px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+}
+
+.belNova-lab-card.highlight {
+  position: relative;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--belNova-gradient) border-box !important;
+  box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
+}
+
+.belNova-lab-card small {
+  display: inline-block;
+  padding: 6px 14px;
+  color: #009dff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 999px;
+  letter-spacing: 1.5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.belNova-lab-card h3 {
+  margin: 24px 0 12px;
+  font-size: 22px;
+  color: var(--belNova-black);
+}
+
+.belNova-lab-card p {
+  margin: 0;
+  color: var(--belNova-text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.belNova-labs-cta-wrap {
+  display: flex;
+  margin-top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-labs-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-labs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-labs-section {
+    padding: 80px 16px;
+  }
+  .belNova-labs-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-labs-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-labs-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-labs-grid {
+    grid-template-columns: 1fr;
+  }
+}
