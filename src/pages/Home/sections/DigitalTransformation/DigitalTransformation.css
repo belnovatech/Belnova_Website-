@@ -1,0 +1,107 @@
+/* ==================== DIGITAL TRANSFORMATION ==================== */
+
+.belNova-dt-section {
+  width: 100%;
+  padding: 145px max(40px, calc((100% - 1600px) / 2));
+  background: var(--belNova-soft-bg);
+}
+
+.belNova-dt-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-dt-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-dt-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-dt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.belNova-dt-card {
+  min-height: 380px;
+  padding: 35px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 28px;
+}
+
+.belNova-dt-card h3 {
+  letter-spacing: 3px;
+  font-size: 20px;
+  margin-bottom: 24px;
+  color: var(--belNova-black);
+}
+
+.belNova-dt-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #7a818e;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.belNova-dt-card li {
+  margin-bottom: 12px;
+}
+
+.belNova-dt-gradient-card {
+  color: #ffffff;
+  background: var(--belNova-gradient) !important;
+  border: 0 !important;
+}
+
+.belNova-dt-gradient-card h3,
+.belNova-dt-gradient-card ul {
+  color: #ffffff !important;
+}
+
+.belNova-dt-cta-wrap {
+  display: flex;
+  margin-top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-dt-container {
+    width: min(100% - 60px, 1600px);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-dt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-dt-section {
+    padding: 80px 16px;
+  }
+  .belNova-dt-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-dt-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-dt-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+}

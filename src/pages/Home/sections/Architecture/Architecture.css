@@ -1,0 +1,137 @@
+/* ==================== ARCHITECTURE ==================== */
+
+.belNova-arch-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-arch-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-arch-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-arch-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-arch-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.belNova-arch-stack,
+.belNova-arch-integration-panel {
+  padding: 38px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 28px;
+}
+
+.belNova-arch-item {
+  min-height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--belNova-border);
+  border-radius: 20px;
+  background: #fafbfc;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.belNova-arch-item:hover {
+  transform: translateX(4px);
+  border-color: #5a93ff;
+}
+
+.belNova-arch-item span {
+  color: #7d8490;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.belNova-arch-connector {
+  width: 2px;
+  height: 24px;
+  margin: auto;
+  background: var(--belNova-gradient);
+}
+
+.belNova-arch-integration-panel h3 {
+  margin-top: 0;
+  font-size: 24px;
+  color: var(--belNova-black);
+}
+
+.belNova-arch-integration-panel p {
+  color: var(--belNova-text);
+  font-size: 16px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.belNova-arch-integration-item {
+  margin-top: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--belNova-text);
+  border: 1px solid var(--belNova-border);
+  border-radius: 20px;
+  background: #fafbfc;
+}
+
+.belNova-arch-integration-item span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--belNova-gradient);
+}
+
+@media (max-width: 1200px) {
+  .belNova-arch-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-arch-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-arch-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .belNova-arch-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-arch-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-arch-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-arch-stack,
+  .belNova-arch-integration-panel {
+    padding: 22px;
+  }
+}

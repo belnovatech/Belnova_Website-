@@ -1,0 +1,209 @@
+/* ==================== COMPANY VALUES ==================== */
+
+.belNova-company-section {
+  width: 100%;
+  padding: 145px max(40px, calc((100% - 1600px) / 2));
+  background: var(--belNova-soft-bg);
+}
+
+.belNova-company-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-company-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-company-gradient-text {
+  color: transparent;
+  background: var(--belNova-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.belNova-company-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-company-hero-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.belNova-company-hero-text p {
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.belNova-company-logo-box {
+  display: grid;
+  place-items: center;
+}
+
+.belNova-hex-3d-box {
+  font-size: 110px;
+  color: #3b82f6;
+  filter: drop-shadow(0 12px 30px rgba(59, 130, 246, 0.3));
+  animation: floatHex 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatHex {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(4deg); }
+}
+
+.belNova-mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.belNova-mission-card,
+.belNova-vision-card {
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+}
+
+.belNova-mission-card small,
+.belNova-vision-card small {
+  color: #778094;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.belNova-mission-card p,
+.belNova-vision-card p {
+  margin-top: 14px;
+  font-size: 16px;
+  color: var(--belNova-text);
+  line-height: 1.6;
+}
+
+.belNova-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.belNova-value-card {
+  min-height: 130px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+}
+
+.belNova-value-card h3 {
+  margin: 0 0 12px;
+  font-size: 21px;
+  color: var(--belNova-black);
+}
+
+.belNova-value-card p {
+  margin: 0;
+  color: var(--belNova-text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.belNova-company-metrics {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 60px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 26px;
+}
+
+.belNova-metric-box {
+  min-height: 120px;
+  padding: 26px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--belNova-border);
+}
+
+.belNova-metric-box:last-child {
+  border-right: 0;
+}
+
+.belNova-metric-box strong {
+  color: #7a818d;
+  font-size: 24px;
+}
+
+.belNova-metric-box span {
+  margin-top: 12px;
+  color: #454c58;
+  font-size: 13px;
+}
+
+.belNova-metrics-note {
+  color: #7d8492;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .belNova-company-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-company-hero-layout {
+    grid-template-columns: 1fr;
+  }
+  .belNova-company-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-mission-vision-grid {
+    grid-template-columns: 1fr;
+  }
+  .belNova-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-company-section {
+    padding: 80px 16px;
+  }
+  .belNova-company-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-company-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-company-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-values-grid,
+  .belNova-company-metrics {
+    grid-template-columns: 1fr;
+  }
+}

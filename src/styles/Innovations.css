@@ -805,3 +805,116 @@ button {
     padding: 14px 20px;
   }
 }
+
+/* =========================================================
+   INNOVATION HERO - SPACING FIX
+   ========================================================= */
+
+.innovations-hero {
+  min-height: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+.innovations-hero-content {
+  min-height: auto !important;
+  height: auto !important;
+
+  padding-top: 120px !important;
+  padding-bottom: 75px !important;
+
+  display: block !important;
+}
+
+
+/* Make sure INNOVATION label is visible */
+
+.innovations-hero-content .innovations-label {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  margin-bottom: 28px !important;
+}
+
+
+/* Hero heading */
+
+.innovations-hero h1 {
+  margin-top: 0 !important;
+  margin-bottom: 24px !important;
+
+  line-height: 1.05 !important;
+}
+
+
+/* Hero description */
+
+.innovations-hero p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   REDUCE SPACE BEFORE INNOVATION ENGINE
+   ========================================================= */
+
+.innovations-engine-section {
+  padding-top: 55px !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .innovations-hero-content {
+    padding-top: 100px !important;
+    padding-bottom: 55px !important;
+  }
+
+  .innovations-hero-content .innovations-label {
+    margin-bottom: 22px !important;
+  }
+
+  .innovations-hero h1 {
+    margin-bottom: 18px !important;
+    font-size: clamp(40px, 11vw, 54px) !important;
+    line-height: 1.05 !important;
+  }
+
+  .innovations-hero p {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  .innovations-engine-section {
+    padding-top: 50px !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .innovations-hero-content {
+    padding-top: 95px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .innovations-hero h1 {
+    font-size: 39px !important;
+  }
+
+  .innovations-engine-section {
+    padding-top: 45px !important;
+  }
+}

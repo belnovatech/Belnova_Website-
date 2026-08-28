@@ -1,0 +1,86 @@
+/* ==================== SECURITY ==================== */
+
+.belNova-sec-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-sec-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-sec-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-sec-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-sec-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.belNova-sec-card {
+  min-height: 74px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 24px;
+}
+
+.belNova-sec-card span {
+  color: #00c9e9;
+  font-size: 20px;
+}
+
+.belNova-sec-card strong {
+  font-size: 15px;
+  color: var(--belNova-black);
+}
+
+@media (max-width: 1200px) {
+  .belNova-sec-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-sec-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-sec-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .belNova-sec-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-sec-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-sec-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-sec-grid {
+    grid-template-columns: 1fr;
+  }
+}

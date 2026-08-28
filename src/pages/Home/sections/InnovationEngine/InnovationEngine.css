@@ -1,0 +1,205 @@
+/* ==================== INNOVATION ENGINE ==================== */
+
+.belNova-engine-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-engine-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-engine-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-engine-gradient-text {
+  color: transparent;
+  background: var(--belNova-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.belNova-engine-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-engine-line {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 28px;
+}
+
+.belNova-engine-line::before {
+  height: 2px;
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  left: 32px;
+  z-index: 0;
+  background: linear-gradient(90deg, #00cbe8, #188ef8, #694cf1, #ce0de9);
+  content: "";
+}
+
+.belNova-engine-number-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.belNova-engine-number-btn span {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  color: #727b8b;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 15px;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.belNova-engine-number-btn:hover span {
+  border-color: #4a96ff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(75, 80, 220, 0.18);
+}
+
+.belNova-engine-number-btn span.active {
+  color: #ffffff;
+  background: var(--belNova-gradient);
+  border-color: transparent;
+  box-shadow:
+    0 14px 30px rgba(75, 80, 220, 0.22),
+    0 0 0 5px rgba(45, 150, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.belNova-engine-cards {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.belNova-engine-card {
+  min-width: 0;
+  min-height: 380px;
+  padding: 28px 22px;
+  color: #7a818e;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(var(--belNova-border), var(--belNova-border)) border-box;
+  border: 1px solid transparent;
+  border-radius: 26px;
+  outline: none;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.belNova-engine-card:hover,
+.belNova-engine-card.active {
+  color: var(--belNova-black);
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #4bbcff, #7aa7ff) border-box;
+  box-shadow: 0 18px 40px rgba(52, 89, 180, 0.1);
+  transform: translateY(-3px);
+}
+
+.belNova-engine-card h3 {
+  margin: 0 0 20px;
+  color: #5f636b;
+  font-size: 21px;
+  transition: color 0.2s ease;
+}
+
+.belNova-engine-card:hover h3,
+.belNova-engine-card.active h3 {
+  color: var(--belNova-black);
+}
+
+.belNova-engine-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #7a818e;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.belNova-engine-card li::marker {
+  color: #7060ff;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+  .belNova-engine-container {
+    width: min(100% - 60px, 1600px);
+  }
+
+  .belNova-engine-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .belNova-engine-line {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-engine-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .belNova-engine-container {
+    width: min(100% - 32px, 1600px);
+  }
+
+  .belNova-engine-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+
+  .belNova-engine-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+
+  .belNova-engine-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .belNova-engine-card {
+    min-height: auto;
+  }
+}

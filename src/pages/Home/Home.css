@@ -1,0 +1,9 @@
+/* ==================== HOME PAGE LAYOUT ==================== */
+
+.belNova-home-page {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: var(--belNova-bg);
+  overflow-x: clip;
+}

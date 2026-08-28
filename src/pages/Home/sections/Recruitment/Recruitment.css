@@ -1,0 +1,96 @@
+/* ==================== RECRUITMENT ==================== */
+
+.belNova-recruitment-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-recruitment-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-recruitment-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-recruitment-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-recruitment-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+}
+
+.belNova-recruitment-card {
+  min-height: 140px;
+  padding: 24px 20px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 24px;
+}
+
+.belNova-recruitment-card small {
+  color: #00a8ff;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.belNova-recruitment-card h3 {
+  margin-top: 18px;
+  font-size: 17px;
+  color: var(--belNova-black);
+}
+
+.belNova-recruitment-cta-wrap {
+  display: flex;
+  margin-top: 40px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-recruitment-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-recruitment-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-recruitment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-recruitment-section {
+    padding: 80px 16px;
+  }
+  .belNova-recruitment-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-recruitment-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-recruitment-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-recruitment-grid {
+    grid-template-columns: 1fr;
+  }
+}

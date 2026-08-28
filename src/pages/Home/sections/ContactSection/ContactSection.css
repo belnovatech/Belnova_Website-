@@ -1,0 +1,225 @@
+/* ==================== CONTACT SECTION ==================== */
+
+.belNova-contact-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-contact-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-contact-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-contact-description {
+  max-width: 950px;
+  margin: 0 0 70px;
+  color: var(--belNova-text);
+  font-size: 22px;
+  line-height: 1.55;
+}
+
+.belNova-contact-reasons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+.belNova-contact-reason-card {
+  min-height: 100px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--belNova-black);
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.belNova-contact-reason-card:hover,
+.belNova-contact-reason-card.selected {
+  color: #ffffff;
+  background: var(--belNova-gradient);
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(33, 139, 248, 0.25);
+}
+
+.belNova-contact-reason-card span {
+  color: var(--belNova-text);
+  font-size: 14px;
+}
+
+.belNova-contact-reason-card:hover span,
+.belNova-contact-reason-card.selected span {
+  color: #ffffff;
+}
+
+.belNova-contact-form {
+  padding: 36px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 28px;
+}
+
+.belNova-form-cat-header {
+  margin: 20px 0 16px;
+}
+
+.belNova-form-cat-header h3 {
+  font-size: 13px;
+  color: #717d91;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.belNova-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.belNova-contact-form label {
+  min-width: 0;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.belNova-contact-form label.full-width {
+  grid-column: 1 / -1;
+}
+
+.belNova-contact-form input,
+.belNova-contact-form select,
+.belNova-contact-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 15px 18px;
+  color: #343a45;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 20px;
+  outline: none;
+  font-size: 15px;
+}
+
+.belNova-contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.belNova-contact-form input:focus,
+.belNova-contact-form select:focus,
+.belNova-contact-form textarea:focus {
+  border-color: #4c8cff;
+  box-shadow: 0 0 0 3px rgba(76, 140, 255, 0.1);
+}
+
+.belNova-contact-form input[type="file"] {
+  padding: 10px;
+}
+
+.belNova-contact-form input[type="file"]::file-selector-button {
+  margin-right: 16px;
+  padding: 9px 16px;
+  color: #343a45;
+  background: #f1f4f8;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.belNova-contact-form label.checkbox-label {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.belNova-contact-form label.checkbox-label input {
+  width: 20px;
+  height: 20px;
+  min-height: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.belNova-form-success {
+  padding: 30px;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.belNova-form-success h3 {
+  color: #065f46;
+  margin-bottom: 8px;
+}
+
+.belNova-form-success p {
+  color: #047857;
+  font-size: 16px;
+}
+
+.belNova-form-submit-wrap {
+  display: flex;
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .belNova-contact-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-contact-reasons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .belNova-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-contact-section {
+    padding: 80px 16px;
+  }
+  .belNova-contact-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-contact-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-contact-description {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+  .belNova-contact-reasons {
+    grid-template-columns: 1fr;
+  }
+  .belNova-contact-form {
+    padding: 22px;
+  }
+}

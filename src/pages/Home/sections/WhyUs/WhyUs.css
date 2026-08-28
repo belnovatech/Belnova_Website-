@@ -1,0 +1,82 @@
+/* ==================== WHY US ==================== */
+
+.belNova-why-section {
+  width: 100%;
+  padding-top: 145px;
+  padding-bottom: 145px;
+  background: #ffffff;
+}
+
+.belNova-why-container {
+  width: min(1600px, calc(100% - 120px));
+  margin: 0 auto;
+}
+
+.belNova-why-title {
+  margin: 30px 0 18px;
+  font-size: clamp(38px, 3.8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+  color: var(--belNova-black);
+}
+
+.belNova-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.belNova-why-card {
+  min-height: 200px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid var(--belNova-border);
+  border-radius: 28px;
+}
+
+.belNova-why-card small {
+  color: #788296;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+.belNova-why-card h3 {
+  margin: 20px 0 12px;
+  font-size: 23px;
+  color: var(--belNova-black);
+}
+
+.belNova-why-card p {
+  color: var(--belNova-text);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .belNova-why-container {
+    width: min(100% - 60px, 1600px);
+  }
+  .belNova-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .belNova-why-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .belNova-why-container {
+    width: min(100% - 32px, 1600px);
+  }
+  .belNova-why-title {
+    font-size: 34px;
+    letter-spacing: -1.5px;
+  }
+  .belNova-why-grid {
+    grid-template-columns: 1fr;
+  }
+}
