@@ -3,7 +3,7 @@
 .belNova-work-section {
   width: 100%;
   padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: var(--belNova-soft-bg);
+  background: #ffffff; /* PURE WHITE CANVAS */
 }
 
 .belNova-work-container {
@@ -33,7 +33,9 @@
   gap: 20px;
 }
 
+/* PROJECT CARDS */
 .belNova-project-card {
+  position: relative;
   min-height: 270px;
   padding: 28px;
   background: #ffffff;
@@ -41,18 +43,19 @@
   border-radius: 26px;
   cursor: pointer;
   outline: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.belNova-project-card:hover,
-.belNova-project-card.selected {
-  transform: translateY(-3px);
+.belNova-project-card small,
+.belNova-project-card h3,
+.belNova-project-card p {
   position: relative;
-  border: 1px solid transparent !important;
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    var(--belNova-gradient) border-box !important;
-  box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
+  z-index: 2;
 }
 
 .belNova-project-card small {
@@ -60,6 +63,7 @@
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 1px;
+  transition: color 0.4s ease;
 }
 
 .belNova-project-card h3 {
@@ -74,12 +78,153 @@
   line-height: 1.55;
 }
 
+/* SECTION 3 — WORK/CASE STUDIES STAGGERED REVEALS */
+@supports (animation-timeline: view()) {
+  .belNova-project-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+  }
+  .belNova-project-card:nth-child(1) { animation-range: entry 10% cover 25%; }
+  .belNova-project-card:nth-child(2) { animation-range: entry 12% cover 27%; }
+  .belNova-project-card:nth-child(3) { animation-range: entry 14% cover 29%; }
+  .belNova-project-card:nth-child(4) { animation-range: entry 16% cover 31%; }
+}
+
+@supports not (animation-timeline: view()) {
+  .belNova-project-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-project-card:nth-child(1) { animation-delay: 0.1s; }
+  .belNova-project-card:nth-child(2) { animation-delay: 0.22s; }
+  .belNova-project-card:nth-child(3) { animation-delay: 0.34s; }
+  .belNova-project-card:nth-child(4) { animation-delay: 0.46s; }
+}
+
+/* Active Selected Base Style */
+.belNova-project-card.selected {
+  transform: translateY(-3px);
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    var(--belNova-gradient) border-box !important;
+  box-shadow: 0 12px 28px rgba(37, 96, 190, 0.08) !important;
+}
+
+/* CARD 1: INRFS — cyan glow */
+.belNova-project-card:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(0, 201, 233, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-project-card:nth-child(1):hover:not(.selected) {
+    transform: translateY(-3px);
+    border-color: rgba(0, 201, 233, 0.35);
+    box-shadow: 0 12px 24px rgba(0, 201, 233, 0.06);
+  }
+  .belNova-project-card:nth-child(1):hover::before {
+    opacity: 1;
+  }
+  .belNova-project-card:nth-child(1):hover small {
+    color: #00c9e9;
+  }
+}
+
+/* CARD 2: DischargeEasy — violet border activation */
+.belNova-project-card:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #cf0de9 0%, #7060ff 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-project-card:nth-child(2):hover:not(.selected) {
+    transform: translateY(-3px);
+    border-color: transparent !important;
+    box-shadow: 0 12px 24px rgba(207, 13, 233, 0.05);
+  }
+  .belNova-project-card:nth-child(2):hover::before {
+    opacity: 1;
+  }
+  .belNova-project-card:nth-child(2):hover small {
+    color: #d20eea;
+  }
+}
+
+/* CARD 3: Gym Management — soft diagonal reflection */
+.belNova-project-card:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45) 50%, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 3;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-project-card:nth-child(3):hover:not(.selected) {
+    transform: translateY(-3px);
+    border-color: rgba(18, 20, 26, 0.12);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.015);
+  }
+  .belNova-project-card:nth-child(3):hover::after {
+    animation: glassSweep 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* CARD 4: E-Commerce — blue radial bloom */
+.belNova-project-card:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(50, 135, 255, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-project-card:nth-child(4):hover:not(.selected) {
+    transform: translateY(-3px);
+    border-color: rgba(50, 135, 255, 0.35);
+    box-shadow: 0 12px 24px rgba(50, 135, 255, 0.05);
+  }
+  .belNova-project-card:nth-child(4):hover::before {
+    opacity: 1;
+  }
+}
+
+
+/* PROJECT DETAIL PANEL */
 .belNova-project-anatomy {
   margin-top: 60px;
   padding: 38px;
-  background: #ffffff;
-  border: 1px solid var(--belNova-border);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(18, 20, 26, 0.06);
   border-radius: 28px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.01),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .belNova-project-anatomy small {
@@ -100,6 +245,7 @@
   color: #4b5563 !important;
 }
 
+/* Staggered project details inside panel */
 .belNova-anatomy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -113,6 +259,15 @@
   background: #ffffff;
   border: 1px solid var(--belNova-border);
   border-radius: 24px;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .belNova-anatomy-grid article:hover {
+    transform: translateY(-2px);
+    border-color: rgba(50, 135, 255, 0.22);
+    box-shadow: 0 4px 12px rgba(50, 135, 255, 0.015);
+  }
 }
 
 .belNova-anatomy-grid p {
@@ -133,6 +288,7 @@
   color: #7060ff;
 }
 
+/* Before After visual */
 .belNova-before-after {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -142,12 +298,14 @@
   padding: 26px;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
-  background: #fafbfc;
+  background: #ffffff; /* Clean white bg */
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .belNova-before-after p {
   color: var(--belNova-text);
   font-size: 15px;
+  margin: 0;
 }
 
 .belNova-solution-pill {
@@ -159,12 +317,36 @@
   background: var(--belNova-gradient);
   border-radius: 999px;
   font-size: 14px;
+  box-shadow: 0 4px 12px rgba(33, 139, 248, 0.15);
 }
 
 .belNova-anatomy-cta-wrap {
   display: flex;
   margin-top: 20px;
 }
+
+/* Details Panel CTA Button enhancement */
+.belNova-project-anatomy .belNova-gradient-btn {
+  background: var(--belNova-gradient);
+  box-shadow: 0 10px 24px rgba(73, 79, 240, 0.15);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-project-anatomy .belNova-gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(73, 79, 240, 0.25);
+}
+
+.belNova-project-anatomy .belNova-gradient-btn span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-project-anatomy .belNova-gradient-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-work-container {
@@ -205,5 +387,22 @@
   }
   .belNova-project-anatomy {
     padding: 22px;
+  }
+}
+
+/* prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .belNova-project-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

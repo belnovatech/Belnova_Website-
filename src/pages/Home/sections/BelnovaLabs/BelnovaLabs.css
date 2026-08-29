@@ -3,7 +3,7 @@
 .belNova-labs-section {
   width: 100%;
   padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: var(--belNova-soft-bg);
+  background: #ffffff; /* PURE WHITE CANVAS */
 }
 
 .belNova-labs-container {
@@ -41,21 +41,35 @@
   gap: 24px;
 }
 
+/* FUTURE TECHNOLOGY LAB CARDS */
 .belNova-lab-card {
+  position: relative;
   min-height: 180px;
   padding: 28px;
   background: #ffffff;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
+  overflow: hidden;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-lab-card small,
+.belNova-lab-card h3,
+.belNova-lab-card p {
+  position: relative;
+  z-index: 2;
 }
 
 .belNova-lab-card.highlight {
-  position: relative;
   border: 1px solid transparent !important;
   background:
     linear-gradient(#ffffff, #ffffff) padding-box,
     var(--belNova-gradient) border-box !important;
-  box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
+  box-shadow: 0 8px 24px rgba(37, 96, 190, 0.04);
 }
 
 .belNova-lab-card small {
@@ -67,6 +81,8 @@
   letter-spacing: 1.5px;
   font-size: 11px;
   font-weight: 700;
+  background: #ffffff;
+  transition: all 0.4s ease;
 }
 
 .belNova-lab-card h3 {
@@ -86,6 +102,138 @@
   display: flex;
   margin-top: 40px;
 }
+
+/* SECTION 5 — LABS STAGGERED REVEALS */
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .belNova-lab-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+  }
+  .belNova-lab-card:nth-child(1) { animation-range: entry 10% cover 25%; }
+  .belNova-lab-card:nth-child(2) { animation-range: entry 13% cover 28%; }
+  .belNova-lab-card:nth-child(3) { animation-range: entry 16% cover 31%; }
+}
+
+@supports not (animation-timeline: view()) {
+  .belNova-lab-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-lab-card:nth-child(1) { animation-delay: 0.1s; }
+  .belNova-lab-card:nth-child(2) { animation-delay: 0.25s; }
+  .belNova-lab-card:nth-child(3) { animation-delay: 0.4s; }
+}
+
+/* CARD 1: AI DOCUMENT ASSISTANT — AI pulse / intelligent glow */
+.belNova-lab-card:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(0, 201, 233, 0.06) 0%, rgba(139, 92, 246, 0.02) 50%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+  animation: labPulseAI 8s infinite alternate ease-in-out;
+}
+@keyframes labPulseAI {
+  0% { transform: scale(0.95); opacity: 0.4; }
+  100% { transform: scale(1.05); opacity: 0.9; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-lab-card:nth-child(1):hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 201, 233, 0.3);
+    box-shadow: 0 10px 24px rgba(0, 201, 233, 0.04);
+  }
+  .belNova-lab-card:nth-child(1):hover small {
+    color: #00c9e9;
+    border-color: rgba(0, 201, 233, 0.25);
+  }
+}
+
+/* CARD 2: BUSINESS ANALYTICS — scanning light sweep */
+.belNova-lab-card:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #3287ff, transparent);
+  box-shadow: 0 0 8px #3287ff;
+  top: -10px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 3;
+  animation: scanLine 6s infinite linear;
+}
+@keyframes scanLine {
+  0% { top: -5%; }
+  50% { top: 105%; }
+  100% { top: 105%; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-lab-card:nth-child(2):hover {
+    transform: translateY(-2px);
+    border-color: rgba(50, 135, 255, 0.3);
+    box-shadow: 0 10px 24px rgba(50, 135, 255, 0.04);
+  }
+  .belNova-lab-card:nth-child(2):hover small {
+    color: #3287ff;
+    border-color: rgba(50, 135, 255, 0.25);
+  }
+}
+
+/* CARD 3: WORKFLOW AUTOMATION — flowing gradient border */
+.belNova-lab-card:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #cf0de9, #3287ff, #cf0de9);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 3;
+  animation: flowCap4 5s linear infinite;
+  transition: opacity 0.5s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-lab-card:nth-child(3):hover {
+    transform: translateY(-2px);
+    border-color: transparent !important;
+    box-shadow: 0 10px 24px rgba(207, 13, 233, 0.04);
+  }
+  .belNova-lab-card:nth-child(3):hover::after {
+    opacity: 1;
+    animation-duration: 2s;
+  }
+  .belNova-lab-card:nth-child(3):hover small {
+    color: #d20eea;
+    border-color: rgba(207, 13, 233, 0.25);
+  }
+}
+
+@keyframes flowCap4 {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-labs-container {
@@ -113,5 +261,22 @@
   }
   .belNova-labs-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .belNova-lab-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

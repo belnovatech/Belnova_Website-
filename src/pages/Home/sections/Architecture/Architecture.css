@@ -4,7 +4,7 @@
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #ffffff; /* Pure white canvas */
 }
 
 .belNova-arch-container {
@@ -38,12 +38,18 @@
 .belNova-arch-stack,
 .belNova-arch-integration-panel {
   padding: 38px;
-  background: #ffffff;
-  border: 1px solid var(--belNova-border);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(18, 20, 26, 0.06);
   border-radius: 28px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.01),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* SYSTEM PIPELINE - ARCHITECTURE BOXES */
 .belNova-arch-item {
+  position: relative;
   min-height: 64px;
   padding: 0 24px;
   display: flex;
@@ -51,26 +57,320 @@
   justify-content: space-between;
   border: 1px solid var(--belNova-border);
   border-radius: 20px;
-  background: #fafbfc;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  background: #ffffff; /* Clean white interior */
+  overflow: hidden; /* Local bounds for reflection sweeps */
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.belNova-arch-item:hover {
-  transform: translateX(4px);
-  border-color: #5a93ff;
+.belNova-arch-item strong {
+  font-weight: 600;
+  color: var(--belNova-black);
+  z-index: 2;
+  transition: color 0.6s ease;
 }
 
 .belNova-arch-item span {
   color: #7d8490;
   letter-spacing: 2px;
   font-weight: 600;
+  font-size: 14px;
+  opacity: 0.6;
+  z-index: 2;
+  transition: all 0.6s ease;
 }
 
+/* 4. CONNECTION LINE - LUMINOUS DATA PACKETS */
 .belNova-arch-connector {
-  width: 2px;
+  width: 1px;
   height: 24px;
   margin: auto;
-  background: var(--belNova-gradient);
+  position: relative;
+  background: rgba(18, 20, 26, 0.08); /* Extremely thin */
+  overflow: hidden;
+}
+
+.belNova-arch-connector::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #00c9e9,
+    #3287ff,
+    transparent
+  );
+  animation: signalDown 2.5s infinite linear;
+}
+
+@keyframes signalDown {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* Stagger connector signal starts sequentially */
+.belNova-arch-connector:nth-child(2)::before { animation-delay: 0.1s; }
+.belNova-arch-connector:nth-child(4)::before { animation-delay: 0.3s; }
+.belNova-arch-connector:nth-child(6)::before { animation-delay: 0.5s; }
+.belNova-arch-connector:nth-child(8)::before { animation-delay: 0.7s; }
+.belNova-arch-connector:nth-child(10)::before { animation-delay: 0.9s; }
+.belNova-arch-connector:nth-child(12)::before { animation-delay: 1.1s; }
+.belNova-arch-connector:nth-child(14)::before { animation-delay: 1.3s; }
+
+/* 3. ACTIVE USER BOX SPECIFICITY */
+.belNova-arch-item:nth-child(1) {
+  background: #ffffff;
+  border-color: transparent;
+  background: 
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(0, 201, 233, 0.18) 0%, rgba(50, 135, 255, 0.18) 100%) border-box;
+  box-shadow: 
+    0 4px 12px rgba(0, 201, 233, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+
+.belNova-arch-item:nth-child(1) strong {
+  font-weight: 700;
+}
+
+.belNova-arch-item:nth-child(1) span {
+  color: #00c9e9;
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(0, 201, 233, 0.2);
+}
+
+/* 6. INDIVIDUAL CARD HOVER EFFECTS */
+
+/* USER Node Hover: Ambient Glow */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item:nth-child(1):hover {
+    transform: translateY(-3px) scale(1.005);
+    box-shadow: 
+      0 10px 24px rgba(0, 201, 233, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* WEB/MOBILE Node Hover: Horizontal Sweep */
+.belNova-arch-item:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 20%,
+    rgba(50, 135, 255, 0.04) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item:nth-child(3):hover {
+    transform: translateY(-2px) scale(1.005);
+    border-color: rgba(50, 135, 255, 0.25);
+    box-shadow: 0 8px 16px rgba(50, 135, 255, 0.02);
+  }
+  .belNova-arch-item:nth-child(3):hover::before {
+    animation: webSweep 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes webSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* APPLICATION Node Hover: Radial background glow */
+.belNova-arch-item:nth-child(5)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(139, 92, 246, 0.06) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item:nth-child(5):hover {
+    transform: translateY(-2px) scale(1.005);
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.02);
+  }
+  .belNova-arch-item:nth-child(5):hover::before {
+    opacity: 1;
+  }
+}
+
+/* API LAYER Node Hover: Flowing border highlight */
+.belNova-arch-item:nth-child(7)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #00c9e9, #3287ff, #00c9e9);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item:nth-child(7):hover {
+    transform: translateY(-2px) scale(1.005);
+    border-color: transparent !important;
+    box-shadow: 0 8px 16px rgba(0, 201, 233, 0.03);
+  }
+  .belNova-arch-item:nth-child(7):hover::before {
+    opacity: 1;
+    animation: flowCap4 2.5s linear infinite; /* Reuses the border loop */
+  }
+}
+
+/* BACKEND Node Hover: Subtle Pulse scale */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item:nth-child(9):hover {
+    animation: backendPulse 3s ease-in-out infinite alternate;
+    transform: translateY(-2px) scale(1.005);
+  }
+}
+
+@keyframes backendPulse {
+  0% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+    border-color: var(--belNova-border);
+  }
+  100% {
+    box-shadow: 0 6px 16px rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.25);
+  }
+}
+
+/* General hover adjustments for nodes 6, 7, 8 */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item:nth-child(n+11):hover {
+    transform: translateY(-2px);
+    border-color: #5a93ff;
+    box-shadow: 0 8px 16px rgba(50, 135, 255, 0.02);
+  }
+}
+
+.belNova-arch-item:hover strong {
+  color: var(--belNova-black);
+}
+
+.belNova-arch-item:hover span {
+  color: #00c9e9;
+  opacity: 1;
+  text-shadow: 0 0 6px rgba(0, 201, 233, 0.3);
+}
+
+/* 14. SUBTLE LIGHT REFLECTION SWEEP (HOVER STATE) */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-item::after,
+  .belNova-arch-integration-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 70%,
+      transparent
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+  }
+  .belNova-arch-item:hover::after,
+  .belNova-arch-integration-item:hover::after {
+    opacity: 1;
+    animation: glassSweep 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes glassSweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+/* 7. RIGHT SIDE — INTEGRATIONS PANEL GLASS TREATMENT */
+.belNova-arch-integration-panel {
+  position: relative;
+  overflow: hidden; /* Keeps ambient gradients strictly contained */
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(18, 20, 26, 0.06);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-arch-integration-panel:hover {
+  border-color: rgba(50, 135, 255, 0.2);
+  box-shadow: 
+    0 12px 36px rgba(0, 0, 0, 0.02),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+/* 10. GLASS PANEL Radial Glow Backdrop */
+.belNova-arch-integration-panel::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(
+    circle at center,
+    rgba(50, 135, 255, 0.02) 0%,
+    rgba(139, 92, 246, 0.01) 50%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  animation: sideCardAmbient 15s infinite alternate ease-in-out;
+}
+
+@keyframes sideCardAmbient {
+  0% { transform: translate(-3%, -3%) scale(0.95); }
+  100% { transform: translate(3%, 3%) scale(1.05); }
+}
+
+.belNova-arch-integration-panel h3,
+.belNova-arch-integration-panel p,
+.belNova-arch-integration-item {
+  position: relative;
+  z-index: 2;
 }
 
 .belNova-arch-integration-panel h3 {
@@ -86,6 +386,7 @@
   margin-bottom: 24px;
 }
 
+/* 8. INTEGRATION ITEMS */
 .belNova-arch-integration-item {
   margin-top: 12px;
   padding: 16px 20px;
@@ -95,15 +396,212 @@
   color: var(--belNova-text);
   border: 1px solid var(--belNova-border);
   border-radius: 20px;
-  background: #fafbfc;
+  background: #ffffff; /* White background canvas */
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .belNova-arch-integration-item:hover {
+    transform: translateY(-1.5px);
+    border-color: rgba(50, 135, 255, 0.22);
+    box-shadow: 0 4px 12px rgba(50, 135, 255, 0.02);
+    color: var(--belNova-black);
+  }
+}
+
+/* 9. CONNECTION STATUS INDICATOR DOTS */
 .belNova-arch-integration-item span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--belNova-gradient);
+  background: #00c9e9;
+  box-shadow: 0 0 4px rgba(0, 201, 233, 0.4);
+  animation: dotBreath 4s infinite alternate ease-in-out;
 }
+
+@keyframes dotBreath {
+  0% {
+    box-shadow: 0 0 4px rgba(0, 201, 233, 0.4);
+    background: #00c9e9;
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(50, 135, 255, 0.6);
+    background: #3287ff;
+  }
+  100% {
+    box-shadow: 0 0 4px rgba(210, 14, 234, 0.4);
+    background: #d20eea;
+  }
+}
+
+/* Stagger status breathes */
+.belNova-arch-integration-item:nth-of-type(1) span { animation-delay: 0.1s; }
+.belNova-arch-integration-item:nth-of-type(2) span { animation-delay: 0.3s; }
+.belNova-arch-integration-item:nth-of-type(3) span { animation-delay: 0.5s; }
+.belNova-arch-integration-item:nth-of-type(4) span { animation-delay: 0.7s; }
+.belNova-arch-integration-item:nth-of-type(5) span { animation-delay: 0.9s; }
+.belNova-arch-integration-item:nth-of-type(6) span { animation-delay: 1.1s; }
+.belNova-arch-integration-item:nth-of-type(7) span { animation-delay: 1.3s; }
+
+
+/* VIEWPORT AUTOMATIC WAKE-UP & STAGGERED ENTRANCES */
+
+@keyframes revealStack {
+  from {
+    opacity: 0.2;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SCROLL WAKE UP TIMELINE COUPLING */
+@supports (animation-timeline: view()) {
+  .belNova-arch-stack {
+    animation: revealStack cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 35%;
+  }
+
+  .belNova-arch-integration-panel {
+    animation: revealPanel cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 40%;
+  }
+
+  /* Stagger card items progressive appearance */
+  .belNova-arch-item:nth-child(1) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 12% cover 30%;
+  }
+  .belNova-arch-item:nth-child(3) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 16% cover 34%;
+  }
+  .belNova-arch-item:nth-child(5) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 38%;
+  }
+  .belNova-arch-item:nth-child(7) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 24% cover 42%;
+  }
+  .belNova-arch-item:nth-child(9) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 28% cover 46%;
+  }
+  .belNova-arch-item:nth-child(11) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 32% cover 50%;
+  }
+  .belNova-arch-item:nth-child(13) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 36% cover 54%;
+  }
+  .belNova-arch-item:nth-child(15) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 40% cover 58%;
+  }
+
+  /* Right-side items staggered entry ranges */
+  .belNova-arch-integration-item:nth-of-type(1) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 25% cover 45%;
+  }
+  .belNova-arch-integration-item:nth-of-type(2) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 28% cover 48%;
+  }
+  .belNova-arch-integration-item:nth-of-type(3) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 31% cover 51%;
+  }
+  .belNova-arch-integration-item:nth-of-type(4) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 34% cover 54%;
+  }
+  .belNova-arch-integration-item:nth-of-type(5) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 37% cover 57%;
+  }
+  .belNova-arch-integration-item:nth-of-type(6) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 40% cover 60%;
+  }
+  .belNova-arch-integration-item:nth-of-type(7) {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 43% cover 63%;
+  }
+}
+
+/* GRACEFUL FALLBACK (TRIGGER ON LOAD FOR OLDER BROWSERS) */
+@supports not (animation-timeline: view()) {
+  .belNova-arch-stack {
+    animation: revealStack 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-arch-integration-panel {
+    animation: revealPanel 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-arch-item:nth-child(1) { animation: itemEnter 0.8s forwards; animation-delay: 0.1s; }
+  .belNova-arch-item:nth-child(3) { animation: itemEnter 0.8s forwards; animation-delay: 0.22s; }
+  .belNova-arch-item:nth-child(5) { animation: itemEnter 0.8s forwards; animation-delay: 0.34s; }
+  .belNova-arch-item:nth-child(7) { animation: itemEnter 0.8s forwards; animation-delay: 0.46s; }
+  .belNova-arch-item:nth-child(9) { animation: itemEnter 0.8s forwards; animation-delay: 0.58s; }
+  .belNova-arch-item:nth-child(11) { animation: itemEnter 0.8s forwards; animation-delay: 0.7s; }
+  .belNova-arch-item:nth-child(13) { animation: itemEnter 0.8s forwards; animation-delay: 0.82s; }
+  .belNova-arch-item:nth-child(15) { animation: itemEnter 0.8s forwards; animation-delay: 0.94s; }
+
+  .belNova-arch-integration-item:nth-of-type(1) { animation: itemEnter 0.8s forwards; animation-delay: 0.5s; }
+  .belNova-arch-integration-item:nth-of-type(2) { animation: itemEnter 0.8s forwards; animation-delay: 0.6s; }
+  .belNova-arch-integration-item:nth-of-type(3) { animation: itemEnter 0.8s forwards; animation-delay: 0.7s; }
+  .belNova-arch-integration-item:nth-of-type(4) { animation: itemEnter 0.8s forwards; animation-delay: 0.8s; }
+  .belNova-arch-integration-item:nth-of-type(5) { animation: itemEnter 0.8s forwards; animation-delay: 0.9s; }
+  .belNova-arch-integration-item:nth-of-type(6) { animation: itemEnter 0.8s forwards; animation-delay: 1.0s; }
+  .belNova-arch-integration-item:nth-of-type(7) { animation: itemEnter 0.8s forwards; animation-delay: 1.1s; }
+}
+
+@keyframes revealPanel {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-arch-container {
@@ -111,6 +609,7 @@
   }
   .belNova-arch-layout {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
@@ -133,5 +632,40 @@
   .belNova-arch-stack,
   .belNova-arch-integration-panel {
     padding: 22px;
+  }
+
+  /* Center the vertical connection line correctly on mobile stack */
+  .belNova-arch-connector {
+    height: 20px;
+  }
+
+  /* 21. MOBILE ANIMATION INTENSITY DAMPING */
+  .belNova-arch-connector::before {
+    animation-duration: 3.5s;
+  }
+  
+  .belNova-arch-integration-item span {
+    animation-duration: 5.5s;
+  }
+}
+
+/* 24. ACCESSIBILITY - PREFERS REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .belNova-arch-stack,
+  .belNova-arch-integration-panel,
+  .belNova-arch-item,
+  .belNova-arch-integration-item {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
