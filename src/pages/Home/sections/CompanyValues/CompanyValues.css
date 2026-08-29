@@ -3,7 +3,7 @@
 .belNova-company-section {
   width: 100%;
   padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: var(--belNova-soft-bg);
+  background: #ffffff; /* PURE WHITE CANVAS */
 }
 
 .belNova-company-container {
@@ -78,8 +78,19 @@
 .belNova-vision-card {
   padding: 30px;
   background: #ffffff;
-  border: 1px solid var(--belNova-border);
+  border: 1px solid rgba(18, 20, 26, 0.06);
   border-radius: 26px;
+  box-shadow: 
+    0 10px 24px rgba(0, 0, 0, 0.01),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-mission-card:hover,
+.belNova-vision-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(50, 135, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(50, 135, 255, 0.02);
 }
 
 .belNova-mission-card small,
@@ -104,12 +115,26 @@
   gap: 24px;
 }
 
+/* VALUE PRINCIPLE CARDS */
 .belNova-value-card {
+  position: relative;
   min-height: 130px;
   padding: 28px;
   background: #ffffff;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
+  overflow: hidden;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-value-card h3,
+.belNova-value-card p {
+  position: relative;
+  z-index: 2;
 }
 
 .belNova-value-card h3 {
@@ -125,6 +150,193 @@
   line-height: 1.5;
 }
 
+/* SECTION 7 — VALUES STAGGERED REVEALS */
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .belNova-value-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+  }
+  .belNova-value-card:nth-child(1) { animation-range: entry 10% cover 25%; }
+  .belNova-value-card:nth-child(2) { animation-range: entry 12% cover 27%; }
+  .belNova-value-card:nth-child(3) { animation-range: entry 14% cover 29%; }
+  .belNova-value-card:nth-child(4) { animation-range: entry 16% cover 31%; }
+  .belNova-value-card:nth-child(5) { animation-range: entry 18% cover 33%; }
+  .belNova-value-card:nth-child(6) { animation-range: entry 20% cover 35%; }
+}
+
+@supports not (animation-timeline: view()) {
+  .belNova-value-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-value-card:nth-child(1) { animation-delay: 0.1s; }
+  .belNova-value-card:nth-child(2) { animation-delay: 0.22s; }
+  .belNova-value-card:nth-child(3) { animation-delay: 0.34s; }
+  .belNova-value-card:nth-child(4) { animation-delay: 0.46s; }
+  .belNova-value-card:nth-child(5) { animation-delay: 0.58s; }
+  .belNova-value-card:nth-child(6) { animation-delay: 0.7s; }
+}
+
+/* 1. Innovation — color bloom */
+.belNova-value-card:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(0, 201, 233, 0.08) 0%, rgba(139, 92, 246, 0.04) 50%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-value-card:nth-child(1):hover {
+    transform: translateY(-2.5px);
+    border-color: rgba(0, 201, 233, 0.25);
+    box-shadow: 0 8px 16px rgba(0, 201, 233, 0.03);
+  }
+  .belNova-value-card:nth-child(1):hover::before { opacity: 1; }
+}
+
+/* 2. Integrity — clean border illumination */
+.belNova-value-card:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #3287ff, #00c9e9);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-value-card:nth-child(2):hover {
+    transform: translateY(-2.5px);
+    border-color: transparent !important;
+    box-shadow: 0 8px 16px rgba(50, 135, 255, 0.02);
+  }
+  .belNova-value-card:nth-child(2):hover::before { opacity: 1; }
+}
+
+/* 3. Quality — glass reflection */
+.belNova-value-card:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45) 50%, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 3;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-value-card:nth-child(3):hover {
+    transform: translateY(-2.5px);
+    border-color: rgba(18, 20, 26, 0.12);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.015);
+  }
+  .belNova-value-card:nth-child(3):hover::after {
+    animation: glassSweep 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* 4. Customer Success — subtle upward glow */
+.belNova-value-card:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #00c9e9, #3287ff);
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-value-card:nth-child(4):hover {
+    transform: translateY(-3px);
+    border-color: rgba(50, 135, 255, 0.22);
+    box-shadow: 0 8px 20px rgba(50, 135, 255, 0.04);
+  }
+  .belNova-value-card:nth-child(4):hover::before { transform: scaleX(0.5); }
+}
+
+/* 5. Collaboration — dual-tone ambient light */
+.belNova-value-card:nth-child(5)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 201, 233, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-value-card:nth-child(5):hover {
+    transform: translateY(-2.5px);
+    border-color: rgba(139, 92, 246, 0.22);
+  }
+  .belNova-value-card:nth-child(5):hover::before { opacity: 1; }
+}
+
+/* 6. Continuous Learning — slow gradient movement */
+.belNova-value-card:nth-child(6)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #cf0de9, #00c9e9, #cf0de9);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-value-card:nth-child(6):hover {
+    transform: translateY(-2.5px);
+    border-color: transparent !important;
+    box-shadow: 0 8px 16px rgba(207, 13, 233, 0.03);
+  }
+  .belNova-value-card:nth-child(6):hover::after {
+    opacity: 1;
+    animation: flowCap4 3s linear infinite;
+  }
+}
+
+@keyframes glassSweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+@keyframes flowCap4 {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+
+/* METRICS SECTION */
 .belNova-company-metrics {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -143,6 +355,7 @@
   flex-direction: column;
   justify-content: center;
   border-right: 1px solid var(--belNova-border);
+  transition: background-color 0.4s ease;
 }
 
 .belNova-metric-box:last-child {
@@ -160,11 +373,19 @@
   font-size: 13px;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .belNova-metric-box:hover {
+    background: rgba(50, 135, 255, 0.02);
+  }
+}
+
 .belNova-metrics-note {
   color: #7d8492;
   font-size: 14px;
   text-align: center;
 }
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-company-container {
@@ -205,5 +426,31 @@
   .belNova-values-grid,
   .belNova-company-metrics {
     grid-template-columns: 1fr;
+  }
+  .belNova-metric-box {
+    border-right: 0;
+    border-bottom: 1px solid var(--belNova-border);
+  }
+  .belNova-metric-box:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .belNova-value-card,
+  .belNova-mission-card,
+  .belNova-vision-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

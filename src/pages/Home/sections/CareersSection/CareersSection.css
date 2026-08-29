@@ -4,7 +4,7 @@
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #ffffff; /* PURE WHITE CANVAS */
 }
 
 .belNova-careers-container {
@@ -34,7 +34,9 @@
   gap: 20px;
 }
 
+/* TECH TALENT JOB CARDS */
 .belNova-job-card {
+  position: relative;
   min-height: 155px;
   padding: 28px;
   display: flex;
@@ -44,12 +46,24 @@
   background: #ffffff;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
+  overflow: hidden;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-job-info {
+  position: relative;
+  z-index: 2;
 }
 
 .belNova-job-info h3 {
   margin: 0 0 10px;
   font-size: 21px;
   color: var(--belNova-black);
+  transition: color 0.4s ease;
 }
 
 .belNova-job-info small {
@@ -65,11 +79,93 @@
   font-size: 14px;
 }
 
+/* Apply button target states inside card */
+.belNova-job-card .belNova-outline-btn {
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-job-card .belNova-outline-btn span {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* SECTION 8 — CAREERS STAGGERED REVEALS */
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .belNova-job-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+  }
+  .belNova-job-card:nth-child(odd) { animation-range: entry 10% cover 25%; }
+  .belNova-job-card:nth-child(even) { animation-range: entry 13% cover 28%; }
+}
+
+@supports not (animation-timeline: view()) {
+  .belNova-job-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-job-card:nth-child(1) { animation-delay: 0.1s; }
+  .belNova-job-card:nth-child(2) { animation-delay: 0.2s; }
+  .belNova-job-card:nth-child(3) { animation-delay: 0.3s; }
+  .belNova-job-card:nth-child(4) { animation-delay: 0.4s; }
+  .belNova-job-card:nth-child(5) { animation-delay: 0.5s; }
+  .belNova-job-card:nth-child(6) { animation-delay: 0.6s; }
+}
+
+/* Odd-row hover: subtle cyan accent */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-job-card:nth-child(odd):hover {
+    transform: translateY(-2.5px);
+    border-color: rgba(0, 201, 233, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 201, 233, 0.03);
+  }
+}
+
+/* Even-row hover: subtle violet/blue accent */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-job-card:nth-child(even):hover {
+    transform: translateY(-2.5px);
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.03);
+  }
+}
+
+/* General interactive overrides inside card on hover */
+@media (hover: hover) and (pointer: fine) {
+  .belNova-job-card:hover .belNova-job-info h3 {
+    color: #1765d6;
+  }
+  .belNova-job-card:hover .belNova-outline-btn {
+    color: #ffffff;
+    background: var(--belNova-gradient);
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(33, 139, 248, 0.15);
+  }
+  .belNova-job-card:hover .belNova-outline-btn span {
+    transform: translateX(3px);
+  }
+}
+
+/* Bottom Actions wrap styling */
 .belNova-careers-actions {
   display: flex;
   gap: 14px;
   margin-top: 40px;
 }
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-careers-container {
@@ -106,5 +202,22 @@
   .belNova-careers-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+/* prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .belNova-job-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -4,7 +4,7 @@
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #ffffff; /* PURE WHITE CANVAS */
 }
 
 .belNova-sec-container {
@@ -34,7 +34,9 @@
   gap: 18px;
 }
 
+/* SECURITY GRID CARDS */
 .belNova-sec-card {
+  position: relative;
   min-height: 74px;
   padding: 18px 22px;
   display: flex;
@@ -43,17 +45,289 @@
   background: #ffffff;
   border: 1px solid var(--belNova-border);
   border-radius: 24px;
+  overflow: hidden;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-sec-card span,
+.belNova-sec-card strong {
+  position: relative;
+  z-index: 2;
 }
 
 .belNova-sec-card span {
   color: #00c9e9;
   font-size: 20px;
+  transition: transform 0.4s ease;
 }
 
 .belNova-sec-card strong {
   font-size: 15px;
   color: var(--belNova-black);
 }
+
+/* SECTION 6 — SECURITY STAGGERED REVEALS */
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .belNova-sec-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+  }
+  .belNova-sec-card:nth-child(1) { animation-range: entry 10% cover 25%; }
+  .belNova-sec-card:nth-child(2) { animation-range: entry 12% cover 27%; }
+  .belNova-sec-card:nth-child(3) { animation-range: entry 14% cover 29%; }
+  .belNova-sec-card:nth-child(4) { animation-range: entry 16% cover 31%; }
+  .belNova-sec-card:nth-child(5) { animation-range: entry 18% cover 33%; }
+  .belNova-sec-card:nth-child(6) { animation-range: entry 20% cover 35%; }
+  .belNova-sec-card:nth-child(7) { animation-range: entry 22% cover 37%; }
+  .belNova-sec-card:nth-child(8) { animation-range: entry 24% cover 39%; }
+  .belNova-sec-card:nth-child(9) { animation-range: entry 26% cover 41%; }
+  .belNova-sec-card:nth-child(10) { animation-range: entry 28% cover 43%; }
+}
+
+@supports not (animation-timeline: view()) {
+  .belNova-sec-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-sec-card:nth-child(1) { animation-delay: 0.05s; }
+  .belNova-sec-card:nth-child(2) { animation-delay: 0.1s; }
+  .belNova-sec-card:nth-child(3) { animation-delay: 0.15s; }
+  .belNova-sec-card:nth-child(4) { animation-delay: 0.2s; }
+  .belNova-sec-card:nth-child(5) { animation-delay: 0.25s; }
+  .belNova-sec-card:nth-child(6) { animation-delay: 0.3s; }
+  .belNova-sec-card:nth-child(7) { animation-delay: 0.35s; }
+  .belNova-sec-card:nth-child(8) { animation-delay: 0.40s; }
+  .belNova-sec-card:nth-child(9) { animation-delay: 0.45s; }
+  .belNova-sec-card:nth-child(10) { animation-delay: 0.5s; }
+}
+
+/* 1. Authentication — keyhole-style ambient glow */
+.belNova-sec-card:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(0, 201, 233, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(1):hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 201, 233, 0.25);
+    box-shadow: 0 6px 15px rgba(0, 201, 233, 0.03);
+  }
+  .belNova-sec-card:nth-child(1):hover::before { opacity: 1; }
+  .belNova-sec-card:nth-child(1):hover span { transform: scale(1.1); color: #00c9e9; }
+}
+
+/* 2. Authorization — diamond pulse */
+@keyframes secPulse2 {
+  0% { box-shadow: 0 0 4px rgba(50, 135, 255, 0.02); border-color: var(--belNova-border); }
+  100% { box-shadow: 0 0 12px rgba(50, 135, 255, 0.08); border-color: rgba(50, 135, 255, 0.25); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(2):hover {
+    transform: translateY(-2px);
+    animation: secPulse2 2s infinite alternate ease-in-out;
+  }
+}
+
+/* 3. Role-Based Access — vertical light activation */
+.belNova-sec-card:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--belNova-gradient);
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(3):hover {
+    transform: translateY(-2px);
+    border-color: rgba(50, 135, 255, 0.2);
+  }
+  .belNova-sec-card:nth-child(3):hover::before {
+    animation: secVertFlow 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+@keyframes secVertFlow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0%); }
+}
+
+/* 4. Secure APIs — network-style glow */
+.belNova-sec-card:nth-child(4)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(50, 135, 255, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(4):hover {
+    transform: translateY(-2px);
+    border-color: rgba(50, 135, 255, 0.25);
+    box-shadow: 0 6px 15px rgba(50, 135, 255, 0.03);
+  }
+  .belNova-sec-card:nth-child(4):hover::before { opacity: 1; }
+}
+
+/* 5. Data Encryption — subtle scanning reflection */
+.belNova-sec-card:nth-child(5)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45) 50%, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(5):hover {
+    transform: translateY(-2px);
+    border-color: rgba(18, 20, 26, 0.12);
+  }
+  .belNova-sec-card:nth-child(5):hover::after {
+    animation: glassSweep 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* 6. Backup Strategy — downward data pulse */
+.belNova-sec-card:nth-child(6)::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, #00c9e9, transparent);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(6):hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 201, 233, 0.22);
+  }
+  .belNova-sec-card:nth-child(6):hover::before {
+    animation: backupPulse 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+@keyframes backupPulse {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* 7. Logging — horizontal scan */
+.belNova-sec-card:nth-child(7)::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #3287ff, transparent);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(7):hover {
+    transform: translateY(-2px);
+    border-color: rgba(50, 135, 255, 0.2);
+  }
+  .belNova-sec-card:nth-child(7):hover::before {
+    animation: horizontalScan 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+@keyframes horizontalScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* 8. Monitoring — signal pulse */
+@keyframes secPulse8 {
+  0% { box-shadow: 0 0 4px rgba(210, 14, 234, 0.02); border-color: var(--belNova-border); }
+  100% { box-shadow: 0 0 12px rgba(210, 14, 234, 0.08); border-color: rgba(210, 14, 234, 0.25); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(8):hover {
+    transform: translateY(-2px);
+    animation: secPulse8 2s infinite alternate ease-in-out;
+  }
+}
+
+/* 9. Environment Separation — boundary glow */
+.belNova-sec-card:nth-child(9)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(9):hover {
+    transform: translateY(-2px);
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 6px 15px rgba(139, 92, 246, 0.03);
+  }
+  .belNova-sec-card:nth-child(9):hover::before { opacity: 1; }
+}
+
+/* 10. Secure Deployment — upward activation */
+.belNova-sec-card:nth-child(10)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--belNova-gradient);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-sec-card:nth-child(10):hover {
+    transform: translateY(-2.5px);
+    border-color: rgba(50, 135, 255, 0.22);
+  }
+  .belNova-sec-card:nth-child(10):hover::before {
+    transform: scaleX(0.7);
+  }
+}
+
+@keyframes glassSweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-sec-container {
@@ -82,5 +356,22 @@
   }
   .belNova-sec-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .belNova-sec-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -4,7 +4,7 @@
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #ffffff; /* PURE WHITE BACKGROUND */
 }
 
 .belNova-why-container {
@@ -28,11 +28,25 @@
 }
 
 .belNova-why-card {
+  position: relative;
   min-height: 200px;
   padding: 30px;
   background: #ffffff;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
+  overflow: hidden;
+  transition: 
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.belNova-why-card small,
+.belNova-why-card h3,
+.belNova-why-card p {
+  position: relative;
+  z-index: 2;
 }
 
 .belNova-why-card small {
@@ -40,6 +54,7 @@
   font-weight: 700;
   letter-spacing: 3px;
   font-size: 13px;
+  transition: color 0.4s ease;
 }
 
 .belNova-why-card h3 {
@@ -53,7 +68,229 @@
   font-size: 16px;
   line-height: 1.55;
   margin: 0;
+  transition: color 0.4s ease;
 }
+
+/* SECTION 1 — WHY US STAGGERED REVEALS */
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .belNova-why-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+  }
+  .belNova-why-card:nth-child(1) { animation-range: entry 10% cover 25%; }
+  .belNova-why-card:nth-child(2) { animation-range: entry 12% cover 27%; }
+  .belNova-why-card:nth-child(3) { animation-range: entry 14% cover 29%; }
+  .belNova-why-card:nth-child(4) { animation-range: entry 16% cover 31%; }
+  .belNova-why-card:nth-child(5) { animation-range: entry 18% cover 33%; }
+  .belNova-why-card:nth-child(6) { animation-range: entry 20% cover 35%; }
+}
+
+@supports not (animation-timeline: view()) {
+  .belNova-why-card {
+    animation: itemEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-why-card:nth-child(1) { animation-delay: 0.1s; }
+  .belNova-why-card:nth-child(2) { animation-delay: 0.22s; }
+  .belNova-why-card:nth-child(3) { animation-delay: 0.34s; }
+  .belNova-why-card:nth-child(4) { animation-delay: 0.46s; }
+  .belNova-why-card:nth-child(5) { animation-delay: 0.58s; }
+  .belNova-why-card:nth-child(6) { animation-delay: 0.7s; }
+}
+
+/* CARD 01 — Business First: soft cyan ambient aura */
+.belNova-why-card:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(0, 201, 233, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-why-card:nth-child(1):hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 201, 233, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 201, 233, 0.03);
+  }
+  .belNova-why-card:nth-child(1):hover::before {
+    opacity: 1;
+  }
+  .belNova-why-card:nth-child(1):hover small {
+    color: #00c9e9;
+  }
+}
+
+/* CARD 02 — Custom Engineering: diagonal blue/violet light sweep */
+.belNova-why-card:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(50, 135, 255, 0.06) 45%, rgba(139, 92, 246, 0.06) 55%, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-why-card:nth-child(2):hover {
+    transform: translateY(-2px);
+    border-color: rgba(50, 135, 255, 0.25);
+  }
+  .belNova-why-card:nth-child(2):hover::after {
+    animation: glassSweep 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .belNova-why-card:nth-child(2):hover small {
+    color: #3287ff;
+  }
+}
+
+/* CARD 03 — Modern Technology: subtle technology pulse */
+.belNova-why-card:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin-top: -60px;
+  margin-left: -60px;
+  background: radial-gradient(circle, rgba(0, 201, 233, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-why-card:nth-child(3):hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 201, 233, 0.25);
+    box-shadow: 0 8px 16px rgba(0, 201, 233, 0.03);
+  }
+  .belNova-why-card:nth-child(3):hover::before {
+    animation: pulseWhy3 1.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  .belNova-why-card:nth-child(3):hover small {
+    color: #00c9e9;
+  }
+}
+@keyframes pulseWhy3 {
+  0% { transform: scale(0.5); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* CARD 04 — Scalable Architecture: expanding border glow */
+.belNova-why-card:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #00c9e9, #3287ff, #00c9e9);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-why-card:nth-child(4):hover {
+    transform: translateY(-2px);
+    border-color: transparent !important;
+    box-shadow: 0 8px 16px rgba(0, 201, 233, 0.04);
+  }
+  .belNova-why-card:nth-child(4):hover::after {
+    opacity: 1;
+    animation: flowCap4 2.5s linear infinite;
+  }
+  .belNova-why-card:nth-child(4):hover small {
+    color: #3287ff;
+  }
+}
+
+/* CARD 05 — Transparent Delivery: glass reflection */
+.belNova-why-card:nth-child(5)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45) 50%, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-why-card:nth-child(5):hover {
+    transform: translateY(-2px);
+    border-color: rgba(18, 20, 26, 0.12);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.015);
+  }
+  .belNova-why-card:nth-child(5):hover::after {
+    animation: glassSweep 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* CARD 06 — Long-Term Partnership: soft violet/cyan corner bloom */
+.belNova-why-card:nth-child(6)::before {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  right: -30%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.1) 0%, rgba(0, 201, 233, 0.05) 50%, transparent 80%);
+  border-radius: 50%;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .belNova-why-card:nth-child(6):hover {
+    transform: translateY(-2px);
+    border-color: rgba(139, 92, 246, 0.25);
+  }
+  .belNova-why-card:nth-child(6):hover::before {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  .belNova-why-card:nth-child(6):hover small {
+    color: #d20eea;
+  }
+}
+
+/* Reusable keyframe helpers */
+@keyframes glassSweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+@keyframes flowCap4 {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ==================== RESPONSIVE ==================== */
 
 @media (max-width: 1200px) {
   .belNova-why-container {
@@ -78,5 +315,22 @@
   }
   .belNova-why-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .belNova-why-card {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

@@ -337,13 +337,13 @@ export default function Contact() {
       {/* ================= CONTACT INTRO ================= */}
       <section className="contact-intro">
         <div className="contact-container">
-          <Label>CONTACT</Label>
+          {/* <Label>CONTACT</Label> */}
 
-          <h2 className="contact-section-title">
-            Let's Build Something Great
-            <br />
-            Together.
-          </h2>
+<h2 className="contact-section-title">
+  Have a Challenge?
+  <br />
+  Let's Talk.
+</h2>
 
           <p className="contact-section-description">
             Tell us about your business challenge, technology requirement or

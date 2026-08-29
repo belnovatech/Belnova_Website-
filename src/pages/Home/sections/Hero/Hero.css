@@ -677,49 +677,68 @@
 
 /* ==================== ORBIT POSITIONS ==================== */
 
+/* ==================== ORBIT POSITIONS ==================== */
+
+/* IDEA - top of circle */
 .belNova-orbit-idea {
-  top: 15px;
-  left: 220px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+/* SOFTWARE - upper right of circle */
 .belNova-orbit-software {
-  top: 75px;
-  right: -5px;
+  top: 65px;
+  right: 25px;
 }
 
+/* AI - right center of circle */
 .belNova-orbit-ai {
-  top: 215px;
-  right: -45px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
+/* CLOUD - lower right of circle */
 .belNova-orbit-cloud {
-  right: -25px;
-  bottom: 85px;
+  right: 65px;
+  bottom: 90px;
+  transform: translate(50%, 0);
 }
 
+
+/* DATA - bottom right of circle */
 .belNova-orbit-data {
-  right: 100px;
-  bottom: -5px;
+  right: 200px;
+  bottom: 50px;
+  transform: translate(50%, 50%);
 }
 
+/* AUTOMATION - bottom left of circle */
 .belNova-orbit-automation {
-  bottom: -5px;
-  left: 85px;
+  bottom: 50px;
+  left: 150px;
+  transform: translate(-50%, 50%);
 }
 
+/* MOBILE - lower left of circle */
 .belNova-orbit-mobile {
-  bottom: 85px;
-  left: -15px;
+  bottom: 130px;
+  left: 10% ;
+  transform: translate(-50%, 0);
 }
 
+/* WEB - left center of circle */
 .belNova-orbit-web {
-  top: 215px;
-  left: -30px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
+/* BUSINESS - upper left of circle */
 .belNova-orbit-business {
-  top: 75px;
-  left: 30px;
+  top: 65px;
+  left: 25px;
 }
 
 /* ==================== RESPONSIVE ==================== */
