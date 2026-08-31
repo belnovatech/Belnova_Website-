@@ -75,46 +75,49 @@ const Navbar = () => {
         </div>
       </div>
 
-      {mobileMenuOpen && (
-        <div className="navbar-mobile-drawer">
-            <NavLink to="/" className={getNavLinkClass}>
-    Home
-  </NavLink>
-          <nav className="navbar-mobile-nav">
-            <NavLink to="/what-we-do" className={getNavLinkClass}>
-              What We Do
-            </NavLink>
+{mobileMenuOpen && (
+  <div className="navbar-mobile-drawer">
+    <nav className="navbar-mobile-nav">
 
-            <NavLink to="/solutions" className={getNavLinkClass}>
-              Solutions
-            </NavLink>
+      <NavLink to="/" className={getNavLinkClass}>
+        Home
+      </NavLink>
 
-            <NavLink to="/industries" className={getNavLinkClass}>
-              Industries
-            </NavLink>
+      <NavLink to="/what-we-do" className={getNavLinkClass}>
+        What We Do
+      </NavLink>
 
-            <NavLink to="/work" className={getNavLinkClass}>
-              Work
-            </NavLink>
+      <NavLink to="/solutions" className={getNavLinkClass}>
+        Solutions
+      </NavLink>
 
-            <NavLink to="/innovations" className={getNavLinkClass}>
-              Innovation
-            </NavLink>
+      <NavLink to="/industries" className={getNavLinkClass}>
+        Industries
+      </NavLink>
 
-            <NavLink to="/company" className={getNavLinkClass}>
-              Company
-            </NavLink>
+      <NavLink to="/work" className={getNavLinkClass}>
+        Work
+      </NavLink>
 
-            <NavLink to="/careers" className={getNavLinkClass}>
-              Careers
-            </NavLink>
+      <NavLink to="/innovations" className={getNavLinkClass}>
+        Innovation
+      </NavLink>
 
-            <Link to="/contact" className="navbar-mobile-cta">
-              Start a Project <span>→</span>
-            </Link>
-          </nav>
-        </div>
-      )}
+      <NavLink to="/company" className={getNavLinkClass}>
+        Company
+      </NavLink>
+
+      <NavLink to="/careers" className={getNavLinkClass}>
+        Careers
+      </NavLink>
+
+      <Link to="/contact" className="navbar-mobile-cta">
+        Start a Project <span>→</span>
+      </Link>
+
+    </nav>
+  </div>
+)}
     </header>
   );
 };

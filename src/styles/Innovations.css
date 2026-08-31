@@ -7,11 +7,11 @@
 }
 
 :root {
-  --innovations-black: #12141a;
-  --innovations-text: #515968;
-  --innovations-muted: #858c99;
-  --innovations-border: #dce2e9;
-  --innovations-soft: #fafbfc;
+  --innovations-black: #eef3fb;
+  --innovations-text: #9bb0cc;
+  --innovations-muted: #788ea8;
+  --innovations-border: rgba(255, 255, 255, 0.1);
+  --innovations-soft: #13151f;
   --innovations-gradient: linear-gradient(
     105deg,
     #00cbe8 0%,
@@ -24,7 +24,7 @@
 body {
   margin: 0;
   color: var(--innovations-black);
-  background: #ffffff;
+  background: #0d0e14;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
@@ -75,8 +75,8 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #505969;
-  background: rgba(248, 249, 251, 0.94);
+  color: #9bb0cc;
+  background: rgba(20, 23, 34, 0.9); color: #c5d0e0;
   border: 1px solid var(--innovations-border);
   border-radius: 999px;
   font-size: 13px;
@@ -106,8 +106,8 @@ button {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(205, 214, 225, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(205, 214, 225, 0.22) 1px, transparent 1px);
+    linear-gradient(rgba(120, 150, 220, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 150, 220, 0.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -139,7 +139,7 @@ button {
 
 .innovations-outline-button {
   color: var(--innovations-black);
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
 }
 
@@ -158,6 +158,7 @@ button {
   min-height: 480px;
   position: relative;
   overflow: hidden;
+
   background:
     radial-gradient(
       circle at 2% 5%,
@@ -169,7 +170,7 @@ button {
       rgba(207, 13, 233, 0.07),
       transparent 24%
     ),
-    #ffffff;
+    #0d0e14;
 }
 
 .innovations-hero-content {
@@ -242,8 +243,8 @@ button {
   z-index: 2;
   display: grid;
   place-items: center;
-  color: #707887;
-  background: #ffffff;
+  color: #9bb0cc;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 50%;
   font-size: 16px;
@@ -261,7 +262,7 @@ button {
   min-height: 390px;
   margin-top: 24px;
   padding: 34px 25px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 28px;
 }
@@ -307,7 +308,7 @@ button {
 .innovations-lab-card {
   min-height: 190px;
   padding: 30px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 28px;
   transition:
@@ -363,7 +364,7 @@ button {
 
 .innovations-radar-circle {
   position: absolute;
-  border: 1.5px solid #a7dcff;
+  border: 1.5px solid rgba(77, 137, 255, 0.35);
   border-radius: 50%;
 }
 
@@ -440,8 +441,8 @@ button {
   position: absolute;
   z-index: 3;
   padding: 10px 16px;
-  color: #596170;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 999px;
   font-size: 13px;
@@ -492,13 +493,13 @@ button {
 .innovations-technology-card {
   min-height: 350px;
   padding: 38px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 28px;
 }
 
 .innovations-technology-card > small {
-  color: #788095;
+  color: #9bb0cc;
   letter-spacing: 3px;
 }
 
@@ -522,7 +523,7 @@ button {
 .innovations-tags span {
   padding: 9px 15px;
   color: var(--innovations-text);
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 999px;
   font-size: 13px;
@@ -542,7 +543,7 @@ button {
   display: flex;
   align-items: center;
   gap: 15px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--innovations-border);
   border-radius: 24px;
   transition:
@@ -578,12 +579,11 @@ button {
       105deg,
       rgba(0, 201, 233, 0.15),
       rgba(207, 13, 233, 0.13)
-    ),
-    #ffffff;
+    ), #0d0e14;
 }
 
 .innovations-final-content {
-  width: min(1100px, calc(100% - 40px));
+  width: min(1200px, calc(100% - 40px));
   position: relative;
   z-index: 1;
   padding: 85px 20px;
@@ -609,10 +609,10 @@ button {
 
 .innovations-final-content h2 {
   margin: 0;
-  font-size: clamp(58px, 6vw, 82px);
+  font-size: clamp(44px, 5.2vw, 76px);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -4px;
+  letter-spacing: -3.5px;
 }
 
 .innovations-final-content p {

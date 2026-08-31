@@ -1,4 +1,4 @@
-/* ==================== RESOURCE OUTSOURCING ==================== */
+﻿/* ==================== RESOURCE OUTSOURCING ==================== */
 
 .belNova-ro-section {
   width: 100%;
@@ -35,8 +35,8 @@
 
 .belNova-ro-pill {
   padding: 14px 20px;
-  color: #4f5663;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 999px;
   font-size: 15px;

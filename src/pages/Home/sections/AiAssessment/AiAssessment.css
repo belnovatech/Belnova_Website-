@@ -1,10 +1,10 @@
-/* ==================== AI ASSESSMENT ==================== */
+﻿/* ==================== AI ASSESSMENT ==================== */
 
 .belNova-ai-assess-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 .belNova-ai-assess-container {
@@ -30,7 +30,7 @@
 
 .belNova-ai-assess-panel {
   padding: 44px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
 }
@@ -53,8 +53,8 @@
 
 .belNova-ai-choice-list button {
   padding: 14px 20px;
-  color: #4f5663;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 999px;
   font-size: 15px;
@@ -76,12 +76,12 @@
 .belNova-ai-assess-result {
   margin-top: 36px;
   padding: 28px;
-  background: #f7f9fc;
+  background: #13151f;
   border-radius: 24px;
 }
 
 .belNova-ai-assess-result small {
-  color: #778094;
+  color: #9bb0cc;
   letter-spacing: 2.5px;
   font-size: 12px;
   font-weight: 700;

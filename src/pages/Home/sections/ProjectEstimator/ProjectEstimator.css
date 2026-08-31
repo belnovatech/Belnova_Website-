@@ -1,10 +1,10 @@
-/* ==================== PROJECT ESTIMATOR ==================== */
+﻿/* ==================== PROJECT ESTIMATOR ==================== */
 
 .belNova-estimator-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 .belNova-estimator-container {
@@ -30,7 +30,7 @@
 
 .belNova-estimator-panel {
   padding: 44px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
 }
@@ -53,7 +53,7 @@
 }
 
 .belNova-estimator-panel small {
-  color: #778094;
+  color: #9bb0cc;
   letter-spacing: 2.5px;
   font-size: 12px;
   font-weight: 700;
@@ -73,8 +73,8 @@
 
 .belNova-estimator-choices button {
   padding: 14px 20px;
-  color: #4f5663;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 999px;
   font-size: 15px;
@@ -95,7 +95,7 @@
 
 .belNova-estimator-summary {
   padding: 24px;
-  background: #f7f9fc;
+  background: #13151f;
   border-radius: 20px;
   margin-top: 20px;
 }
@@ -103,7 +103,7 @@
 .belNova-estimator-summary p {
   margin: 8px 0;
   font-size: 16px;
-  color: #4b5563;
+  color: #8b9ab5;
 }
 
 .belNova-estimator-nav-actions {
@@ -124,7 +124,7 @@
 }
 
 .belNova-estimator-back-btn {
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   color: var(--belNova-black);
 }

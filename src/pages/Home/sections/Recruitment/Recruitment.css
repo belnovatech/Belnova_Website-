@@ -1,10 +1,10 @@
-/* ==================== RECRUITMENT ==================== */
+﻿/* ==================== RECRUITMENT ==================== */
 
 .belNova-recruitment-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 .belNova-recruitment-container {
@@ -37,7 +37,7 @@
 .belNova-recruitment-card {
   min-height: 140px;
   padding: 24px 20px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 24px;
 }

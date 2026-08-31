@@ -1,9 +1,9 @@
-/* ==================== BELNOVA LABS ==================== */
+﻿/* ==================== BELNOVA LABS ==================== */
 
 .belNova-labs-section {
   width: 100%;
   padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: #ffffff; /* PURE WHITE CANVAS */
+  background: #0d0e14; /* PURE WHITE CANVAS */
 }
 
 .belNova-labs-container {
@@ -46,7 +46,7 @@
   position: relative;
   min-height: 180px;
   padding: 28px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   overflow: hidden;
@@ -67,7 +67,7 @@
 .belNova-lab-card.highlight {
   border: 1px solid transparent !important;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--belNova-gradient) border-box !important;
   box-shadow: 0 8px 24px rgba(37, 96, 190, 0.04);
 }
@@ -81,7 +81,7 @@
   letter-spacing: 1.5px;
   font-size: 11px;
   font-weight: 700;
-  background: #ffffff;
+  background: #0d0e14;
   transition: all 0.4s ease;
 }
 

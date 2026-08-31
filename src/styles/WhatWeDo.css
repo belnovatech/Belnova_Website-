@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 /* ==================== GLOBAL ==================== */
 
@@ -7,10 +7,10 @@
 }
 
 :root {
-  --wwd-black: #12141a;
-  --wwd-text: #515968;
-  --wwd-border: #dce2e9;
-  --wwd-soft: #fafbfc;
+  --wwd-black: #eef3fb;
+  --wwd-text: #9bb0cc;
+  --wwd-border: rgba(255, 255, 255, 0.1);
+  --wwd-soft: #13151f;
   --wwd-cyan: #00c9e9;
   --wwd-blue: #3785ff;
   --wwd-purple: #cb0ee9;
@@ -26,7 +26,7 @@
 body {
   margin: 0;
   color: var(--wwd-black);
-  background: #ffffff;
+  background: #0d0e14;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
@@ -76,8 +76,8 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #505969;
-  background: rgba(248, 249, 251, 0.94);
+  color: #9bb0cc;
+  background: rgba(20, 23, 34, 0.9); color: #c5d0e0;
   border: 1px solid var(--wwd-border);
   border-radius: 999px;
   font-size: 12px;
@@ -119,7 +119,7 @@ button {
       rgba(207, 13, 233, 0.08),
       transparent 24%
     ),
-    #ffffff;
+    #0d0e14;
 }
 
 .wwd-grid-background {
@@ -127,8 +127,8 @@ button {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(215, 220, 228, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(215, 220, 228, 0.22) 1px, transparent 1px);
+    linear-gradient(rgba(120, 150, 220, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 150, 220, 0.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -172,7 +172,7 @@ button {
   padding: 30px;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 28px;
   transition:
@@ -184,7 +184,7 @@ button {
 .wwd-capability-card:hover {
   border-color: transparent;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--wwd-gradient) border-box;
   border: 1px solid transparent;
   box-shadow: 0 15px 35px rgba(51, 97, 180, 0.08);
@@ -225,8 +225,8 @@ button {
 
 .wwd-tags span {
   padding: 8px 14px;
-  color: #596171;
-  background: #ffffff;
+  color: #9bb0cc;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 999px;
   font-size: 13px;
@@ -278,7 +278,7 @@ button {
 
 .wwd-outline-button {
   color: var(--wwd-black);
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
 }
 
@@ -309,7 +309,7 @@ button {
 
 .wwd-radar-circle {
   position: absolute;
-  border: 1.5px solid #a7dcff;
+  border: 1.5px solid rgba(77, 137, 255, 0.35);
   border-radius: 50%;
 }
 
@@ -387,8 +387,8 @@ button {
   position: absolute;
   z-index: 3;
   padding: 10px 16px;
-  color: #596170;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 999px;
   font-size: 13px;
@@ -439,13 +439,13 @@ button {
 .wwd-technology-panel {
   min-height: 350px;
   padding: 38px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 28px;
 }
 
 .wwd-technology-panel small {
-  color: #788095;
+  color: #9bb0cc;
   letter-spacing: 3px;
 }
 
@@ -475,7 +475,7 @@ button {
 .wwd-architecture-stack,
 .wwd-integrations {
   padding: 40px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 28px;
 }
@@ -491,7 +491,7 @@ button {
 }
 
 .wwd-architecture-layer span {
-  color: #7e8593;
+  color: #9bb0cc;
   letter-spacing: 3px;
 }
 
@@ -555,7 +555,7 @@ button {
   gap: 20px;
   align-items: center;
   color: var(--wwd-text);
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 28px;
 }
@@ -567,7 +567,7 @@ button {
 .wwd-process-row small {
   width: fit-content;
   padding: 8px 15px;
-  color: #788095;
+  color: #9bb0cc;
   border: 1px solid var(--wwd-border);
   border-radius: 999px;
 }
@@ -585,8 +585,7 @@ button {
       105deg,
       rgba(0, 201, 233, 0.14),
       rgba(207, 13, 233, 0.13)
-    ),
-    #ffffff;
+    ), #0d0e14;
 }
 
 .wwd-final-content {

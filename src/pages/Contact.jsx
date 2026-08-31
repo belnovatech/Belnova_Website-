@@ -106,18 +106,100 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!formData.privacy) {
-      alert("Please agree to the Privacy Policy and Terms & Conditions.");
+  if (!formData.privacy) {
+    alert("Please agree to the Privacy Policy and Terms & Conditions.");
+    return;
+  }
+
+  try {
+    const data = new FormData();
+
+    // Required fields
+    data.append("fullName", formData.fullName);
+    data.append("email", formData.email);
+    data.append("title", formData.projectTitle);
+    data.append("message", formData.description);
+    data.append("privacy_accepted", String(formData.privacy));
+
+    // Optional fields
+    if (formData.company) {
+      data.append("company", formData.company);
+    }
+
+    if (formData.phone) {
+      data.append("phone", formData.phone);
+    }
+
+    if (formData.country) {
+      data.append("country", formData.country);
+    }
+
+    if (formData.requirement) {
+      data.append("lookingFor", formData.requirement);
+    }
+
+    if (formData.technology) {
+      data.append("technology", formData.technology);
+    }
+
+    if (formData.timeline) {
+      data.append("timeline", formData.timeline);
+    }
+
+    if (formData.budget) {
+      data.append("budget", formData.budget);
+    }
+
+    if (formData.source) {
+      data.append("source", formData.source);
+    }
+
+    // Attachment
+    if (formData.attachment) {
+      data.append("attachment", formData.attachment);
+    }
+
+    const response = await fetch(
+      "https://backend-belnova-website.onrender.com/api/contact",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+
+    console.log(
+  "FULL BACKEND ERROR:",
+  JSON.stringify(errorData, null, 2)
+);
+
+      alert(
+        errorData?.detail ||
+          "Something went wrong while submitting your requirement."
+      );
+
       return;
     }
 
-    console.log("Contact form submitted:", formData);
-    alert("Thank you! Your requirement has been submitted.");
-  };
+    const result = await response.json().catch(() => null);
 
+    console.log("Contact submitted successfully:", result);
+
+    alert("Thank you! Your requirement has been submitted.");
+
+  } catch (error) {
+    console.error("Contact submission error:", error);
+
+    alert(
+      "Unable to submit your requirement. Please try again later."
+    );
+  }
+};
   const nextEstimatorStep = () => {
     if (estimatorStep < 6) {
       setEstimatorStep((prev) => prev + 1);

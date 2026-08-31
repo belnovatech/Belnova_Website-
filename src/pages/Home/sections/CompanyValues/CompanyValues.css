@@ -1,9 +1,9 @@
-/* ==================== COMPANY VALUES ==================== */
+﻿/* ==================== COMPANY VALUES ==================== */
 
 .belNova-company-section {
   width: 100%;
   padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: #ffffff; /* PURE WHITE CANVAS */
+  background: #0d0e14; /* PURE WHITE CANVAS */
 }
 
 .belNova-company-container {
@@ -45,7 +45,7 @@
 
 .belNova-company-hero-text p {
   font-size: 18px;
-  color: #4b5563;
+  color: #8b9ab5;
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -77,12 +77,12 @@
 .belNova-mission-card,
 .belNova-vision-card {
   padding: 30px;
-  background: #ffffff;
-  border: 1px solid rgba(18, 20, 26, 0.06);
+  background: #0d0e14;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 26px;
   box-shadow: 
     0 10px 24px rgba(0, 0, 0, 0.01),
-    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -95,7 +95,7 @@
 
 .belNova-mission-card small,
 .belNova-vision-card small {
-  color: #778094;
+  color: #9bb0cc;
   letter-spacing: 2px;
   font-size: 12px;
   font-weight: 700;
@@ -120,7 +120,7 @@
   position: relative;
   min-height: 130px;
   padding: 28px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   overflow: hidden;
@@ -248,7 +248,7 @@
 @media (hover: hover) and (pointer: fine) {
   .belNova-value-card:nth-child(3):hover {
     transform: translateY(-2.5px);
-    border-color: rgba(18, 20, 26, 0.12);
+    border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.015);
   }
   .belNova-value-card:nth-child(3):hover::after {
@@ -343,7 +343,7 @@
   margin-top: 60px;
   margin-bottom: 20px;
   overflow: hidden;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
 }
@@ -363,13 +363,13 @@
 }
 
 .belNova-metric-box strong {
-  color: #7a818d;
+  color: #9bb0cc;
   font-size: 24px;
 }
 
 .belNova-metric-box span {
   margin-top: 12px;
-  color: #454c58;
+  color: #eef3fb;
   font-size: 13px;
 }
 
@@ -380,7 +380,7 @@
 }
 
 .belNova-metrics-note {
-  color: #7d8492;
+  color: #9bb0cc;
   font-size: 14px;
   text-align: center;
 }

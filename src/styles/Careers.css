@@ -7,11 +7,11 @@
 }
 
 :root {
-  --careers-black: #12141a;
-  --careers-text: #515968;
-  --careers-muted: #818998;
-  --careers-border: #dce2e9;
-  --careers-soft: #fafbfc;
+  --careers-black: #eef3fb;
+  --careers-text: #9bb0cc;
+  --careers-muted: #788ea8;
+  --careers-border: rgba(255, 255, 255, 0.1);
+  --careers-soft: #13151f;
   --careers-gradient: linear-gradient(
     105deg,
     #00cbe8 0%,
@@ -28,7 +28,7 @@ html {
 body {
   margin: 0;
   color: var(--careers-black);
-  background: #ffffff;
+  background: #0d0e14;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
@@ -75,8 +75,8 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #505969;
-  background: rgba(248, 249, 251, 0.94);
+  color: #9bb0cc;
+  background: rgba(20, 23, 34, 0.9); color: #c5d0e0;
   border: 1px solid var(--careers-border);
   border-radius: 999px;
   font-size: 13px;
@@ -106,8 +106,8 @@ a {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(205, 214, 225, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(205, 214, 225, 0.22) 1px, transparent 1px);
+    linear-gradient(rgba(120, 150, 220, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 150, 220, 0.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -142,7 +142,7 @@ a {
 
 .careers-outline-button,
 .careers-apply-button {
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--careers-border);
 }
 
@@ -167,6 +167,7 @@ a {
   min-height: 540px;
   position: relative;
   overflow: hidden;
+
   background:
     radial-gradient(
       circle at 2% 5%,
@@ -178,7 +179,7 @@ a {
       rgba(207, 13, 233, 0.07),
       transparent 24%
     ),
-    #ffffff;
+    #0d0e14;
 }
 
 .careers-hero-content {
@@ -221,7 +222,7 @@ a {
   justify-content: space-between;
   gap: 30px;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     linear-gradient(var(--careers-border), var(--careers-border)) border-box;
   border: 1px solid transparent;
   border-radius: 28px;
@@ -233,7 +234,7 @@ a {
 .careers-job-card:hover,
 .careers-job-card.featured {
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--careers-gradient) border-box;
   box-shadow: 0 16px 35px rgba(45, 80, 170, 0.07);
   transform: translateY(-3px);
@@ -361,12 +362,11 @@ a {
       105deg,
       rgba(0, 201, 233, 0.15),
       rgba(207, 13, 233, 0.13)
-    ),
-    #ffffff;
+    ), #0d0e14;
 }
 
 .careers-final-content {
-  width: min(1100px, calc(100% - 40px));
+  width: min(1200px, calc(100% - 40px));
   position: relative;
   z-index: 1;
   padding: 80px 20px;
@@ -379,10 +379,10 @@ a {
 
 .careers-final-content h2 {
   margin: 0;
-  font-size: clamp(58px, 6vw, 82px);
+  font-size: clamp(44px, 5.2vw, 76px);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -4px;
+  letter-spacing: -3.5px;
 }
 
 .careers-final-content p {

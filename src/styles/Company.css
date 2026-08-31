@@ -7,11 +7,11 @@
 }
 
 :root {
-  --company-black: #12141a;
-  --company-text: #515968;
-  --company-muted: #818998;
-  --company-border: #dce2e9;
-  --company-soft: #fafbfc;
+  --company-black: #eef3fb;
+  --company-text: #9bb0cc;
+  --company-muted: #788ea8;
+  --company-border: rgba(255, 255, 255, 0.1);
+  --company-soft: #13151f;
   --company-gradient: linear-gradient(
     105deg,
     #00cbe8 0%,
@@ -24,7 +24,7 @@
 body {
   margin: 0;
   color: var(--company-black);
-  background: #ffffff;
+  background: #0d0e14;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
@@ -67,8 +67,8 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #505969;
-  background: rgba(248, 249, 251, 0.94);
+  color: #9bb0cc;
+  background: rgba(20, 23, 34, 0.9); color: #c5d0e0;
   border: 1px solid var(--company-border);
   border-radius: 999px;
   font-size: 13px;
@@ -98,8 +98,8 @@ button {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(205, 214, 225, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(205, 214, 225, 0.22) 1px, transparent 1px);
+    linear-gradient(rgba(120, 150, 220, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 150, 220, 0.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -131,7 +131,7 @@ button {
 
 .company-outline-button {
   color: var(--company-black);
-  background: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--company-border);
 }
 
@@ -154,6 +154,7 @@ button {
   min-height: 495px;
   position: relative;
   overflow: hidden;
+
   background:
     radial-gradient(
       circle at 2% 5%,
@@ -165,7 +166,7 @@ button {
       rgba(207, 13, 233, 0.07),
       transparent 24%
     ),
-    #ffffff;
+    #0d0e14;
 }
 
 .company-hero-content {
@@ -205,8 +206,7 @@ button {
       circle at 80% 48%,
       rgba(205, 30, 235, 0.07),
       transparent 34%
-    ),
-    #ffffff;
+    ), #0d0e14;
 }
 
 .company-overview-layout {
@@ -239,13 +239,13 @@ button {
 .company-mission-grid article {
   min-height: 210px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--company-border);
   border-radius: 28px;
 }
 
 .company-mission-grid small {
-  color: #798399;
+  color: #9bb0cc;
   font-size: 13px;
   letter-spacing: 3px;
 }
@@ -337,7 +337,7 @@ button {
 .company-values-grid article {
   min-height: 130px;
   padding: 32px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--company-border);
   border-radius: 28px;
   transition:
@@ -370,7 +370,7 @@ button {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   overflow: hidden;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--company-border);
   border-radius: 28px;
 }
@@ -401,7 +401,7 @@ button {
 
 .company-metrics-note {
   margin: 20px 0 0;
-  color: #798297;
+  color: #9bb0cc;
   font-size: 13px;
 }
 
@@ -418,7 +418,7 @@ button {
   min-height: 210px;
   padding: 32px;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     linear-gradient(var(--company-border), var(--company-border)) border-box;
   border: 1px solid transparent;
   border-radius: 28px;
@@ -430,14 +430,14 @@ button {
 .company-why-grid article:hover,
 .company-why-grid .company-why-active {
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--company-gradient) border-box;
   box-shadow: 0 15px 35px rgba(45, 80, 170, 0.07);
   transform: translateY(-3px);
 }
 
 .company-why-grid small {
-  color: #7f8796;
+  color: #9bb0cc;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -467,12 +467,11 @@ button {
       105deg,
       rgba(0, 201, 233, 0.15),
       rgba(207, 13, 233, 0.13)
-    ),
-    #ffffff;
+    ), #0d0e14;
 }
 
 .company-final-content {
-  width: min(1100px, calc(100% - 40px));
+  width: min(1200px, calc(100% - 40px));
   position: relative;
   z-index: 1;
   padding: 80px 20px;
@@ -506,10 +505,10 @@ button {
 
 .company-final-content h2 {
   margin: 0;
-  font-size: clamp(58px, 6vw, 82px);
+  font-size: clamp(44px, 5.2vw, 76px);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -4px;
+  letter-spacing: -3.5px;
 }
 
 .company-final-content p {

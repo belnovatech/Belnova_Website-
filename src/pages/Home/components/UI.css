@@ -1,10 +1,10 @@
 /* ==================== COMMON UI TOKENS ==================== */
 
 :root {
-  --belNova-black: #12141a;
-  --belNova-text: #596170;
-  --belNova-border: #dbe1e8;
-  --belNova-soft-bg: #fafbfc;
+  --belNova-black: #e0e6f0;
+  --belNova-text: #8b9ab5;
+  --belNova-border: rgba(255,255,255,0.09);
+  --belNova-soft-bg: #13151f;
   --belNova-cyan: #00c9e9;
   --belNova-blue: #3287ff;
   --belNova-purple: #d20eea;
@@ -23,9 +23,9 @@
   align-items: center;
   gap: 10px;
   padding: 9px 18px;
-  color: #505765;
-  background: rgba(248, 249, 251, 0.92);
-  border: 1px solid var(--belNova-border);
+  color: #8b9ab5;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
@@ -82,9 +82,9 @@
 }
 
 .belNova-outline-btn {
-  color: var(--belNova-black);
-  background: #ffffff;
-  border: 1px solid var(--belNova-border);
+  color: #e0e6f0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .belNova-outline-btn:hover {
@@ -106,8 +106,8 @@
 
 .belNova-tag-list span {
   padding: 8px 16px;
-  color: #596170;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 999px;
   font-size: 13px;

@@ -1,4 +1,4 @@
-/* ==================== SOLUTION EXPLORER ==================== */
+﻿/* ==================== SOLUTION EXPLORER ==================== */
 
 .belNova-solutions-section {
   width: 100%;
@@ -42,9 +42,9 @@
 .belNova-solutions-tabs button {
   min-height: 62px;
   padding: 0 24px;
-  color: #596170;
+  color: #8b9ab5;
   text-align: left;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   font-weight: 700;
@@ -71,7 +71,7 @@
 .belNova-solutions-panel {
   min-height: 420px;
   padding: 38px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
 }
@@ -96,7 +96,7 @@
   border-radius: 20px;
   font-weight: 500;
   font-size: 15px;
-  background: #fafbfc;
+  background: #13151f;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
