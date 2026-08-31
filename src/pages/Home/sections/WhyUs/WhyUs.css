@@ -4,7 +4,7 @@
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff; /* PURE WHITE BACKGROUND */
+  background: #0d0e14; /* PURE WHITE BACKGROUND */
 }
 
 .belNova-why-container {
@@ -31,8 +31,8 @@
   position: relative;
   min-height: 200px;
   padding: 30px;
-  background: #ffffff;
-  border: 1px solid var(--belNova-border);
+  background: rgba(20, 24, 38, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
   overflow: hidden;
   transition: 
@@ -50,7 +50,7 @@
 }
 
 .belNova-why-card small {
-  color: #788296;
+  color: #00c9e9;
   font-weight: 700;
   letter-spacing: 3px;
   font-size: 13px;
@@ -60,11 +60,11 @@
 .belNova-why-card h3 {
   margin: 20px 0 12px;
   font-size: 23px;
-  color: var(--belNova-black);
+  color: #eef3fb;
 }
 
 .belNova-why-card p {
-  color: var(--belNova-text);
+  color: #9bb0cc;
   font-size: 16px;
   line-height: 1.55;
   margin: 0;
@@ -242,7 +242,7 @@
 @media (hover: hover) and (pointer: fine) {
   .belNova-why-card:nth-child(5):hover {
     transform: translateY(-2px);
-    border-color: rgba(18, 20, 26, 0.12);
+    border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.015);
   }
   .belNova-why-card:nth-child(5):hover::after {

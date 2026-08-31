@@ -1,4 +1,4 @@
-/* ==================== CONSULTING ==================== */
+﻿/* ==================== CONSULTING ==================== */
 
 .belNova-consulting-section {
   width: 100%;
@@ -36,7 +36,7 @@
 .belNova-consulting-card {
   min-height: 140px;
   padding: 28px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   cursor: pointer;
@@ -50,7 +50,7 @@
   position: relative;
   border: 1px solid transparent !important;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--belNova-gradient) border-box !important;
   box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
 }

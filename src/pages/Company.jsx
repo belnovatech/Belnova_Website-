@@ -266,11 +266,7 @@ export default function Company() {
 
           <h2>
             Your Next Big Idea{" "}
-            <span className="company-gradient-text">
-              Starts
-              <br />
-              Here.
-            </span>
+            <span className="company-gradient-text">Starts Here.</span>
           </h2>
 
           <p>

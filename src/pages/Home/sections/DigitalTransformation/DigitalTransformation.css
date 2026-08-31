@@ -1,4 +1,4 @@
-/* ==================== DIGITAL TRANSFORMATION ==================== */
+﻿/* ==================== DIGITAL TRANSFORMATION ==================== */
 
 .belNova-dt-section {
   width: 100%;
@@ -37,7 +37,7 @@
 .belNova-dt-card {
   min-height: 380px;
   padding: 35px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
 }
@@ -52,7 +52,7 @@
 .belNova-dt-card ul {
   margin: 0;
   padding-left: 20px;
-  color: #7a818e;
+  color: #9bb0cc;
   line-height: 1.8;
   font-size: 15px;
 }

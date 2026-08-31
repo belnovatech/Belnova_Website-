@@ -1,3 +1,76 @@
+﻿:root {
+  /* Core brand tokens */
+  --belNova-black: #eef3fb;
+  --belNova-text: #9bb0cc;
+  --belNova-muted: #788ea8;
+  --belNova-border: rgba(255, 255, 255, 0.1);
+  --belNova-soft-bg: #13151f;
+  --belNova-card-bg: rgba(20, 24, 38, 0.85);
+  --belNova-cyan: #00c9e9;
+  --belNova-blue: #3287ff;
+  --belNova-purple: #d20eea;
+  --belNova-gradient: linear-gradient(
+    105deg,
+    #00cbe8 0%,
+    #218bf8 35%,
+    #6e45f0 67%,
+    #cf0de9 100%
+  );
+
+  /* Global alias tokens */
+  --black: #eef3fb;
+  --text: #9bb0cc;
+  --muted: #788ea8;
+  --border: rgba(255, 255, 255, 0.1);
+  --soft: #13151f;
+
+  /* Page specific alias tokens */
+  --ink: #eef3fb;
+  --line: rgba(255, 255, 255, 0.1);
+  --surface: #141728;
+
+  --wwd-black: #eef3fb;
+  --wwd-text: #9bb0cc;
+  --wwd-border: rgba(255, 255, 255, 0.1);
+  --wwd-soft: #13151f;
+
+  --solutions-black: #eef3fb;
+  --solutions-text: #9bb0cc;
+  --solutions-border: rgba(255, 255, 255, 0.1);
+  --solutions-soft: #13151f;
+
+  --innovations-black: #eef3fb;
+  --innovations-text: #9bb0cc;
+  --innovations-muted: #788ea8;
+  --innovations-border: rgba(255, 255, 255, 0.1);
+  --innovations-soft: #13151f;
+
+  --industries-black: #eef3fb;
+  --industries-text: #9bb0cc;
+  --industries-border: rgba(255, 255, 255, 0.1);
+  --industries-soft: #13151f;
+
+  --company-black: #eef3fb;
+  --company-text: #9bb0cc;
+  --company-muted: #788ea8;
+  --company-border: rgba(255, 255, 255, 0.1);
+  --company-soft: #13151f;
+
+  --careers-black: #eef3fb;
+  --careers-text: #9bb0cc;
+  --careers-muted: #788ea8;
+  --careers-border: rgba(255, 255, 255, 0.1);
+  --careers-soft: #13151f;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--belNova-black);
+}
+
+p {
+  color: var(--belNova-text);
+}
+
 /* =========================================================
    GLOBAL RESET
 ========================================================= */
@@ -20,8 +93,8 @@ body {
   margin: 0;
   overflow-x: hidden;
 
-  color: #111318;
-  background: #ffffff;
+  color: #e0e6f0;
+  background: #0d0e14;
 
   font-family:
     Inter,
@@ -81,7 +154,7 @@ ol {
 }
 
 .app {
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 main {
@@ -314,16 +387,16 @@ select,
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f7fa;
+  background: #111318;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #2a3147;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #3d4f6e;
 }
 
 /* =========================================================

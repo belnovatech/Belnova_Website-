@@ -353,11 +353,7 @@ export default function Innovations() {
 
           <h2>
             Your Next Big Idea{" "}
-            <span className="innovations-gradient-text">
-              Starts
-              <br />
-              Here.
-            </span>
+            <span className="innovations-gradient-text">Starts Here.</span>
           </h2>
 
           <p>

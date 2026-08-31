@@ -1,10 +1,10 @@
-:root {
-  --ink: #10131a;
-  --text: #344f6b;
-  --muted: #71839a;
-  --line: #dce3eb;
-  --surface: #ffffff;
-  --soft: #fafcff;
+﻿:root {
+  --ink: #eef3fb;
+  --text: #9bb0cc;
+  --muted: #788ea8;
+  --line: rgba(255, 255, 255, 0.1);
+  --surface: #141728;
+  --soft: #13151f;
 
   --cyan: #09c9e9;
   --blue: #3187ff;
@@ -24,7 +24,7 @@ html {
 
 body {
   margin: 0;
-  background: #fff;
+  background: #0d0e14;
   color: var(--ink);
   font-family:
     Inter,
@@ -43,7 +43,7 @@ a {
 
 .work-page {
   overflow: hidden;
-  background: #fff;
+  background: #0d0e14;
 }
 
 .container {
@@ -58,12 +58,12 @@ a {
 .section-grid {
   background-image:
     linear-gradient(
-      rgba(87, 112, 139, 0.055) 1px,
+      rgba(120, 150, 220, 0.07) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(87, 112, 139, 0.055) 1px,
+      rgba(120, 150, 220, 0.07) 1px,
       transparent 1px
     );
 
@@ -85,9 +85,9 @@ a {
   border: 1px solid var(--line);
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.04);
 
-  color: #30435a;
+  color: #eef3fb;
 
   font-size: 12px;
   font-weight: 600;
@@ -174,7 +174,7 @@ a {
 .projects-section {
   padding: 140px 0 105px;
 
-  background: #fbfcfe;
+  background: #13151f;
 }
 
 .projects-section h2,
@@ -224,7 +224,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 0 0 26px 26px;
 
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(20, 24, 38, 0.85);
 }
 
 .project-card--active {
@@ -237,7 +237,7 @@ a {
 .eyebrow {
   margin: 0 0 20px;
 
-  color: #7386a1;
+  color: #9bb0cc;
 
   font-size: 12px;
   font-weight: 500;
@@ -287,12 +287,12 @@ a {
   border: 1px solid var(--line);
   border-radius: 999px;
 
-  color: #71839a;
+  color: #9bb0cc;
 
   font-size: 12px;
   line-height: 1;
 
-  background: #fff;
+  background: #0d0e14;
 }
 
 /* =========================
@@ -307,7 +307,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 26px;
 
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .anatomy-heading h3 {
@@ -355,7 +355,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 26px;
 
-  background: #fff;
+  background: #0d0e14;
 }
 
 .info-card .eyebrow {
@@ -416,7 +416,7 @@ a {
 }
 
 .tech-list dt {
-  color: #71839a;
+  color: #9bb0cc;
 }
 
 .tech-list dd {
@@ -424,7 +424,7 @@ a {
 
   text-align: right;
 
-  color: #344f6b;
+  color: #9bb0cc;
 }
 
 /* =========================
@@ -449,7 +449,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 28px;
 
-  background: #fff;
+  background: #0d0e14;
 }
 
 .before-after__side p {
@@ -544,9 +544,9 @@ a {
 }
 
 .outline-button {
-  border: 1px solid #cfd7e1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.04);
 
   color: var(--ink);
 }
@@ -558,7 +558,7 @@ a {
 .architecture-section {
   padding: 0 0 130px;
 
-  background-color: #fff;
+  background-color: #0d0e14;
 }
 
 .architecture-section h2 {
@@ -592,7 +592,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 26px;
 
-  background: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .architecture-layer {
@@ -608,7 +608,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 22px;
 
-  background: #fff;
+  background: #0d0e14;
 }
 
 .architecture-layer strong {
@@ -616,7 +616,7 @@ a {
 }
 
 .architecture-layer span {
-  color: #7386a1;
+  color: #9bb0cc;
 
   font-size: 13px;
 
@@ -685,7 +685,7 @@ a {
 
   font-size: 17px;
 
-  background: #fff;
+  background: #0d0e14;
 }
 
 /* =========================
@@ -711,14 +711,14 @@ a {
       rgba(198, 62, 234, 0.17)
     ),
     linear-gradient(
-      rgba(82, 112, 142, 0.05) 1px,
+      rgba(120, 150, 220, 0.07) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(82, 112, 142, 0.05) 1px,
+      rgba(120, 150, 220, 0.07) 1px,
       transparent 1px
-    );
+    ), #0d0e14;
 
   background-size:
     auto,

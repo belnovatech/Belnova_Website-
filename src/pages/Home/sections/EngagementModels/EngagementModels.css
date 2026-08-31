@@ -1,10 +1,10 @@
-/* ==================== ENGAGEMENT MODELS ==================== */
+﻿/* ==================== ENGAGEMENT MODELS ==================== */
 
 .belNova-models-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff; /* PURE WHITE BACKGROUND */
+  background: #0d0e14; /* PURE WHITE BACKGROUND */
 }
 
 .belNova-models-container {
@@ -39,7 +39,7 @@
   position: relative;
   min-height: 150px;
   padding: 28px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   overflow: hidden;

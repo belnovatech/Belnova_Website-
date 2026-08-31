@@ -1,10 +1,10 @@
-/* ==================== CONTACT SECTION ==================== */
+﻿/* ==================== CONTACT SECTION ==================== */
 
 .belNova-contact-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 .belNova-contact-container {
@@ -43,7 +43,7 @@
   gap: 8px;
   color: var(--belNova-black);
   text-align: left;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 24px;
   cursor: pointer;
@@ -70,7 +70,7 @@
 
 .belNova-contact-form {
   padding: 36px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
 }
@@ -81,7 +81,7 @@
 
 .belNova-form-cat-header h3 {
   font-size: 13px;
-  color: #717d91;
+  color: #9bb0cc;
   letter-spacing: 2px;
   font-weight: 700;
 }
@@ -100,7 +100,7 @@
   gap: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: #8b9ab5;
 }
 
 .belNova-contact-form label.full-width {
@@ -114,8 +114,8 @@
   min-width: 0;
   min-height: 52px;
   padding: 15px 18px;
-  color: #343a45;
-  background: #ffffff;
+  color: #c0cfeb;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 20px;
   outline: none;
@@ -141,8 +141,8 @@
 .belNova-contact-form input[type="file"]::file-selector-button {
   margin-right: 16px;
   padding: 9px 16px;
-  color: #343a45;
-  background: #f1f4f8;
+  color: #c0cfeb;
+  background: #13151f;
   border: 0;
   border-radius: 999px;
   cursor: pointer;

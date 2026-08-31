@@ -1,9 +1,9 @@
-/* ==================== CLIENT JOURNEY ==================== */
+﻿/* ==================== CLIENT JOURNEY ==================== */
 
 .belNova-journey-section {
   width: 100%;
   padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: #ffffff; /* PURE WHITE CANVAS */
+  background: #0d0e14; /* PURE WHITE CANVAS */
 }
 
 .belNova-journey-container {
@@ -37,12 +37,12 @@
   min-height: 52px;
   padding: 0 26px;
   text-align: center;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   font-weight: 700;
   font-size: 15px;
-  color: #596170;
+  color: #8b9ab5;
   cursor: pointer;
   transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -95,7 +95,7 @@
   position: relative;
   min-height: 130px;
   padding: 26px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   z-index: 1;
@@ -227,10 +227,10 @@
   grid-template-columns: 0.8fr 1.3fr 1.3fr 1.3fr 0.5fr;
   gap: 20px;
   align-items: center;
-  color: #4f5663;
+  color: #8b9ab5;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
-  background: #ffffff;
+  background: #0d0e14;
   overflow: hidden;
   transition: 
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
@@ -284,7 +284,7 @@
   border: 1px solid var(--belNova-border);
   border-radius: 999px;
   font-size: 12px;
-  background: #ffffff;
+  background: #0d0e14;
   transition: all 0.4s ease;
 }
 
@@ -301,7 +301,7 @@
     animation: glassSweep 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
   .belNova-process-row:hover strong {
-    color: #1765d6;
+    color: #3287ff;
   }
   .belNova-process-row:hover small {
     border-color: rgba(50, 135, 255, 0.3);

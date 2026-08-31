@@ -1,10 +1,10 @@
-/* ==================== CAREERS SECTION ==================== */
+﻿/* ==================== CAREERS SECTION ==================== */
 
 .belNova-careers-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff; /* PURE WHITE CANVAS */
+  background: #0d0e14; /* PURE WHITE CANVAS */
 }
 
 .belNova-careers-container {
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   overflow: hidden;
@@ -67,7 +67,7 @@
 }
 
 .belNova-job-info small {
-  color: #7a818d;
+  color: #9bb0cc;
   display: block;
   margin-bottom: 6px;
   font-size: 13px;
@@ -145,7 +145,7 @@
 /* General interactive overrides inside card on hover */
 @media (hover: hover) and (pointer: fine) {
   .belNova-job-card:hover .belNova-job-info h3 {
-    color: #1765d6;
+    color: #3287ff;
   }
   .belNova-job-card:hover .belNova-outline-btn {
     color: #ffffff;

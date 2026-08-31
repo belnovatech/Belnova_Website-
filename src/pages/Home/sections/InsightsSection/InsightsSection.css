@@ -1,4 +1,4 @@
-/* ==================== INSIGHTS SECTION ==================== */
+﻿/* ==================== INSIGHTS SECTION ==================== */
 
 .belNova-insights-section {
   width: 100%;
@@ -36,7 +36,7 @@
 .belNova-insight-card {
   min-height: 180px;
   padding: 28px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 26px;
   display: flex;

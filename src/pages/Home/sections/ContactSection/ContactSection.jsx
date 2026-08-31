@@ -281,24 +281,85 @@ export default function Contact() {
     e.target.setCustomValidity("");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const form = e.currentTarget;
+  if (!formData.privacy) {
+    alert("Please agree to the Privacy Policy and Terms & Conditions.");
+    return;
+  }
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
+  try {
+    const formDataToSend = new FormData();
+
+    // REQUIRED BACKEND FIELDS
+    formDataToSend.append("fullName", formData.fullName.trim());
+    formDataToSend.append("email", formData.email.trim());
+    formDataToSend.append("title", formData.projectTitle.trim());
+    formDataToSend.append("message", formData.description.trim());
+    formDataToSend.append(
+      "privacy_accepted",
+      formData.privacy ? "true" : "false"
+    );
+
+    // OPTIONAL BACKEND FIELDS
+    formDataToSend.append("company", formData.company || "");
+    formDataToSend.append("phone", formData.phone || "");
+    formDataToSend.append("country", formData.country || "");
+    formDataToSend.append("lookingFor", formData.requirement || "");
+    formDataToSend.append("technology", formData.technology || "");
+    formDataToSend.append("timeline", formData.timeline || "");
+    formDataToSend.append("budget", formData.budget || "");
+    formDataToSend.append("source", formData.source || "");
+
+    // ATTACHMENT
+    if (formData.attachment) {
+      formDataToSend.append("attachment", formData.attachment);
+    }
+
+    // DEBUG - check what is actually being sent
+    for (const [key, value] of formDataToSend.entries()) {
+      console.log(
+        "FORM DATA:",
+        key,
+        value instanceof File ? value.name : value
+      );
+    }
+
+    const response = await fetch(
+      "https://backend-belnova-website.onrender.com/api/contact",
+      {
+        method: "POST",
+        body: formDataToSend,
+      }
+    );
+
+    const result = await response.json().catch(() => null);
+
+    if (!response.ok) {
+      console.error("Backend error:", result);
+
+      alert(
+        result?.detail
+          ? JSON.stringify(result.detail)
+          : "Something went wrong while submitting your requirement."
+      );
+
       return;
     }
 
-    if (!formData.privacy) {
-      alert("Please agree to the Privacy Policy and Terms & Conditions.");
-      return;
-    }
+    console.log("Contact submitted successfully:", result);
 
-    console.log("Contact form submitted:", formData);
     alert("Thank you! Your requirement has been submitted.");
-  };
+
+  } catch (error) {
+    console.error("Contact submission error:", error);
+
+    alert(
+      "Unable to submit your requirement. Please try again later."
+    );
+  }
+};
 
   const nextEstimatorStep = () => {
     if (estimatorStep < 6) {

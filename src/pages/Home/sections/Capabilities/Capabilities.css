@@ -1,10 +1,10 @@
-/* ==================== CAPABILITIES ==================== */
+﻿/* ==================== CAPABILITIES ==================== */
 
 .belNova-capabilities-section {
   width: 100%;
   padding-top: 145px;
   padding-bottom: 145px;
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 .belNova-capabilities-container {
@@ -38,7 +38,7 @@
   position: relative;
   min-height: 340px;
   padding: 30px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
   display: flex;
@@ -123,13 +123,13 @@
     border-color: rgba(0, 201, 233, 0.35);
     box-shadow: 
       0 12px 24px rgba(0, 201, 233, 0.05),
-      inset 0 1px 1px rgba(255, 255, 255, 0.95);
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
   }
   .belNova-capability-card:nth-child(1):hover::before {
     opacity: 1;
   }
   .belNova-capability-card:nth-child(1):hover h3 {
-    color: #008fa8;
+    color: #00cbe8;
   }
 }
 
@@ -159,13 +159,13 @@
     border-color: rgba(50, 135, 255, 0.25);
     box-shadow: 
       0 10px 20px rgba(50, 135, 255, 0.03),
-      inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
   }
   .belNova-capability-card:nth-child(2):hover::after {
     animation: sweepCap2 950ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
   .belNova-capability-card:nth-child(2):hover h3 {
-    color: #1765d6;
+    color: #3287ff;
   }
 }
 
@@ -218,13 +218,13 @@
     border-color: rgba(210, 14, 234, 0.25);
     box-shadow: 
       0 10px 20px rgba(210, 14, 234, 0.04),
-      inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
   }
   .belNova-capability-card:nth-child(3):hover::before {
     animation: pulseCap3 1.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   }
   .belNova-capability-card:nth-child(3):hover h3 {
-    color: #a805bc;
+    color: #d20eea;
   }
 }
 
@@ -267,7 +267,7 @@
     border-color: transparent !important;
     box-shadow: 
       0 10px 20px rgba(50, 135, 255, 0.04),
-      inset 0 1px 1px rgba(255, 255, 255, 0.95);
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
     z-index: 10;
   }
   .belNova-capability-card:nth-child(4):hover::after {
@@ -275,7 +275,7 @@
     animation: flowCap4 3s linear infinite;
   }
   .belNova-capability-card:nth-child(4):hover h3 {
-    color: #1765d6;
+    color: #3287ff;
   }
 }
 
@@ -318,14 +318,14 @@
     border-color: rgba(50, 135, 255, 0.25);
     box-shadow: 
       0 10px 20px rgba(50, 135, 255, 0.03),
-      inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
   }
   .belNova-capability-card:nth-child(n+5):hover::before {
     opacity: 1;
     transform: scale(1.6);
   }
   .belNova-capability-card:nth-child(n+5):hover h3 {
-    color: #1765d6;
+    color: #3287ff;
   }
 }
 
@@ -343,7 +343,7 @@
   position: relative;
   border: 1px solid transparent !important;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--belNova-gradient) border-box !important;
   box-shadow: 0 15px 32px rgba(37, 96, 190, 0.08);
 }
@@ -386,7 +386,7 @@
 
 @media (hover: hover) {
   .belNova-capability-card:hover > p {
-    color: #2b303a;
+    color: #eef3fb;
   }
 }
 
@@ -425,7 +425,7 @@
 .belNova-capability-block small,
 .belNova-capability-meta small {
   display: block;
-  color: #778094;
+  color: #9bb0cc;
   font-size: 12px;
   letter-spacing: 2px;
   font-weight: 700;
@@ -448,10 +448,10 @@
 
 .belNova-deliverables-wrap span {
   padding: 6px 12px;
-  background: #f1f5f9;
+  background: #13151f;
   border-radius: 8px;
   font-size: 13px;
-  color: #475569;
+  color: #8b9ab5;
 }
 
 .belNova-capability-meta {
@@ -485,7 +485,7 @@
   font-size: 14px;
   font-weight: 700;
   border-radius: 999px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   color: var(--belNova-black);
   cursor: pointer;

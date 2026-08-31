@@ -1,4 +1,4 @@
-/* ==================== DIGITAL MATURITY ==================== */
+﻿/* ==================== DIGITAL MATURITY ==================== */
 
 .belNova-dm-section {
   width: 100%;
@@ -36,7 +36,7 @@
 .belNova-dm-questions-card,
 .belNova-dm-profile-card {
   padding: 42px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 28px;
 }
@@ -75,8 +75,8 @@
 
 .belNova-dm-options button {
   padding: 12px 18px;
-  color: #4f5663;
-  background: #ffffff;
+  color: #8b9ab5;
+  background: #0d0e14;
   border: 1px solid var(--belNova-border);
   border-radius: 999px;
   font-size: 14px;
@@ -96,7 +96,7 @@
 }
 
 .belNova-dm-profile-card small {
-  color: #778094;
+  color: #9bb0cc;
   letter-spacing: 2.5px;
   font-size: 12px;
   font-weight: 700;

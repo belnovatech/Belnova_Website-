@@ -198,11 +198,7 @@ export default function Careers() {
 
           <h2>
             Your Next Big Idea{" "}
-            <span className="careers-gradient-text">
-              Starts
-              <br />
-              Here.
-            </span>
+            <span className="careers-gradient-text">Starts Here.</span>
           </h2>
 
           <p>

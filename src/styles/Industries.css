@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 /* ==================== GLOBAL ==================== */
 
@@ -7,10 +7,10 @@
 }
 
 :root {
-  --industries-black: #12141a;
-  --industries-text: #515968;
-  --industries-border: #dce2e9;
-  --industries-soft: #fafbfc;
+  --industries-black: #eef3fb;
+  --industries-text: #9bb0cc;
+  --industries-border: rgba(255, 255, 255, 0.1);
+  --industries-soft: #13151f;
   --industries-gradient: linear-gradient(
     105deg,
     #00cbe8 0%,
@@ -23,7 +23,7 @@
 body {
   margin: 0;
   color: var(--industries-black);
-  background: #ffffff;
+  background: #0d0e14;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
@@ -46,7 +46,7 @@ button {
 
 .industries-section {
   padding: 105px 0;
-  background: #ffffff;
+  background: #0d0e14;
 }
 
 .industries-soft-section,
@@ -77,8 +77,8 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #505969;
-  background: rgba(248, 249, 251, 0.94);
+  color: #9bb0cc;
+  background: rgba(20, 23, 34, 0.9); color: #c5d0e0;
   border: 1px solid var(--industries-border);
   border-radius: 999px;
   font-size: 13px;
@@ -109,6 +109,7 @@ button {
   min-height: 495px;
   position: relative;
   overflow: hidden;
+
   background:
     radial-gradient(
       circle at 2% 5%,
@@ -120,7 +121,7 @@ button {
       rgba(207, 13, 233, 0.07),
       transparent 24%
     ),
-    #ffffff;
+    #0d0e14;
 }
 
 .industries-grid-background {
@@ -128,8 +129,8 @@ button {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(205, 214, 225, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(205, 214, 225, 0.22) 1px, transparent 1px);
+    linear-gradient(rgba(120, 150, 220, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 150, 220, 0.07) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
@@ -198,7 +199,7 @@ button {
   display: block;
   color: var(--industries-black);
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     linear-gradient(#dce2e9, #dce2e9) border-box;
   border: 1px solid transparent;
   border-radius: 28px;
@@ -211,7 +212,7 @@ button {
 
 .industries-card:hover {
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--industries-gradient) border-box;
   box-shadow: 0 15px 32px rgba(48, 80, 170, 0.07);
   transform: translateY(-2px);
@@ -220,7 +221,7 @@ button {
 .industries-card.active {
   min-height: 295px;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--industries-gradient) border-box;
 }
 
@@ -237,7 +238,7 @@ button {
 .industries-card-details small {
   display: block;
   margin-bottom: 8px;
-  color: #7a8497;
+  color: #9bb0cc;
   font-size: 12px;
   letter-spacing: 2.5px;
 }
@@ -253,7 +254,7 @@ button {
 
 .industries-assessment-card {
   padding: 50px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--industries-border);
   border-radius: 28px;
 }
@@ -279,7 +280,7 @@ button {
   min-height: 56px;
   padding: 0 20px;
   color: var(--industries-text);
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--industries-border);
   border-radius: 22px;
   font-size: 16px;
@@ -297,7 +298,7 @@ button {
 
 .industries-option-list button.active {
   color: #1784e8;
-  background: #f5fbff;
+  background: #13151f;
   border-color: #43a4ff;
   box-shadow: 0 8px 20px rgba(36, 139, 240, 0.08);
 }
@@ -306,7 +307,7 @@ button {
   margin-top: 45px;
   padding: 30px;
   background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(#141728, #141728) padding-box,
     var(--industries-gradient) border-box;
   border: 1px solid transparent;
   border-radius: 24px;
@@ -314,7 +315,7 @@ button {
 
 .industries-ai-result small,
 .industries-maturity-result > small {
-  color: #758096;
+  color: #9bb0cc;
   letter-spacing: 3px;
 }
 
@@ -342,7 +343,7 @@ button {
 .industries-maturity-form,
 .industries-maturity-result {
   padding: 45px;
-  background: #ffffff;
+  background: #0d0e14;
   border: 1px solid var(--industries-border);
   border-radius: 28px;
 }
@@ -352,7 +353,7 @@ button {
   height: 5px;
   margin-bottom: 38px;
   overflow: hidden;
-  background: #dfe4ea;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
 }
 
