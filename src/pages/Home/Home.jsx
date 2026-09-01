@@ -79,7 +79,7 @@ export default function Home() {
         onTalkToTeam={scrollToContact}
       />
       <ContactSection />
-      <FloatingControls onLetsTalk={scrollToContact} />
+      {/* <FloatingControls onLetsTalk={scrollToContact} /> */}
     </main>
   );
 }

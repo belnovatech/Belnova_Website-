@@ -174,7 +174,7 @@ function Footer() {
                 <LinkedInIcon />
               </a>
 
-              <a
+              {/* <a
                 href="https://x.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -182,9 +182,9 @@ function Footer() {
                 className="bnv-footer-social-link"
               >
                 <TwitterIcon />
-              </a>
+              </a> */}
 
-              <a
+              {/* <a
                 href="https://github.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -192,9 +192,9 @@ function Footer() {
                 className="bnv-footer-social-link"
               >
                 <GitHubIcon />
-              </a>
+              </a> */}
 
-              <a
+              {/* <a
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -202,7 +202,7 @@ function Footer() {
                 className="bnv-footer-social-link"
               >
                 <InstagramIcon />
-              </a>
+              </a> */}
 
             </div>
           </div>
