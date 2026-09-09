@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Company.css";
 
 const companyValues = [
@@ -284,9 +285,9 @@ export default function Company() {
         </div>
       </section>
 
-      <a href="#contact" className="company-floating-chat">
+      <Link to="/contact" className="company-floating-chat">
         ◯ Let&apos;s Talk
-      </a>
+      </Link>
     </main>
   );
 }

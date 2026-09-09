@@ -1,24 +1,23 @@
 import React from "react";
 import "./FloatingControls.css";
+import { useNavigate } from "react-router-dom";
 
-export default function FloatingControls({ onLetsTalk }) {
+export default function FloatingControls() {
+  const navigate = useNavigate();
+
   return (
     <div className="belNova-floating-bottom-bar">
       <div className="belNova-floating-preview-controls">
-        {/* <button type="button" className="belNova-preview-ctrl-btn active">
-          <span className="belNova-ctrl-icon">👁</span> Browse
-        </button>
-        <button type="button" className="belNova-preview-ctrl-btn">
-          <span className="belNova-ctrl-icon">💬</span> Comment
-        </button> */}
+        {/* Preview controls */}
       </div>
 
       <button
         type="button"
         className="belNova-floating-chat-btn"
-        onClick={onLetsTalk}
+        onClick={() => navigate("/contact")}
       >
-        <span className="belNova-chat-bubble-icon">💬</span> Let's Talk
+        <span className="belNova-chat-bubble-icon">💬</span>
+        Let's Talk
       </button>
     </div>
   );

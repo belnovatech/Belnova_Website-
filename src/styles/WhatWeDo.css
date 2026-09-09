@@ -385,14 +385,29 @@ button {
 
 .wwd-radar-label {
   position: absolute;
-  z-index: 3;
-  padding: 10px 16px;
+  z-index: 5;
+
+  height: 56px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+
   color: #8b9ab5;
   background: #0d0e14;
   border: 1px solid var(--wwd-border);
   border-radius: 999px;
-  font-size: 13px;
+
+  font-size: 16px;
   font-weight: 600;
+
+  box-sizing: border-box;
+
+  /* VERY IMPORTANT */
+  transform: translate(-50%, -50%);
 }
 
 .wwd-radar-label.active {
@@ -401,39 +416,52 @@ button {
   border-color: transparent;
 }
 
+/* TOP */
 .wwd-radar-frontend {
-  top: 3px;
-  left: 225px;
+  top: 25px;
+  left: 270px;
 }
 
+
+/* TOP RIGHT */
 .wwd-radar-backend {
-  top: 100px;
-  right: 5px;
+  top: 119px;
+  left: 463px;
 }
 
+
+/* RIGHT */
 .wwd-radar-mobile {
-  top: 310px;
-  right: -30px;
+  top: 321px;
+  left: 509px;
 }
 
+
+/* BOTTOM RIGHT */
 .wwd-radar-database {
-  right: 85px;
-  bottom: 0;
+  top: 490px;
+  left: 377px;
 }
 
+
+/* BOTTOM LEFT */
 .wwd-radar-cloud {
-  bottom: 0;
-  left: 85px;
+  top: 490px;
+  left: 162px;
 }
 
+
+/* LEFT */
 .wwd-radar-devops {
-  top: 310px;
-  left: -30px;
+  top: 321px;
+  left: 31px;
 }
 
+
+/* TOP LEFT */
 .wwd-radar-ai {
-  top: 100px;
-  left: 35px;
+  top: 119px;
+  left: 77px;
 }
 
 .wwd-technology-panel {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Innovations.css";
 
 const innovationSteps = [
@@ -371,9 +372,9 @@ export default function Innovations() {
         </div>
       </section>
 
-      <a href="#contact" className="innovations-floating-chat">
+      <Link to="/contact" className="innovations-floating-chat">
         ◯ Let&apos;s Talk
-      </a>
+      </Link>
     </main>
   );
 }

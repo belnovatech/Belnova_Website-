@@ -1,585 +1,848 @@
-﻿/* ==================== TECHNOLOGY RADAR ==================== */
+﻿/* =========================================================
+   TECHNOLOGY RADAR
+   ========================================================= */
 
 .belNova-radar-section {
   width: 100%;
-  padding: 145px max(40px, calc((100% - 1600px) / 2));
-  background: #0d0e14; /* PURE WHITE BACKGROUND */
+  padding: 120px max(32px, calc((100% - 1600px) / 2));
+  background: #0d0e14;
   overflow: hidden;
 }
 
 .belNova-radar-container {
-  width: min(1600px, calc(100% - 120px));
+  width: min(1600px, 100%);
   margin: 0 auto;
 }
 
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .belNova-radar-title {
-  margin: 30px 0 18px;
+  margin: 28px 0 18px;
+
   font-size: clamp(38px, 3.8vw, 58px);
-  line-height: 1.1;
+  line-height: 1.08;
+
   letter-spacing: -2.5px;
-  color: var(--belNova-black);
+
+  color: #f4f7ff;
 }
 
 .belNova-radar-description {
   max-width: 950px;
+
   margin: 0 0 70px;
-  color: var(--belNova-text);
-  font-size: 22px;
-  line-height: 1.55;
+
+  color: #9aa8c0;
+
+  font-size: 20px;
+  line-height: 1.6;
 }
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
 
 .belNova-radar-layout {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 60px;
+
+  grid-template-columns:
+    minmax(500px, 0.95fr)
+    minmax(520px, 1fr);
+
+  gap: clamp(50px, 6vw, 100px);
+
   align-items: center;
 }
 
-/* HERO ORBITAL SYSTEM */
+
+/* =========================================================
+   RADAR WHEEL
+   ========================================================= */
+
 .belNova-radar-wheel {
-  width: 480px;
-  height: 480px;
   position: relative;
-  margin: auto;
-  z-index: 1;
-  transform-style: preserve-3d;
+
+  width: min(540px, 100%);
+  aspect-ratio: 1 / 1;
+
+  margin: 0 auto;
+
+  isolation: isolate;
 }
 
-/* 6. ACTIVE CONNECTION LINE (CENTER ORBIT -> DATABASE) */
-.belNova-radar-wheel::before {
-  content: "";
-  position: absolute;
-  left: 239px; /* Centered in wheel */
-  top: 240px;  /* From center */
-  width: 2px;
-  height: 165px;
-  background: linear-gradient(
-    to bottom,
-    rgba(50, 135, 255, 0.04),
-    rgba(0, 201, 233, 0.22) 50%,
-    rgba(210, 14, 234, 0.38) 100%
-  );
-  background-size: 100% 200%;
-  background-position: 0 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.8;
-  animation: energyFlow 5s linear infinite;
-}
 
-@keyframes energyFlow {
-  0% {
-    background-position: 0 0%;
-  }
-  100% {
-    background-position: 0 200%;
-  }
-}
+/* =========================================================
+   RINGS
+   ========================================================= */
 
-/* ORBITAL RINGS WITH DIFFERENT BEHAVIORS */
 .belNova-radar-ring {
   position: absolute;
-  border: 1px solid rgba(18, 20, 26, 0.08); /* Subtle premium borders */
+
   border-radius: 50%;
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  background: transparent;
+
+  pointer-events: none;
 }
 
-/* Inner Ring: subtle breathing scale */
-.belNova-radar-ring-1 {
-  inset: 20px;
-  animation: ringPulse 6s ease-in-out infinite alternate;
+
+/* OUTER */
+
+.belNova-radar-ring-outer {
+  inset: 2%;
+
+  border: 1px solid rgba(50, 135, 255, 0.13);
+
+  box-shadow:
+    0 0 80px rgba(0, 201, 233, 0.025);
 }
 
-@keyframes ringPulse {
-  0% {
-    transform: scale(0.97);
-    border-color: rgba(0, 201, 233, 0.05);
-  }
-  100% {
-    transform: scale(1.03);
-    border-color: rgba(50, 135, 255, 0.12);
-  }
+
+/* MIDDLE */
+
+.belNova-radar-ring-middle {
+  inset: 17%;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Middle Ring: slow opacity breathing */
-.belNova-radar-ring-2 {
-  inset: 90px;
-  animation: ringOpacity 9s ease-in-out infinite alternate;
+
+/* INNER */
+
+.belNova-radar-ring-inner {
+  inset: 32%;
+
+  border: 1px solid rgba(0, 201, 233, 0.09);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 201, 233, 0.025),
+      transparent 70%
+    );
 }
 
-@keyframes ringOpacity {
-  0% {
-    opacity: 0.3;
-    border-color: rgba(18, 20, 26, 0.03);
-  }
-  100% {
-    opacity: 0.9;
-    border-color: rgba(210, 14, 234, 0.1);
-  }
-}
 
-/* Outer Ring: slow rotation */
-.belNova-radar-ring-3 {
-  inset: 160px;
-  animation: ringRotateOuter 28s linear infinite;
-}
+/* =========================================================
+   CENTER GLOW
+   ========================================================= */
 
-@keyframes ringRotateOuter {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* 2. ORBITAL LIGHT PARTICLE ON OUTER RING */
-.belNova-radar-ring-3::before {
-  content: "";
+.belNova-radar-center-glow {
   position: absolute;
-  top: -3px;
+
+  top: 50%;
   left: 50%;
-  width: 6px;
-  height: 6px;
-  margin-left: -3px;
-  background: linear-gradient(135deg, #00c9e9 0%, #3287ff 100%);
+
+  width: 48%;
+  height: 48%;
+
+  transform: translate(-50%, -50%);
+
   border-radius: 50%;
-  box-shadow: 
-    0 0 8px rgba(0, 201, 233, 0.8),
-    0 0 16px rgba(50, 135, 255, 0.4);
-  animation: particleGlow 3s ease-in-out infinite alternate;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(50, 135, 255, 0.055),
+      rgba(139, 61, 255, 0.025) 40%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  pointer-events: none;
 }
 
-@keyframes particleGlow {
-  0% {
-    opacity: 0.6;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
 
-/* TECHNOLOGY NODES BASE RULES */
-/* TECHNOLOGY NODES */
-.belNova-radar-node {
+/* =========================================================
+   CENTER CORE
+   ========================================================= */
+
+.belNova-radar-core {
   position: absolute;
-  padding: 10px 18px;
-  background: #0d0e14;
 
-  /* FIX: make orbit labels visible */
-  color: #ffffff;
+  top: 50%;
+  left: 50%;
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
+  width: 76px;
+  height: 76px;
 
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(22, 29, 48, 0.98),
+      rgba(13, 15, 23, 0.98)
+    );
+
+  border: 1px solid rgba(74, 135, 255, 0.15);
+
+  box-shadow:
+    0 0 35px rgba(0, 201, 233, 0.08),
+    inset 0 0 25px rgba(139, 61, 255, 0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 4;
+}
+
+
+.belNova-radar-core::before {
+  content: "";
+
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #00c9e9,
+      #3287ff 40%,
+      #8b3dff 70%,
+      transparent 75%
+    );
+
+  filter: blur(2px);
+
+  opacity: 0.7;
+
+  animation:
+    belNova-core-pulse
+    3s
+    ease-in-out
+    infinite;
+}
+
+
+.belNova-radar-core span {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #58d9ff;
+
+  box-shadow:
+    0 0 8px rgba(0, 201, 233, 0.95),
+    0 0 18px rgba(50, 135, 255, 0.7);
 
   z-index: 2;
+}
+
+
+@keyframes belNova-core-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+
+/* =========================================================
+   TECHNOLOGY NODES
+   ========================================================= */
+
+.belNova-radar-node {
+  position: absolute;
+
+  top: calc(50% + var(--node-y));
+  left: calc(50% + var(--node-x));
+
+  width: 136px;
+  height: 48px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(24, 27, 39, 0.98),
+      rgba(15, 17, 25, 0.98)
+    );
+
+  color: #e9effc;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
 
   transition:
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.6s ease,
-    color 0.6s ease,
-    border-color 0.6s ease,
-    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    top 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    left 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.55s ease,
+    border-color 0.55s ease,
+    box-shadow 0.55s ease,
+    color 0.55s ease,
+    filter 0.55s ease;
+
+  z-index: 8;
 }
+
+
+/* =========================================================
+   NODE TEXT
+   ========================================================= */
+
+.belNova-radar-node span {
+  display: block;
+
+  white-space: nowrap;
+
+  /*
+   * IMPORTANT:
+   * Text never rotates.
+   */
+  transform: none;
+}
+
+
+/* =========================================================
+   ACTIVE NODE
+   ========================================================= */
+
+.belNova-radar-node.active {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00c9e9 0%,
+      #3287ff 45%,
+      #8b3dff 75%,
+      #d20eea 100%
+    );
+
+  border-color: transparent;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 8px 28px rgba(0, 201, 233, 0.22),
+    0 8px 34px rgba(139, 61, 255, 0.18);
+
+  z-index: 15;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
 
 @media (hover: hover) {
   .belNova-radar-node:hover {
-    transform: scale(1.06) translateY(-2px) !important;
-    border-color: #5a93ff !important;
-    box-shadow: 0 8px 20px rgba(33, 139, 248, 0.15) !important;
-    animation-play-state: paused !important; /* Pause continuous float on hover */
+    filter: brightness(1.12);
+
+    border-color:
+      rgba(80, 150, 255, 0.65);
+
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.3),
+      0 0 22px rgba(50, 135, 255, 0.1);
+  }
+
+  .belNova-radar-node.active:hover {
+    filter: brightness(1.08);
   }
 }
 
-.belNova-radar-node.active {
-  color: #ffffff !important;
-  background: var(--belNova-gradient) !important;
-  border-color: transparent !important;
-  box-shadow: 0 8px 24px rgba(33, 139, 248, 0.25) !important;
-  transform: scale(1.06) !important;
-  animation-play-state: paused !important; /* Pause float when active */
+
+/* =========================================================
+   ORBIT LIGHT
+   ========================================================= */
+
+.belNova-radar-orbit-light {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  margin-left: -3.5px;
+  margin-top: -3.5px;
+
+  border-radius: 50%;
+
+  background: #00c9e9;
+
+  box-shadow:
+    0 0 8px rgba(0, 201, 233, 0.95),
+    0 0 18px rgba(50, 135, 255, 0.65);
+
+  pointer-events: none;
+
+  z-index: 5;
+
+  animation:
+    belNova-orbit-light
+    8s
+    linear
+    infinite;
 }
 
-/* 4. INDEPENDENT NODE FLOAT ANIMATIONS WITH STAGGERED DELAYS */
-.belNova-node-devops {
-  top: 240px;
-  left: -20px;
-  animation: nodeFloatX 6s ease-in-out infinite alternate;
-  animation-delay: 0.5s;
-}
 
-.belNova-node-ai {
-  top: 80px;
-  left: 45px;
-  animation: nodeFloatUp 5s ease-in-out infinite alternate;
-  animation-delay: 1.2s;
-}
-
-.belNova-node-backend {
-  top: 15px;
-  left: 200px;
-  animation: nodeFloatY 7s ease-in-out infinite alternate;
-  animation-delay: 0.2s;
-}
-
-.belNova-node-mobile {
-  top: 240px;
-  right: -25px;
-  animation: nodeGlowPulse 8s ease-in-out infinite alternate;
-  animation-delay: 2s;
-}
-
-.belNova-node-cloud {
-  bottom: 60px;
-  left: 40px;
-  animation: nodeFloatDiag 6.5s ease-in-out infinite alternate;
-  animation-delay: 1.5s;
-}
-
-/* 5. DATABASE NODE ACTIVE HIGHLIGHT */
-.belNova-node-database {
-  bottom: 15px;
-  left: 195px;
-  animation: dbActivate 5.5s ease-in-out infinite alternate;
-  animation-delay: 0s;
-  background: linear-gradient(#141728, #141728) padding-box, 
-              linear-gradient(135deg, rgba(0, 201, 233, 0.2) 0%, rgba(210, 14, 234, 0.2) 100%) border-box;
-  border: 1px solid transparent;
-
-}
-
-/* KEYFRAMES FOR TECH NODES */
-@keyframes nodeFloatUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
-}
-@keyframes nodeFloatY {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(4px); }
-}
-@keyframes nodeFloatX {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(3px); }
-}
-@keyframes nodeFloatDiag {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(2px, -3px); }
-}
-@keyframes nodeGlowPulse {
-  0% {
-    box-shadow: 0 4px 14px rgba(20, 25, 40, 0.04);
-    border-color: var(--belNova-border);
+@keyframes belNova-orbit-light {
+  from {
+    transform:
+      rotate(0deg)
+      translateY(-220px);
   }
-  100% {
-    box-shadow: 0 4px 20px rgba(50, 135, 255, 0.1);
-    border-color: rgba(50, 135, 255, 0.25);
+
+  to {
+    transform:
+      rotate(360deg)
+      translateY(-220px);
   }
 }
-@keyframes dbActivate {
-  0% {
-    box-shadow: 
-      0 0 10px rgba(0, 201, 233, 0.05),
-      0 4px 14px rgba(20, 25, 40, 0.04);
+
+
+/* =========================================================
+   INFORMATION PANEL
+   ========================================================= */
+
+.belNova-radar-panel {
+  position: relative;
+
+  min-height: 390px;
+
+  padding: clamp(34px, 4vw, 50px);
+
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 27, 45, 0.98),
+      rgba(20, 23, 39, 0.98)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.045);
+
+  overflow: hidden;
+}
+
+
+/* subtle glow */
+
+.belNova-radar-panel::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -140px;
+  top: -160px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(80, 100, 255, 0.09),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PANEL CONTENT
+   ========================================================= */
+
+.belNova-radar-panel-content {
+  position: relative;
+
+  width: 100%;
+
+  z-index: 2;
+
+  animation:
+    belNova-panel-change
+    600ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+
+@keyframes belNova-panel-change {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
-  100% {
-    box-shadow: 
-      0 0 18px rgba(0, 201, 233, 0.12),
-      0 4px 14px rgba(50, 135, 255, 0.08);
-    transform: translateY(-3px);
-  }
 }
 
-/* 7. PREMIUM RIGHT-SIDE INFO CARD */
-.belNova-radar-panel {
-  padding: 40px;
-  background: rgba(22, 25, 42, 0.97);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.015),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
+
+/* =========================================================
+   PANEL TYPOGRAPHY
+   ========================================================= */
 
 .belNova-radar-panel small {
+  display: block;
+
+  margin-bottom: 14px;
+
   color: #9bb0cc;
-  letter-spacing: 2px;
+
   font-size: 12px;
-  font-weight: 700;
-  transition: all 0.6s ease;
+  font-weight: 800;
+
+  letter-spacing: 2.4px;
 }
+
 
 .belNova-radar-panel h3 {
-  margin: 15px 0;
-  font-size: 32px;
-  color: var(--belNova-black);
-  transition: all 0.6s ease;
+  margin: 0 0 14px;
+
+  color: #eef3ff;
+
+  font-size: clamp(32px, 3vw, 42px);
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
 }
+
 
 .belNova-radar-panel p {
-  color: var(--belNova-text);
+  margin: 0;
+
+  max-width: 680px;
+
+  color: #9aa8c0;
+
   font-size: 17px;
-  line-height: 1.55;
-  transition: all 0.6s ease;
+
+  line-height: 1.6;
 }
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
 
 .belNova-radar-panel .belNova-tag-list {
-  margin: 28px 0 36px;
+  margin: 30px 0 38px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
 }
 
-/* 9. TECHNOLOGY PILLS INTERACTIONS */
+
 .belNova-radar-panel .belNova-tag-list span {
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 42px;
+
+  padding: 0 19px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: rgba(8, 10, 16, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  color: #96a5bf;
+
+  font-size: 14px;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
 }
+
 
 @media (hover: hover) {
-  .belNova-radar-panel .belNova-tag-list span:hover {
-    color: #178df0;
-    border-color: rgba(50, 135, 255, 0.3);
-    background: rgba(50, 135, 255, 0.03);
-    transform: translateY(-1.5px);
-    box-shadow: 0 3px 8px rgba(50, 135, 255, 0.05);
+  .belNova-radar-panel
+    .belNova-tag-list
+    span:hover {
+
+    color: #c9e8ff;
+
+    border-color:
+      rgba(50, 135, 255, 0.3);
+
+    background:
+      rgba(50, 135, 255, 0.06);
+
+    transform:
+      translateY(-2px);
   }
 }
 
-/* 10. DISCUSS TECHNOLOGY BUTTON */
-.belNova-radar-panel .belNova-outline-btn {
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.belNova-radar-panel
+  .belNova-outline-btn {
+
+  min-height: 50px;
+
+  padding: 0 25px;
+
   display: inline-flex;
+
   align-items: center;
+  justify-content: center;
+
   gap: 8px;
-  min-height: 48px;
-  padding: 0 24px;
+
+  border-radius: 999px;
+
   font-size: 14px;
   font-weight: 700;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.belNova-radar-panel .belNova-outline-btn span {
-  display: inline-block;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
 
 @media (hover: hover) {
-  .belNova-radar-panel .belNova-outline-btn:hover {
+  .belNova-radar-panel
+    .belNova-outline-btn:hover {
+
     color: #ffffff;
-    background: var(--belNova-gradient);
+
+    background:
+      linear-gradient(
+        135deg,
+        #00c9e9,
+        #3287ff 48%,
+        #8b3dff 76%,
+        #d20eea
+      );
+
     border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 
-      0 10px 20px rgba(50, 135, 255, 0.18),
-      0 2px 6px rgba(139, 92, 246, 0.08);
-  }
 
-  .belNova-radar-panel .belNova-outline-btn:hover span {
-    transform: translateX(4px);
+    transform:
+      translateY(-2px);
+
+    box-shadow:
+      0 12px 30px
+      rgba(50, 135, 255, 0.18);
   }
 }
 
-/* SCROLL-DRIVEN VIEWPORT WAKE UP & PROGRESSIVE CARD REVEALS */
-@keyframes revealWheel {
-  from {
-    transform: scale(0.9) rotate(-10deg);
-    opacity: 0.1;
-  }
-  to {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-}
 
-@keyframes revealPanel {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes contentReveal {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.belNova-radar-panel small,
-.belNova-radar-panel h3,
-.belNova-radar-panel p,
-.belNova-radar-panel .belNova-tag-list,
-.belNova-radar-panel .belNova-outline-btn {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-/* VIEWPORT WAKE UP SUPPORT IN MODERN BROWSERS */
-@supports (animation-timeline: view()) {
-  .belNova-radar-wheel {
-    animation: revealWheel cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-  }
-
-  .belNova-radar-panel {
-    animation: revealPanel cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
-  }
-
-  .belNova-radar-panel small {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 15% cover 35%;
-  }
-  .belNova-radar-panel h3 {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 18% cover 38%;
-  }
-  .belNova-radar-panel p {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 20% cover 40%;
-  }
-  .belNova-radar-panel .belNova-tag-list {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 22% cover 42%;
-  }
-  .belNova-radar-panel .belNova-outline-btn {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-timeline: view();
-    animation-range: entry 24% cover 44%;
-  }
-}
-
-/* GRACEFUL FALLBACK (TRIGGER ON LOAD FOR BROWSERS WITHOUT SCROLL TIMELINE) */
-@supports not (animation-timeline: view()) {
-  .belNova-radar-wheel {
-    animation: revealWheel 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  .belNova-radar-panel {
-    animation: revealPanel 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  .belNova-radar-panel small {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: 0.15s;
-  }
-  .belNova-radar-panel h3 {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: 0.3s;
-  }
-  .belNova-radar-panel p {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: 0.45s;
-  }
-  .belNova-radar-panel .belNova-tag-list {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: 0.6s;
-  }
-  .belNova-radar-panel .belNova-outline-btn {
-    animation: contentReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: 0.75s;
-  }
-}
-
-/* ==================== RESPONSIVE ==================== */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 1200px) {
-  .belNova-radar-container {
-    width: min(100% - 60px, 1600px);
+
+  .belNova-radar-section {
+    padding: 100px 40px;
   }
 
   .belNova-radar-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+
+    gap: 65px;
+  }
+
+  .belNova-radar-wheel {
+    width: min(540px, 90vw);
+  }
+
+  .belNova-radar-panel {
+    width: min(760px, 100%);
+
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 700px) {
-  .belNova-radar-section {
-    padding: 80px 16px;
-  }
 
-  .belNova-radar-container {
-    width: min(100% - 32px, 1600px);
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .belNova-radar-section {
+    padding: 78px 16px;
   }
 
   .belNova-radar-title {
+    margin-top: 22px;
+
     font-size: 34px;
+
     letter-spacing: -1.5px;
   }
 
   .belNova-radar-description {
-    font-size: 17px;
-    margin-bottom: 36px;
+    margin-bottom: 45px;
+
+    font-size: 16px;
   }
 
   .belNova-radar-wheel {
-    width: 300px;
-    height: 300px;
-  }
-
-  /* Adjust vertical energy connection line for mobile size */
-  .belNova-radar-wheel::before {
-    left: 149px;
-    top: 150px;
-    height: 105px;
+    width: min(340px, 100%);
   }
 
   .belNova-radar-node {
-    padding: 8px 12px;
+    width: 86px;
+    height: 34px;
+
+    font-size: 10px;
+    padding: 0 8px;
+  }
+
+
+  .belNova-radar-core {
+    width: 66px;
+    height: 66px;
+  }
+
+  .belNova-radar-panel {
+    min-height: 0;
+
+    padding: 28px 22px;
+
+    border-radius: 23px;
+  }
+
+  .belNova-radar-panel h3 {
+    font-size: 30px;
+  }
+
+  .belNova-radar-panel p {
+    font-size: 15px;
+  }
+
+  .belNova-radar-panel
+    .belNova-tag-list {
+
+    margin:
+      24px 0 30px;
+  }
+
+  .belNova-radar-panel
+    .belNova-tag-list
+    span {
+
+    min-height: 38px;
+
+    padding: 0 14px;
+
     font-size: 12px;
   }
 
-  /* Mobile coordinate layout */
-  .belNova-node-devops { top: 130px; left: -10px; }
-  .belNova-node-ai { top: 45px; left: 15px; }
-  .belNova-node-backend { top: 5px; left: 105px; }
-  .belNova-node-mobile { top: 130px; right: -10px; }
-  .belNova-node-database { bottom: 5px; left: 105px; }
-  .belNova-node-cloud { bottom: 45px; left: 15px; }
-
-  .belNova-radar-panel {
-    padding: 22px;
+  .belNova-radar-orbit-light {
+    display: none;
   }
 }
 
-/* 18. ACCESSIBILITY - PREFERS REDUCED MOTION */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition: none !important;
-    transition-duration: 0.01ms !important;
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .belNova-radar-section {
+    padding-left: 12px;
+    padding-right: 12px;
   }
-  
-  .belNova-radar-panel small,
-  .belNova-radar-panel h3,
-  .belNova-radar-panel p,
-  .belNova-radar-panel .belNova-tag-list,
-  .belNova-radar-panel .belNova-outline-btn {
-    opacity: 1 !important;
-    transform: none !important;
+
+  .belNova-radar-wheel {
+    width: 292px;
+  }
+
+  .belNova-radar-node {
+    width: 76px;
+    height: 32px;
+
+    font-size: 9px;
+    padding: 0 6px;
+  }
+
+  .belNova-radar-panel {
+    padding: 24px 18px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .belNova-radar-node {
+    transition: none;
+  }
+
+  .belNova-radar-panel-content {
+    animation: none;
+  }
+
+  .belNova-radar-core::before,
+  .belNova-radar-orbit-light {
+    animation: none;
   }
 }
