@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/WhatWeDo.css";
 
 const capabilities = [
@@ -487,9 +488,9 @@ export default function WhatWeDo() {
         </div>
       </section>
 
-      <a href="#contact" className="wwd-floating-chat">
+      <Link to="/contact" className="wwd-floating-chat">
         ◯ Let's Talk
-      </a>
+      </Link>
     </main>
   );
 }

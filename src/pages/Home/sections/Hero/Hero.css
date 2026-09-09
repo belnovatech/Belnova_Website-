@@ -389,19 +389,30 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 15px;
+
+  width: 110px;
+  height: 42px;
+  box-sizing: border-box;
+
+  padding: 0 15px;
+
   color: #c0cfeb;
   background: rgba(20, 22, 36, 0.85);
   border-radius: 999px;
+
   box-shadow:
     0 6px 20px rgba(0, 0, 0, 0.35),
     0 2px 6px rgba(0, 0, 0, 0.2);
+
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1px;
+
   border: 1px solid rgba(255, 255, 255, 0.1);
+
   cursor: pointer;
   user-select: none;
+
   transition:
     transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.3s ease,
@@ -816,11 +827,20 @@
   }
 
   /* Scale the label text down slightly on small screens */
-  .belNova-orbit-label {
-    padding: clamp(4px, 1.5vw, 8px) clamp(8px, 2.5vw, 15px);
-    font-size: clamp(9px, 2.5vw, 13px);
-    letter-spacing: 0.8px;
+.belNova-orbit-label {
+    padding: 0 10px;
+    min-width: 82px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+    letter-spacing: 0.7px;
     white-space: nowrap;
+
+    box-sizing: border-box;
   }
 
   .belNova-orbit-card {
@@ -1025,28 +1045,36 @@
      ACTIVE LABEL
      ---------------------------------------------------------- */
 
-  .belNova-hover-orbit-item:hover
-  .belNova-hover-orbit-label {
+@media (max-width: 700px) {
 
-    color: #ffffff;
+  .belNova-orbit-label {
+    width: 76px;
+    min-width: 76px;
 
-    background:
-      linear-gradient(
-        110deg,
-        #00cbe8 0%,
-        #218bf8 38%,
-        #6e45f0 68%,
-        #cf0de9 100%
-      );
+    height: 30px;
+    min-height: 30px;
 
-    border-color: transparent;
+    padding: 0 6px;
 
-    transform: scale(1.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    box-shadow:
-      0 0 0 4px rgba(50, 135, 255, .12),
-      0 10px 28px rgba(71, 85, 230, .30);
+    box-sizing: border-box;
+
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.55px;
+
+    white-space: nowrap;
   }
+
+  /* Active card also should not become too large */
+  .belNova-orbit-item:hover .belNova-orbit-label,
+  .belNova-orbit-label-active {
+    transform: scale(1.04);
+  }
+}
 
 
   /* ==========================================================

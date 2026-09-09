@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Solutions.css";
 
 const transformationColumns = [
@@ -340,9 +341,9 @@ export default function Solutions() {
         </div>
       </section>
 
-      <a href="#contact" className="solutions-floating-chat">
+      <Link to="/contact" className="solutions-floating-chat">
         ◯ Let&apos;s Talk
-      </a>
+      </Link>
     </main>
   );
 }

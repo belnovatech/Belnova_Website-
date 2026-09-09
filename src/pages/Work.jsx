@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Work.css";
+import FloatingControls from "./Home/sections/FloatingControls/FloatingControls";
 
 const projects = [
   { category: "FINANCIAL TECHNOLOGY", title: "INRFS", subtitle: "Investor Management & Investment Portal", tags: ["Investor onboarding", "KYC", "Investment management"] },
@@ -92,5 +93,6 @@ export default function WorkPage() {
       <p>Let's turn your business challenge into a technology solution.</p>
       <div className="cta-actions"><a className="gradient-button" href="#start-project">Start a Project <span>→</span></a><a className="outline-button" href="#team">Talk to Our Team <span>→</span></a></div>
     </section>
+    <FloatingControls />
   </main>;
 }

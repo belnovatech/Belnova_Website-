@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Careers.css";
 
 const jobs = [
@@ -216,9 +217,9 @@ export default function Careers() {
         </div>
       </section>
 
-      <a href="#contact" className="careers-floating-chat">
+      <Link to="/contact" className="careers-floating-chat">
         ◯ Let&apos;s Talk
-      </a>
+      </Link>
     </main>
   );
 }

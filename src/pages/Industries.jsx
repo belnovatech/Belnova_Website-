@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Industries.css";
 
 const industries = [
@@ -452,9 +453,9 @@ export default function Industries() {
         </div>
       </section>
 
-      <a href="#contact" className="industries-floating-chat">
+      <Link to="/contact" className="industries-floating-chat">
         ◯ Let&apos;s Talk
-      </a>
+      </Link>
     </main>
   );
 }
