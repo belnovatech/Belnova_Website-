@@ -1,0 +1,214 @@
+/* =========================================================
+   SUCCESS MODAL - BELNOVA THEME
+========================================================= */
+
+.success-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 7, 15, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: modalBackdropFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.success-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  padding: 48px 40px 42px;
+  background: rgba(18, 22, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(96, 72, 245, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  animation: modalScaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Ambient glow in background */
+.success-modal-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 199, 232, 0.3) 0%,
+    rgba(96, 72, 245, 0.2) 50%,
+    transparent 75%
+  );
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Icon Container */
+.success-icon-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(13, 16, 26, 0.8);
+  border: 1px solid rgba(0, 207, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow:
+    0 0 24px rgba(0, 207, 255, 0.25),
+    inset 0 0 16px rgba(107, 69, 255, 0.2);
+}
+
+.success-checkmark-svg {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: block;
+}
+
+.success-checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  stroke: #00c7e8;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #00c7e8;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Modal Title */
+.success-modal-title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 16px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+/* Modal Description */
+.success-modal-description {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 32px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #9bb0cc;
+  max-width: 440px;
+}
+
+/* Modal Actions */
+.success-modal-actions {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.success-done-btn {
+  min-width: 180px;
+  height: 52px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.success-done-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 143, 255, 0.35);
+}
+
+.success-done-btn:focus-visible {
+  outline: 2px solid #00c7e8;
+  outline-offset: 4px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .success-modal-card {
+    padding: 36px 24px 30px;
+    border-radius: 22px;
+  }
+
+  .success-icon-wrapper {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 20px;
+  }
+
+  .success-checkmark-svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .success-modal-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .success-modal-description {
+    font-size: 14.5px;
+    margin-bottom: 26px;
+  }
+
+  .success-done-btn {
+    width: 100%;
+  }
+}

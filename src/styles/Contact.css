@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    CONTACT PAGE
 ========================================================= */
 
@@ -336,6 +336,110 @@
 
   box-shadow:
     0 0 0 4px rgba(49, 143, 255, 0.08);
+}
+
+.form-field--error input,
+.form-field--error select,
+.form-field--error textarea,
+.form-field--error .file-input-wrapper {
+  border-color: #ff4d6d !important;
+  box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.18) !important;
+}
+
+.form-field--error input:focus,
+.form-field--error select:focus,
+.form-field--error textarea:focus {
+  border-color: #ff4d6d !important;
+  box-shadow: 0 0 0 4px rgba(255, 77, 109, 0.25) !important;
+}
+
+.form-field-error-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff5e7e;
+  font-size: 13.5px;
+  font-weight: 500;
+  margin-top: 2px;
+  animation: fieldErrorFadeIn 0.2s ease-out;
+}
+
+@keyframes fieldErrorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.privacy-row--error label {
+  color: #ff5e7e !important;
+}
+
+.form-submit-error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  background: rgba(255, 77, 109, 0.12);
+  border: 1px solid rgba(255, 77, 109, 0.35);
+  border-radius: 16px;
+  color: #ffccd5;
+  font-size: 15px;
+  animation: fieldErrorFadeIn 0.3s ease-out;
+}
+
+.form-submit-error-banner p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-submit-error-retry {
+  background: transparent;
+  border: 1px solid rgba(255, 77, 109, 0.5);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.form-submit-error-retry:hover {
+  background: rgba(255, 77, 109, 0.2);
+  border-color: #ff4d6d;
+}
+
+.submit-btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: submitSpin 0.75s linear infinite;
+  display: inline-block;
+}
+
+@keyframes submitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gradient-button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .form-field select {

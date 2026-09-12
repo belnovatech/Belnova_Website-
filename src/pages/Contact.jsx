@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Contact.css";
+import SuccessModal from "../components/SuccessModal/SuccessModal";
+import { CONTACT_API_ENDPOINT } from "../config/api";
 
 const contactOptions = [
   {
@@ -70,27 +72,35 @@ function Label({ children }) {
   );
 }
 
+const initialFormData = {
+  fullName: "",
+  company: "",
+  email: "",
+  phone: "",
+  country: "",
+  requirement: "",
+  projectTitle: "",
+  description: "",
+  technology: "",
+  timeline: "",
+  budget: "",
+  source: "",
+  attachment: null,
+  privacy: false,
+};
+
 export default function Contact() {
   const [selectedOption, setSelectedOption] = useState("");
   const [projectType, setProjectType] = useState("");
   const [estimatorStep, setEstimatorStep] = useState(1);
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    company: "",
-    email: "",
-    phone: "",
-    country: "",
-    requirement: "",
-    projectTitle: "",
-    description: "",
-    technology: "",
-    timeline: "",
-    budget: "",
-    source: "",
-    attachment: null,
-    privacy: false,
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
+  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -101,105 +111,420 @@ export default function Contact() {
         type === "checkbox"
           ? checked
           : type === "file"
-          ? files[0]
+          ? files[0] || null
           : value,
     }));
+
+    if (errors[name]) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated[name];
+        return updated;
+      });
+    }
+
+    if (submitError) {
+      setSubmitError(null);
+    }
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  // Full Name - allow alphabets and spaces only
+  const handleNameKeyDown = (e) => {
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Tab",
+      "Home",
+      "End",
+    ];
 
-  if (!formData.privacy) {
-    alert("Please agree to the Privacy Policy and Terms & Conditions.");
-    return;
-  }
-
-  try {
-    const data = new FormData();
-
-    // Required fields
-    data.append("fullName", formData.fullName);
-    data.append("email", formData.email);
-    data.append("title", formData.projectTitle);
-    data.append("message", formData.description);
-    data.append("privacy_accepted", String(formData.privacy));
-
-    // Optional fields
-    if (formData.company) {
-      data.append("company", formData.company);
-    }
-
-    if (formData.phone) {
-      data.append("phone", formData.phone);
-    }
-
-    if (formData.country) {
-      data.append("country", formData.country);
-    }
-
-    if (formData.requirement) {
-      data.append("lookingFor", formData.requirement);
-    }
-
-    if (formData.technology) {
-      data.append("technology", formData.technology);
-    }
-
-    if (formData.timeline) {
-      data.append("timeline", formData.timeline);
-    }
-
-    if (formData.budget) {
-      data.append("budget", formData.budget);
-    }
-
-    if (formData.source) {
-      data.append("source", formData.source);
-    }
-
-    // Attachment
-    if (formData.attachment) {
-      data.append("attachment", formData.attachment);
-    }
-
-    const response = await fetch(
-      "https://backend-belnova-website.onrender.com/api/contact",
-      {
-        method: "POST",
-        body: data,
-      }
-    );
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => null);
-
-    console.log(
-  "FULL BACKEND ERROR:",
-  JSON.stringify(errorData, null, 2)
-);
-
-      alert(
-        errorData?.detail ||
-          "Something went wrong while submitting your requirement."
-      );
-
+    if (allowedKeys.includes(e.key)) {
       return;
     }
 
-    const result = await response.json().catch(() => null);
+    if (!/^[A-Za-z\s]$/.test(e.key)) {
+      e.preventDefault();
+    }
+  };
 
-    console.log("Contact submitted successfully:", result);
+  const handleNamePaste = (e) => {
+    const pastedText = e.clipboardData.getData("text");
+    if (!/^[A-Za-z\s]+$/.test(pastedText)) {
+      e.preventDefault();
+    }
+  };
 
-    alert("Thank you! Your requirement has been submitted.");
+  // Country - allow alphabets and spaces only
+  const handleCountryKeyDown = (e) => {
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Tab",
+      "Home",
+      "End",
+    ];
 
-  } catch (error) {
-    console.error("Contact submission error:", error);
+    if (allowedKeys.includes(e.key)) {
+      return;
+    }
 
-    alert(
-      "Unable to submit your requirement. Please try again later."
+    if (!/^[A-Za-z\s]$/.test(e.key)) {
+      e.preventDefault();
+    }
+  };
+
+  const handleCountryPaste = (e) => {
+    const pastedText = e.clipboardData.getData("text");
+    if (!/^[A-Za-z\s]+$/.test(pastedText)) {
+      e.preventDefault();
+    }
+  };
+
+  // Phone - allow numbers only, exactly 10 digits max
+  const handlePhoneKeyDown = (e) => {
+    const input = e.currentTarget;
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Tab",
+      "Home",
+      "End",
+    ];
+
+    if (allowedKeys.includes(e.key)) {
+      return;
+    }
+
+    if (!/^[0-9]$/.test(e.key)) {
+      e.preventDefault();
+      return;
+    }
+
+    if (
+      input.value.length >= 10 &&
+      input.selectionStart === input.selectionEnd
+    ) {
+      e.preventDefault();
+    }
+  };
+
+  const handlePhonePaste = (e) => {
+    const pastedText = e.clipboardData.getData("text");
+    const input = e.currentTarget;
+
+    if (!/^[0-9]+$/.test(pastedText)) {
+      e.preventDefault();
+      return;
+    }
+
+    const selectedTextLength = input.selectionEnd - input.selectionStart;
+    const newLength =
+      input.value.length - selectedTextLength + pastedText.length;
+
+    if (newLength > 10) {
+      e.preventDefault();
+    }
+  };
+
+  const handleAttachmentChange = (e) => {
+    const file = e.target.files[0];
+    handleChange(e);
+
+    if (!file) {
+      return;
+    }
+
+    const allowedExtensions = [
+      ".pdf",
+      ".doc",
+      ".docx",
+      ".xls",
+      ".xlsx",
+      ".ppt",
+      ".pptx",
+      ".txt",
+    ];
+    const fileName = file.name.toLowerCase();
+    const isExtensionAllowed = allowedExtensions.some((ext) =>
+      fileName.endsWith(ext)
     );
-  }
-};
+    const maxSize = 10 * 1024 * 1024; // 10 MB
+
+    if (!isExtensionAllowed) {
+      setErrors((prev) => ({
+        ...prev,
+        attachment:
+          "Please upload a PDF, Word, Excel, PowerPoint, or text file.",
+      }));
+      return;
+    }
+
+    if (file.size > maxSize) {
+      setErrors((prev) => ({
+        ...prev,
+        attachment: "Attachment size must be less than 10 MB.",
+      }));
+      return;
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // 1. Full Name (Required, min 2 chars, letters/spaces only)
+    if (!formData.fullName || !formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required.";
+    } else if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = "Full name must be at least 2 characters.";
+    } else if (!/^[A-Za-z\s]+$/.test(formData.fullName.trim())) {
+      newErrors.fullName = "Full name should contain letters and spaces only.";
+    }
+
+    // 2. Work Email (Required, valid email regex)
+    const emailRegex =
+      /^[a-zA-Z0-9]+([._%+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/;
+    if (!formData.email || !formData.email.trim()) {
+      newErrors.email = "Work email is required.";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Please enter a valid work email (e.g. name@company.com).";
+    }
+
+    // 3. Phone (Optional, but if provided must be exactly 10 digits)
+    if (formData.phone && formData.phone.trim()) {
+      if (!/^[0-9]{10}$/.test(formData.phone.trim())) {
+        newErrors.phone = "Phone number must contain exactly 10 digits.";
+      }
+    }
+
+    // 4. Country (Optional, letters and spaces only)
+    if (formData.country && formData.country.trim()) {
+      if (!/^[A-Za-z\s]+$/.test(formData.country.trim())) {
+        newErrors.country = "Country should contain letters and spaces only.";
+      }
+    }
+
+    // 5. Project Title (Required, min 2 chars)
+    if (!formData.projectTitle || !formData.projectTitle.trim()) {
+      newErrors.projectTitle = "Project / Requirement title is required.";
+    } else if (formData.projectTitle.trim().length < 2) {
+      newErrors.projectTitle = "Title must be at least 2 characters.";
+    }
+
+    // 6. Description (Required, min 10 chars)
+    if (!formData.description || !formData.description.trim()) {
+      newErrors.description = "Requirement description is required.";
+    } else if (formData.description.trim().length < 10) {
+      newErrors.description =
+        "Please describe your requirement in at least 10 characters.";
+    }
+
+    // 7. Privacy Agreement (Required)
+    if (!formData.privacy) {
+      newErrors.privacy =
+        "Please agree to the Privacy Policy and Terms & Conditions.";
+    }
+
+    // 8. Attachment validation if present
+    if (formData.attachment) {
+      const allowedExtensions = [
+        ".pdf",
+        ".doc",
+        ".docx",
+        ".xls",
+        ".xlsx",
+        ".ppt",
+        ".pptx",
+        ".txt",
+      ];
+      const fileName = formData.attachment.name.toLowerCase();
+      const isExtensionAllowed = allowedExtensions.some((ext) =>
+        fileName.endsWith(ext)
+      );
+      const maxSize = 10 * 1024 * 1024; // 10 MB
+
+      if (!isExtensionAllowed) {
+        newErrors.attachment =
+          "Please upload a valid document (PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT).";
+      } else if (formData.attachment.size > maxSize) {
+        newErrors.attachment = "Attachment size must be less than 10 MB.";
+      }
+    }
+
+    return newErrors;
+  };
+
+  const scrollToFirstError = (newErrors) => {
+    const fieldOrder = [
+      "fullName",
+      "company",
+      "email",
+      "phone",
+      "country",
+      "requirement",
+      "projectTitle",
+      "description",
+      "technology",
+      "timeline",
+      "budget",
+      "source",
+      "attachment",
+      "privacy",
+    ];
+
+    for (const field of fieldOrder) {
+      if (newErrors[field]) {
+        const el = document.getElementById(field);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          el.focus();
+        }
+        break;
+      }
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+
+    if (isSubmitting) return;
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      scrollToFirstError(validationErrors);
+      return;
+    }
+
+    setErrors({});
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    let isTimedOut = false;
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => {
+      isTimedOut = true;
+      controller.abort();
+    }, 60000);
+
+    try {
+      const formDataToSend = new FormData();
+
+      // REQUIRED BACKEND FIELDS
+      formDataToSend.append("fullName", formData.fullName.trim());
+      formDataToSend.append("email", formData.email.trim());
+      formDataToSend.append("title", formData.projectTitle.trim());
+      formDataToSend.append("message", formData.description.trim());
+      formDataToSend.append("privacy_accepted", "true");
+
+      // OPTIONAL BACKEND FIELDS
+      if (formData.company) {
+        formDataToSend.append("company", formData.company.trim());
+      }
+      if (formData.phone) {
+        formDataToSend.append("phone", formData.phone.trim());
+      }
+      if (formData.country) {
+        formDataToSend.append("country", formData.country.trim());
+      }
+      if (formData.requirement) {
+        formDataToSend.append("lookingFor", formData.requirement);
+      }
+      if (formData.technology) {
+        formDataToSend.append("technology", formData.technology.trim());
+      }
+      if (formData.timeline) {
+        formDataToSend.append("timeline", formData.timeline);
+      }
+      if (formData.budget) {
+        formDataToSend.append("budget", formData.budget.trim());
+      }
+      if (formData.source) {
+        formDataToSend.append("source", formData.source.trim());
+      }
+
+      // ATTACHMENT
+      if (formData.attachment) {
+        formDataToSend.append("attachment", formData.attachment);
+      }
+
+      const response = await fetch(CONTACT_API_ENDPOINT, {
+        method: "POST",
+        body: formDataToSend,
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        console.error("Backend error response:", response.status, result);
+
+        let errorMsg =
+          "Something went wrong while submitting your requirement. Please try again.";
+        if (result?.detail) {
+          errorMsg =
+            typeof result.detail === "string"
+              ? result.detail
+              : JSON.stringify(result.detail);
+        } else if (result?.message) {
+          errorMsg = result.message;
+        }
+
+        setSubmitError(errorMsg);
+        return;
+      }
+
+      console.log("Requirement submitted successfully:", result);
+
+      // Success: clear errors, open modal, and reset form
+      setSubmitError(null);
+      setErrors({});
+      setIsSuccessModalOpen(true);
+      setFormData(initialFormData);
+      setSelectedOption("");
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+    } catch (error) {
+      clearTimeout(timeoutId);
+      console.error("Contact submission error:", error);
+
+      if (isTimedOut || error.name === "AbortError") {
+        setSubmitError(
+          "The server took too long to respond. Please check your connection or attachment and try again."
+        );
+      } else if (
+        error.name === "TypeError" ||
+        error.message?.toLowerCase().includes("failed to fetch") ||
+        error.message?.toLowerCase().includes("networkerror")
+      ) {
+        setSubmitError(
+          "Unable to connect to the server. Please check your internet connection and try again."
+        );
+      } else {
+        setSubmitError(
+          "Something went wrong while submitting your requirement. Please try again."
+        );
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const nextEstimatorStep = () => {
     if (estimatorStep < 6) {
       setEstimatorStep((prev) => prev + 1);
@@ -214,7 +539,6 @@ const handleSubmit = async (e) => {
 
   return (
     <main className="contact-page">
-
       {/* ================= HERO ================= */}
       <section className="contact-hero section-grid">
         <div className="contact-container">
@@ -237,13 +561,11 @@ const handleSubmit = async (e) => {
       {/* ================= CONTACT INTRO ================= */}
       <section className="contact-intro">
         <div className="contact-container">
-          {/* <Label>CONTACT</Label> */}
-
-<h2 className="contact-section-title">
-  Let's Turn Your
-  <br />
-  Idea Into Reality.
-</h2>
+          <h2 className="contact-section-title">
+            Let's Turn Your
+            <br />
+            Idea Into Reality.
+          </h2>
 
           <p className="contact-section-description">
             Tell us about your business challenge, technology requirement or
@@ -285,15 +607,22 @@ const handleSubmit = async (e) => {
       {/* ================= CONTACT FORM ================= */}
       <section className="contact-form-section">
         <div className="contact-container">
-          <form className="contact-form-card" onSubmit={handleSubmit}>
-
+          <form
+            className="contact-form-card"
+            onSubmit={handleSubmit}
+            noValidate
+          >
             <div className="form-heading">
               <p className="form-eyebrow">CONTACT INFORMATION</p>
             </div>
 
             <div className="form-grid">
-
-              <div className="form-field">
+              {/* Full Name */}
+              <div
+                className={`form-field ${
+                  errors.fullName ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="fullName">
                   Full Name <span>*</span>
                 </label>
@@ -304,11 +633,27 @@ const handleSubmit = async (e) => {
                   placeholder="Your name"
                   value={formData.fullName}
                   onChange={handleChange}
-                  required
+                  onKeyDown={handleNameKeyDown}
+                  onPaste={handleNamePaste}
+                  maxLength={100}
+                  aria-invalid={!!errors.fullName}
+                  aria-describedby={
+                    errors.fullName ? "fullName-error" : undefined
+                  }
                 />
+                {errors.fullName && (
+                  <span id="fullName-error" className="form-field-error-text">
+                    ⚠ {errors.fullName}
+                  </span>
+                )}
               </div>
 
-              <div className="form-field">
+              {/* Company Name */}
+              <div
+                className={`form-field ${
+                  errors.company ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="company">Company Name</label>
                 <input
                   id="company"
@@ -317,10 +662,21 @@ const handleSubmit = async (e) => {
                   placeholder="Company"
                   value={formData.company}
                   onChange={handleChange}
+                  maxLength={100}
                 />
+                {errors.company && (
+                  <span className="form-field-error-text">
+                    ⚠ {errors.company}
+                  </span>
+                )}
               </div>
 
-              <div className="form-field">
+              {/* Work Email */}
+              <div
+                className={`form-field ${
+                  errors.email ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="email">
                   Work Email <span>*</span>
                 </label>
@@ -331,23 +687,51 @@ const handleSubmit = async (e) => {
                   placeholder="name@company.com"
                   value={formData.email}
                   onChange={handleChange}
-                  required
+                  maxLength={150}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
+                {errors.email && (
+                  <span id="email-error" className="form-field-error-text">
+                    ⚠ {errors.email}
+                  </span>
+                )}
               </div>
 
-              <div className="form-field">
+              {/* Phone Number */}
+              <div
+                className={`form-field ${
+                  errors.phone ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="phone">Phone Number</label>
                 <input
                   id="phone"
                   name="phone"
                   type="tel"
                   placeholder="Phone"
+                  inputMode="numeric"
                   value={formData.phone}
                   onChange={handleChange}
+                  onKeyDown={handlePhoneKeyDown}
+                  onPaste={handlePhonePaste}
+                  maxLength={10}
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
+                {errors.phone && (
+                  <span id="phone-error" className="form-field-error-text">
+                    ⚠ {errors.phone}
+                  </span>
+                )}
               </div>
 
-              <div className="form-field">
+              {/* Country */}
+              <div
+                className={`form-field ${
+                  errors.country ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="country">Country</label>
                 <input
                   id="country"
@@ -356,9 +740,20 @@ const handleSubmit = async (e) => {
                   placeholder="Country"
                   value={formData.country}
                   onChange={handleChange}
+                  onKeyDown={handleCountryKeyDown}
+                  onPaste={handleCountryPaste}
+                  maxLength={100}
+                  aria-invalid={!!errors.country}
+                  aria-describedby={
+                    errors.country ? "country-error" : undefined
+                  }
                 />
+                {errors.country && (
+                  <span id="country-error" className="form-field-error-text">
+                    ⚠ {errors.country}
+                  </span>
+                )}
               </div>
-
             </div>
 
             {/* Requirement */}
@@ -367,12 +762,9 @@ const handleSubmit = async (e) => {
             </div>
 
             <div className="form-grid">
-
+              {/* Requirement dropdown */}
               <div className="form-field">
-                <label htmlFor="requirement">
-                  What are you looking for?
-                </label>
-
+                <label htmlFor="requirement">What are you looking for?</label>
                 <select
                   id="requirement"
                   name="requirement"
@@ -380,7 +772,6 @@ const handleSubmit = async (e) => {
                   onChange={handleChange}
                 >
                   <option value="">Select an option</option>
-
                   {requirementOptions.map((option) => (
                     <option value={option} key={option}>
                       {option}
@@ -389,11 +780,15 @@ const handleSubmit = async (e) => {
                 </select>
               </div>
 
-              <div className="form-field">
+              {/* Project Title */}
+              <div
+                className={`form-field ${
+                  errors.projectTitle ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="projectTitle">
                   Project / Requirement Title <span>*</span>
                 </label>
-
                 <input
                   id="projectTitle"
                   name="projectTitle"
@@ -401,30 +796,50 @@ const handleSubmit = async (e) => {
                   placeholder="Short title"
                   value={formData.projectTitle}
                   onChange={handleChange}
-                  required
+                  maxLength={150}
+                  aria-invalid={!!errors.projectTitle}
+                  aria-describedby={
+                    errors.projectTitle ? "projectTitle-error" : undefined
+                  }
                 />
+                {errors.projectTitle && (
+                  <span id="projectTitle-error" className="form-field-error-text">
+                    ⚠ {errors.projectTitle}
+                  </span>
+                )}
               </div>
 
-              <div className="form-field form-field--full">
+              {/* Description */}
+              <div
+                className={`form-field form-field--full ${
+                  errors.description ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="description">
                   Requirement Description <span>*</span>
                 </label>
-
                 <textarea
                   id="description"
                   name="description"
                   placeholder="Describe the challenge, process or product idea"
                   value={formData.description}
                   onChange={handleChange}
-                  required
+                  maxLength={5000}
+                  aria-invalid={!!errors.description}
+                  aria-describedby={
+                    errors.description ? "description-error" : undefined
+                  }
                 ></textarea>
+                {errors.description && (
+                  <span id="description-error" className="form-field-error-text">
+                    ⚠ {errors.description}
+                  </span>
+                )}
               </div>
 
+              {/* Technology Preferences */}
               <div className="form-field">
-                <label htmlFor="technology">
-                  Technology Preferences
-                </label>
-
+                <label htmlFor="technology">Technology Preferences</label>
                 <input
                   id="technology"
                   name="technology"
@@ -432,12 +847,13 @@ const handleSubmit = async (e) => {
                   placeholder="Optional"
                   value={formData.technology}
                   onChange={handleChange}
+                  maxLength={300}
                 />
               </div>
 
+              {/* Timeline */}
               <div className="form-field">
                 <label htmlFor="timeline">Expected Timeline</label>
-
                 <select
                   id="timeline"
                   name="timeline"
@@ -445,7 +861,6 @@ const handleSubmit = async (e) => {
                   onChange={handleChange}
                 >
                   <option value="">Select</option>
-
                   {timelineOptions.map((option) => (
                     <option value={option} key={option}>
                       {option}
@@ -454,9 +869,9 @@ const handleSubmit = async (e) => {
                 </select>
               </div>
 
+              {/* Budget Range */}
               <div className="form-field">
                 <label htmlFor="budget">Budget Range</label>
-
                 <input
                   id="budget"
                   name="budget"
@@ -464,14 +879,13 @@ const handleSubmit = async (e) => {
                   placeholder="Optional"
                   value={formData.budget}
                   onChange={handleChange}
+                  maxLength={100}
                 />
               </div>
 
+              {/* How did you hear about us */}
               <div className="form-field">
-                <label htmlFor="source">
-                  How did you hear about us?
-                </label>
-
+                <label htmlFor="source">How did you hear about us?</label>
                 <input
                   id="source"
                   name="source"
@@ -479,83 +893,157 @@ const handleSubmit = async (e) => {
                   placeholder="Optional"
                   value={formData.source}
                   onChange={handleChange}
+                  maxLength={200}
                 />
               </div>
 
-              <div className="form-field form-field--full">
+              {/* Attachment */}
+              <div
+                className={`form-field form-field--full ${
+                  errors.attachment ? "form-field--error" : ""
+                }`}
+              >
                 <label htmlFor="attachment">Attachment</label>
-
                 <div className="file-input-wrapper">
                   <input
                     id="attachment"
                     name="attachment"
+                    ref={fileInputRef}
                     type="file"
-                    onChange={handleChange}
+                    accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt"
+                    onChange={handleAttachmentChange}
+                    aria-invalid={!!errors.attachment}
+                    aria-describedby={
+                      errors.attachment ? "attachment-error" : undefined
+                    }
                   />
                 </div>
+                {errors.attachment && (
+                  <span id="attachment-error" className="form-field-error-text">
+                    ⚠ {errors.attachment}
+                  </span>
+                )}
               </div>
-
             </div>
 
-            <div className="privacy-row">
+            {/* Privacy Checkbox */}
+            <div
+              className={`privacy-row ${
+                errors.privacy ? "privacy-row--error" : ""
+              }`}
+            >
               <input
                 id="privacy"
                 name="privacy"
                 type="checkbox"
                 checked={formData.privacy}
                 onChange={handleChange}
+                aria-invalid={!!errors.privacy}
+                aria-describedby={errors.privacy ? "privacy-error" : undefined}
               />
-
               <label htmlFor="privacy">
                 I agree to the Privacy Policy and Terms & Conditions.
               </label>
             </div>
+            {errors.privacy && (
+              <div
+                id="privacy-error"
+                className="form-field-error-text"
+                style={{ marginBottom: "20px" }}
+              >
+                ⚠ {errors.privacy}
+              </div>
+            )}
 
-            <button className="gradient-button" type="submit">
-              Submit Requirement
-              <span>→</span>
+            {/* Submit Error Banner if submission failed */}
+            {submitError && (
+              <div className="form-submit-error-banner" role="alert">
+                <p>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                  <span>{submitError}</span>
+                </p>
+                <button
+                  type="button"
+                  className="form-submit-error-retry"
+                  onClick={handleSubmit}
+                >
+                  Retry
+                </button>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <button
+              className="gradient-button"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <span
+                    className="submit-btn-spinner"
+                    aria-hidden="true"
+                  ></span>
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  Submit Requirement
+                  <span aria-hidden="true">→</span>
+                </>
+              )}
             </button>
-
           </form>
         </div>
       </section>
 
+      {/* ================= SUCCESS MODAL ================= */}
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+      />
+
       {/* ================= PROJECT ESTIMATOR ================= */}
       <section className="estimator-section section-grid">
         <div className="contact-container">
-
           <Label>PROJECT ESTIMATOR</Label>
 
-          <h2 className="estimator-title">
-            Estimate Your Project
-          </h2>
+          <h2 className="estimator-title">Estimate Your Project</h2>
 
           <p className="estimator-description">
-            Build an initial project profile in six steps. We share a
-            detailed estimate after a scoping conversation.
+            Build an initial project profile in six steps. We share a detailed
+            estimate after a scoping conversation.
           </p>
 
           <div className="estimator-card">
-
             {/* Progress */}
             <div className="estimator-progress">
               {[1, 2, 3, 4, 5, 6].map((step) => (
                 <div
                   key={step}
                   className={`progress-line ${
-                    step <= estimatorStep
-                      ? "progress-line--active"
-                      : ""
+                    step <= estimatorStep ? "progress-line--active" : ""
                   }`}
                 ></div>
               ))}
             </div>
 
             <div className="estimator-content">
-
-              <p className="estimator-step">
-                STEP {estimatorStep} OF 6
-              </p>
+              <p className="estimator-step">STEP {estimatorStep} OF 6</p>
 
               {estimatorStep === 1 && (
                 <>
@@ -567,9 +1055,7 @@ const handleSubmit = async (e) => {
                         type="button"
                         key={type}
                         className={`project-type ${
-                          projectType === type
-                            ? "project-type--active"
-                            : ""
+                          projectType === type ? "project-type--active" : ""
                         }`}
                         onClick={() => setProjectType(type)}
                       >
@@ -625,8 +1111,8 @@ const handleSubmit = async (e) => {
                   <h3>Project profile complete</h3>
 
                   <div className="estimator-placeholder">
-                    We'll use this information to prepare the initial
-                    project profile.
+                    We'll use this information to prepare the initial project
+                    profile.
                   </div>
                 </>
               )}
@@ -653,13 +1139,10 @@ const handleSubmit = async (e) => {
                   </button>
                 )}
               </div>
-
             </div>
           </div>
-
         </div>
       </section>
-
     </main>
   );
 }

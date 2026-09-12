@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./Hero.css";
 import { GradientButton } from "../../components/UI";
 
@@ -39,7 +39,6 @@ export default function Hero({ onStartProject, onExploreWhatWeDo, onExploreCapab
   const [activeTechIndex, setActiveTechIndex] = useState(null);
   const [coords, setCoords]                   = useState(null);
   const [rotationDeg, setRotationDeg]         = useState(0);
-  const [frontIndex, setFrontIndex]           = useState(null);
   const [hoveredIndex, setHoveredIndex]       = useState(null);
   const [orbitSize, setOrbitSize]             = useState(520);
 
@@ -56,10 +55,15 @@ export default function Hero({ onStartProject, onExploreWhatWeDo, onExploreCapab
     const el = orbitRef.current;
     if (!el) return;
     const ro = new ResizeObserver(([entry]) => {
-      setOrbitSize(entry.contentRect.width);
+      const width = entry.contentRect.width;
+      if (width > 0) {
+        setOrbitSize((prev) => (prev !== width ? width : prev));
+      }
     });
     ro.observe(el);
-    setOrbitSize(el.offsetWidth);
+    if (el.offsetWidth > 0) {
+      setOrbitSize(el.offsetWidth);
+    }
     return () => ro.disconnect();
   }, []);
 
@@ -83,17 +87,15 @@ export default function Hero({ onStartProject, onExploreWhatWeDo, onExploreCapab
     };
   }, []);
 
-  // Determine front item each frame
-  useEffect(() => {
-    let bestIdx  = null;
-    let bestDiff = Infinity;
-    orbitLabels.forEach((lbl, i) => {
-      const angle = (lbl.baseAngleDeg + rotationDeg) % 360;
-      const diff  = smallestAngleDiff(angle, FRONT_ANGLE_CSS_DEG);
-      if (diff < bestDiff) { bestDiff = diff; bestIdx = i; }
-    });
-    setFrontIndex(bestDiff <= FRONT_THRESHOLD_DEG ? bestIdx : null);
-  }, [rotationDeg]);
+  // Derive front item directly during render (eliminates cascading state updates and infinite update loop)
+  let bestIdx  = null;
+  let bestDiff = Infinity;
+  orbitLabels.forEach((lbl, i) => {
+    const angle = (lbl.baseAngleDeg + rotationDeg) % 360;
+    const diff  = smallestAngleDiff(angle, FRONT_ANGLE_CSS_DEG);
+    if (diff < bestDiff) { bestDiff = diff; bestIdx = i; }
+  });
+  const frontIndex = bestDiff <= FRONT_THRESHOLD_DEG ? bestIdx : null;
 
   // SVG connection
   const updateConnection = useCallback((index) => {
