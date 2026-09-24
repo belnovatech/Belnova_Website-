@@ -54,7 +54,6 @@ export default function WorkPage() {
         />
       ))}
     </div>
-      <div className="projects-grid">{projects.map((project, i) => <ProjectCard key={project.title} project={project} active={i === 0} />)}</div>
 
       <section className="project-anatomy">
         <div className="anatomy-heading"><p className="eyebrow">PROJECT ANATOMY</p><h3>INRFS</h3><p>Investor Management &amp; Investment Portal</p></div>
@@ -70,7 +69,6 @@ export default function WorkPage() {
         </div>
         <div className="before-after">
           <div className="before-after__side"><p className="eyebrow">BEFORE</p><p>Manual • Disconnected • Slow • Paper-based</p></div>
-          <div className="solution-pill">Belnova Solution</div>
           <div className="before-after__side before-after__side--after"><p className="eyebrow">AFTER</p><p>Digital • Centralized • Automated • Trackable</p></div>
         </div>
         <a className="gradient-button" href="#contact">Have a Similar Challenge? Talk to Belnova <span>→</span></a>
