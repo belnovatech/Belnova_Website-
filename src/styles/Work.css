@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --ink: #eef3fb;
   --text: #9bb0cc;
   --muted: #788ea8;
@@ -435,14 +435,21 @@ a {
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  box-sizing: border-box;
 
   display: grid;
 
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 0.9fr)
-    minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  align-items: start;
+  gap: 40px;
+  margin-top: 40px;
 }
+
+.before-after__side {
+  min-width: 0;
+}
+
 .before-after__side p {
   margin: 0;
 
@@ -454,32 +461,6 @@ a {
 
 .before-after__side .eyebrow {
   margin-bottom: 8px;
-}
-
-/* =========================
-   SOLUTION PILL
-========================= */
-
-.solution-pill {
-  padding: 17px 24px;
-
-  border-radius: 20px;
-
-  background:
-    linear-gradient(
-      100deg,
-      #08cbe8,
-      #0b9ff1 38%,
-      #6d40ee 72%,
-      #c51be8
-    );
-
-  color: #fff;
-
-  font-size: 17px;
-  font-weight: 700;
-
-  text-align: center;
 }
 
 /* =========================
@@ -849,16 +830,8 @@ a {
 
   .before-after {
     grid-template-columns: 1fr;
-
-    padding: 22px;
-  }
-
-  .solution-pill {
-    order: 2;
-  }
-
-  .before-after__side--after {
-    order: 3;
+    gap: 20px;
+    margin-top: 32px;
   }
 
   .architecture-grid {
